@@ -1,0 +1,18 @@
+{
+ "venv": ".venv-agents",
+ "locks": [
+  "requirements.lock",
+  "requirements-langgraph-additions.lock",
+  "requirements-results-store-v1.lock"
+ ],
+ "lock_sha256": {
+  "requirements.lock": "a3a60221ed2becc53d204bffddbf136f858425e402f62c3979f954d9429e1e43",
+  "requirements-langgraph-additions.lock": "b8b635e586ae19568b1e28a4b2366ae5cc6d2f87973158f6616a86e96a35d9e5",
+  "requirements-results-store-v1.lock": "84c80a0fadab423509f255dc753d121c347bffd301b6a97cfabfab10e18775c6"
+ },
+ "base_python": "CPython 3.13 on Windows",
+ "purpose": "the agents and the MCP client; the server runs from mcp_pin.json venv (.venv)",
+ "plan": null,
+ "made": "2026-10-28",
+ "changed": "requirements.lock names the edgar-search-mcp 1.0.1 release wheel"
+}

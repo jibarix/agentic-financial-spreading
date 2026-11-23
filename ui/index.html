@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spreading</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+  <aside class="side">
+    <div class="brand"><span class="logo">S</span>Spreading</div>
+    <div class="card pad" style="padding:10px 12px;margin:0 2px 6px">
+      <div class="note">Template</div>
+      <div id="tpl-current" style="font-weight:600"></div>
+      <a href="#/template" class="note" style="text-decoration:underline">view</a>
+    </div>
+    <nav class="nav" id="nav">
+      <a href="#/home"><span class="num">·</span>Start here</a>
+      <div class="nav-label">Set up</div>
+      <a href="#/setup"><span class="num">1</span>Setup</a>
+      <a href="#/advanced"><span class="num">·</span>Advanced settings</a>
+      <a href="#/template"><span class="num">2</span>Template</a>
+      <a href="#/companies"><span class="num">3</span>Companies and years</a>
+      <a href="#/run"><span class="num">4</span>Run</a>
+      <div class="nav-label">Follow and review</div>
+      <a href="#/jobs"><span class="num">5</span>Jobs</a>
+      <a href="#/tiebreak"><span class="num">·</span>Tiebreaker</a>
+      <a href="#/tree"><span class="num">·</span>Tree of thought</a>
+      <a href="#/replay"><span class="num">·</span>Replay</a>
+      <a href="#/results"><span class="num">6</span>Results</a>
+      <a href="#/evals"><span class="num">7</span>Evals</a>
+      <a href="#/storage"><span class="num">8</span>Storage</a>
+    </nav>
+  </aside>
+  <main>
+    <div id="view"></div>
+  </main>
+</div>
+<div class="shade" id="shade"></div>
+<div class="drawer" id="drawer"><div class="hd"><h2 id="drawer-title" style="flex:1"></h2><button class="btn sm" id="drawer-close">Close</button></div><div class="bd" id="drawer-body"></div></div>
+<script src="app.js"></script>
+<script src="live.js"></script>
+</body>
+</html>

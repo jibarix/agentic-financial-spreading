@@ -1,0 +1,4938 @@
+{
+ "format": "template_format_v2",
+ "name": "standard",
+ "version": 8,
+ "status": "draft",
+ "what": "The standard template (122 rows): v7 with every row text a model reads worded without tags: the cash interest paid and cash income taxes paid rows establish their basis from the printed caption and the disclosure text, the affiliate loans row reads the related-party note, and the other equity investments row names older accounting standards. Every other section, row and total is v7's.",
+ "built_from": {
+  "command": null,
+  "run": null,
+  "inputs": {
+   "rulebook/draft/A1_template_v7.json": "f7cef945254b7d04ee788c414f26dcf15e1c954afd8f6540d4688e29cd17e8ea",
+   "spreading/template_v8_build.py": "eb930b7d8c191e79d2da11e9f1a1ee60cfb7310b4aab355561eff72a1c7bc1ee"
+  }
+ },
+ "statements": {
+  "BS": {
+   "name": "balance sheet",
+   "title_words": [
+    "BALANCE SHEET",
+    "FINANCIAL POSITION",
+    "FINANCIAL CONDITION"
+   ],
+   "title_excludes": [
+    "PARENTHETICAL",
+    "COMPREHENSIVE"
+   ],
+   "period": "instant",
+   "variants": [
+    {
+     "id": "classified",
+     "fasb_network": "stm/us-gaap-stm-sfp-cls",
+     "routes_to": null
+    }
+   ]
+  },
+  "IS": {
+   "name": "income statement",
+   "title_words": [
+    "STATEMENTS OF INCOME",
+    "STATEMENT OF INCOME",
+    "OPERATIONS",
+    "EARNINGS"
+   ],
+   "title_excludes": [
+    "STATEMENTS OF COMPREHENSIVE",
+    "STATEMENT OF COMPREHENSIVE",
+    "PARENTHETICAL"
+   ],
+   "period": "duration",
+   "variants": [
+    {
+     "id": "standard",
+     "fasb_network": "stm/us-gaap-stm-soi",
+     "routes_to": null
+    }
+   ]
+  },
+  "CF": {
+   "name": "cash flow statement",
+   "title_words": [
+    "CASH FLOWS"
+   ],
+   "title_excludes": [
+    "STATEMENTS OF COMPREHENSIVE",
+    "STATEMENT OF COMPREHENSIVE",
+    "PARENTHETICAL"
+   ],
+   "period": "duration",
+   "variants": [
+    {
+     "id": "indirect",
+     "fasb_network": "stm/us-gaap-stm-scf-indir",
+     "routes_to": null
+    },
+    {
+     "id": "direct",
+     "fasb_network": "stm/us-gaap-stm-scf-dir",
+     "routes_to": "CF.DIR"
+    }
+   ]
+  }
+ },
+ "sections": [
+  {
+   "id": "BS.CA",
+   "statement": "BS",
+   "name": "current assets",
+   "kind": "spread",
+   "variants": [
+    "classified"
+   ],
+   "fasb_headings": [
+    "us-gaap:AssetsCurrentAbstract"
+   ],
+   "output_total_row": "BS.TOT.CA",
+   "normal_balance": "debit"
+  },
+  {
+   "id": "BS.NCA",
+   "statement": "BS",
+   "name": "noncurrent assets",
+   "kind": "spread",
+   "variants": [
+    "classified"
+   ],
+   "fasb_headings": [
+    "us-gaap:AssetsNoncurrentAbstract"
+   ],
+   "output_total_row": null,
+   "normal_balance": "debit"
+  },
+  {
+   "id": "BS.CL",
+   "statement": "BS",
+   "name": "current liabilities",
+   "kind": "spread",
+   "variants": [
+    "classified"
+   ],
+   "fasb_headings": [
+    "us-gaap:LiabilitiesCurrentAbstract"
+   ],
+   "output_total_row": "BS.TOT.CL",
+   "normal_balance": "credit"
+  },
+  {
+   "id": "BS.NCL",
+   "statement": "BS",
+   "name": "noncurrent liabilities",
+   "kind": "spread",
+   "variants": [
+    "classified"
+   ],
+   "fasb_headings": [
+    "us-gaap:LiabilitiesNoncurrentAbstract"
+   ],
+   "output_total_row": null,
+   "normal_balance": "credit"
+  },
+  {
+   "id": "BS.CAP",
+   "statement": "BS",
+   "name": "capital",
+   "kind": "spread",
+   "variants": [
+    "classified"
+   ],
+   "fasb_headings": [
+    "us-gaap:TemporaryEquityAbstract",
+    "us-gaap:StockholdersEquityIncludingPortionAttributableToNoncontrollingInterestAbstract",
+    "us-gaap:PartnersCapitalIncludingPortionAttributableToNoncontrollingInterestAbstract"
+   ],
+   "output_total_row": null,
+   "normal_balance": "credit"
+  },
+  {
+   "id": "BS.TOT",
+   "statement": "BS",
+   "name": "totals",
+   "kind": "totals",
+   "variants": [
+    "classified"
+   ],
+   "fasb_headings": [],
+   "output_total_row": null,
+   "normal_balance": null
+  },
+  {
+   "id": "IS.OP",
+   "statement": "IS",
+   "name": "operating",
+   "kind": "spread",
+   "variants": [
+    "standard"
+   ],
+   "fasb_headings": [
+    "us-gaap:OperatingIncomeLossAbstract"
+   ],
+   "output_total_row": null,
+   "normal_balance": "credit"
+  },
+  {
+   "id": "IS.NOP",
+   "statement": "IS",
+   "name": "nonoperating",
+   "kind": "spread",
+   "variants": [
+    "standard"
+   ],
+   "fasb_headings": [
+    "us-gaap:NonoperatingIncomeExpenseAbstract",
+    "us-gaap:InterestAndDebtExpenseAbstract"
+   ],
+   "output_total_row": null,
+   "normal_balance": "credit"
+  },
+  {
+   "id": "IS.TAX",
+   "statement": "IS",
+   "name": "pretax and tax",
+   "kind": "spread",
+   "variants": [
+    "standard"
+   ],
+   "fasb_headings": [],
+   "output_total_row": null,
+   "normal_balance": "credit"
+  },
+  {
+   "id": "IS.NI",
+   "statement": "IS",
+   "name": "net income",
+   "kind": "spread",
+   "variants": [
+    "standard"
+   ],
+   "fasb_headings": [],
+   "output_total_row": null,
+   "normal_balance": "credit"
+  },
+  {
+   "id": "IS.CMN",
+   "statement": "IS",
+   "name": "common shareholders",
+   "kind": "spread",
+   "variants": [
+    "standard"
+   ],
+   "fasb_headings": [],
+   "output_total_row": null,
+   "normal_balance": "credit"
+  },
+  {
+   "id": "CF.OP",
+   "statement": "CF",
+   "name": "operating, indirect",
+   "kind": "spread",
+   "variants": [
+    "indirect"
+   ],
+   "fasb_headings": [
+    "us-gaap:NetCashProvidedByUsedInOperatingActivitiesAbstract"
+   ],
+   "output_total_row": null,
+   "normal_balance": "debit"
+  },
+  {
+   "id": "CF.INV",
+   "statement": "CF",
+   "name": "investing",
+   "kind": "spread",
+   "variants": [
+    "indirect",
+    "direct"
+   ],
+   "fasb_headings": [
+    "us-gaap:NetCashProvidedByUsedInInvestingActivitiesAbstract"
+   ],
+   "output_total_row": null,
+   "normal_balance": "debit"
+  },
+  {
+   "id": "CF.FIN",
+   "statement": "CF",
+   "name": "financing",
+   "kind": "spread",
+   "variants": [
+    "indirect",
+    "direct"
+   ],
+   "fasb_headings": [
+    "us-gaap:NetCashProvidedByUsedInFinancingActivitiesAbstract"
+   ],
+   "output_total_row": null,
+   "normal_balance": "debit"
+  },
+  {
+   "id": "CF.REC",
+   "statement": "CF",
+   "name": "reconciliation",
+   "kind": "spread",
+   "variants": [
+    "indirect",
+    "direct"
+   ],
+   "fasb_headings": [],
+   "output_total_row": null,
+   "normal_balance": "debit"
+  },
+  {
+   "id": "CF.DIR",
+   "statement": "CF",
+   "name": "direct method",
+   "kind": "spread",
+   "variants": [
+    "direct"
+   ],
+   "fasb_headings": [],
+   "output_total_row": null,
+   "normal_balance": "debit"
+  },
+  {
+   "id": "BS.SUP",
+   "statement": "BS",
+   "name": "supplementary",
+   "kind": "supplementary",
+   "variants": [
+    "classified"
+   ],
+   "fasb_headings": [],
+   "output_total_row": null,
+   "normal_balance": null
+  },
+  {
+   "id": "IS.SUP",
+   "statement": "IS",
+   "name": "supplementary",
+   "kind": "supplementary",
+   "variants": [
+    "standard"
+   ],
+   "fasb_headings": [],
+   "output_total_row": null,
+   "normal_balance": null
+  },
+  {
+   "id": "CF.SUP",
+   "statement": "CF",
+   "name": "memo rows outside the statement's totals: a line takes a memo row only when that row's definition fits, else OUTSIDE",
+   "kind": "supplementary",
+   "variants": [
+    "indirect",
+    "direct"
+   ],
+   "fasb_headings": [
+    "us-gaap:SupplementalCashFlowInformationAbstract",
+    "us-gaap:NoncashInvestingAndFinancingItemsAbstract"
+   ],
+   "output_total_row": null,
+   "normal_balance": null
+  }
+ ],
+ "rows": [
+  {
+   "row_id": "BS.CA.CASH",
+   "section": "BS.CA",
+   "name": "Cash and equivalents",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Cash on hand, demand deposits and cash equivalents that the filing does not identify as restricted, at the printed amount.",
+   "belongs": [
+    "cash and cash equivalents as printed",
+    "cash equivalents the filing counts as such (money-market funds, short commercial paper, short deposits)",
+    "cash held abroad that the filing does not call restricted",
+    "a compensating balance the company keeps inside cash and does not separate",
+    "a combined \"cash and short-term investments\" line that no note splits, kept whole, marked mixed"
+   ],
+   "not_belongs": [
+    {
+     "item": "current restricted cash, including the restricted part of a combined \"cash and restricted cash\" line when the note gives its amount",
+     "goes_to": "BS.CA.RESTCASH"
+    },
+    {
+     "item": "restricted cash the filing classifies as noncurrent",
+     "goes_to": "BS.NCA.RESTCASH"
+    },
+    {
+     "item": "debt securities, time deposits and certificates of deposit that are not cash equivalents, current",
+     "goes_to": "BS.CA.DEBTSEC"
+    },
+    {
+     "item": "equity securities and fund units that are not cash equivalents, current",
+     "goes_to": "BS.CA.EQSEC"
+    },
+    {
+     "item": "bank overdrafts",
+     "goes_to": "BS.CL.STBORROW"
+    },
+    {
+     "item": "cash inside a held-for-sale assets line",
+     "goes_to": "BS.CA.OTHER"
+    }
+   ]
+  },
+  {
+   "row_id": "BS.CA.RESTCASH",
+   "section": "BS.CA",
+   "name": "Restricted cash, current",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Amounts the filing identifies as current restricted cash or restricted cash equivalents, supported by its restriction disclosures and its cash reconciliation, at the printed amount. Kept on its own row, apart from unrestricted cash.",
+   "belongs": [
+    "current restricted cash and restricted cash equivalents as printed",
+    "escrow, collateral and similar cash the filing calls restricted cash",
+    "current restricted cash that the cash reconciliation note places inside another current line, when the note gives its amount"
+   ],
+   "not_belongs": [
+    {
+     "item": "restricted cash the filing classifies as noncurrent",
+     "goes_to": "BS.NCA.RESTCASH"
+    },
+    {
+     "item": "restricted or pledged debt securities and time deposits, current",
+     "goes_to": "BS.CA.DEBTSEC"
+    },
+    {
+     "item": "restricted or pledged equity securities, current",
+     "goes_to": "BS.CA.EQSEC"
+    },
+    {
+     "item": "client funds or deposits the filing does not call restricted cash",
+     "goes_to": "BS.CA.OTHER"
+    },
+    {
+     "item": "unrestricted cash",
+     "goes_to": "BS.CA.CASH"
+    }
+   ]
+  },
+  {
+   "row_id": "BS.CA.DEBTSEC",
+   "section": "BS.CA",
+   "name": "Debt securities, current",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Current investments in debt securities (available-for-sale, held-to-maturity, trading) at the printed carrying amount after any credit-loss allowance. The row also takes bank time deposits and certificates of deposit that are not cash equivalents.",
+   "belongs": [
+    "current debt securities and marketable debt securities as printed",
+    "time deposits and certificates of deposit that are not cash equivalents, current",
+    "restricted or pledged debt securities, current",
+    "a current \"short-term investments\" or \"marketable securities\" line whose caption names no class and that no note splits, kept whole, marked mixed"
+   ],
+   "not_belongs": [
+    {
+     "item": "equity securities and fund units, current",
+     "goes_to": "BS.CA.EQSEC"
+    },
+    {
+     "item": "debt securities and time deposits the filing classifies as noncurrent",
+     "goes_to": "BS.NCA.DEBTSEC"
+    },
+    {
+     "item": "loans and advances to affiliates, current",
+     "goes_to": "BS.CA.AFFLOAN"
+    },
+    {
+     "item": "other loans and notes receivable, current",
+     "goes_to": "BS.CA.OTHER"
+    },
+    {
+     "item": "cash equivalents",
+     "goes_to": "BS.CA.CASH"
+    }
+   ]
+  },
+  {
+   "row_id": "BS.CA.EQSEC",
+   "section": "BS.CA",
+   "name": "Equity investments, current",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Equity securities and fund units held as current investments, at the printed amount.",
+   "belongs": [
+    "current equity securities at fair value",
+    "mutual-fund and similar fund units that are not cash equivalents",
+    "restricted or pledged equity securities, current"
+   ],
+   "not_belongs": [
+    {
+     "item": "debt securities, current",
+     "goes_to": "BS.CA.DEBTSEC"
+    },
+    {
+     "item": "a current securities or investments line whose caption names no class and that no note splits",
+     "goes_to": "BS.CA.DEBTSEC"
+    },
+    {
+     "item": "equity stakes the filing classifies as noncurrent",
+     "goes_to": "BS.NCA.EQSEC"
+    },
+    {
+     "item": "equity-method stakes classified noncurrent",
+     "goes_to": "BS.NCA.EQMETHOD"
+    },
+    {
+     "item": "equity-method stakes the filing classifies as current",
+     "goes_to": "BS.CA.OTHER"
+    }
+   ]
+  },
+  {
+   "row_id": "BS.CA.TRADEREC",
+   "section": "BS.CA",
+   "name": "Trade receivables, net",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Amounts customers owe for goods and services sold in the normal course of business, classified current, after the allowance for credit losses.",
+   "belongs": [
+    "accounts receivable, net",
+    "unbilled trade receivables representing an unconditional right to consideration",
+    "trade notes receivable from customers",
+    "trade receivables from affiliates and related parties",
+    "an allowance printed as its own deduction line",
+    "a combined \"trade and other receivables\" line that no note splits, kept whole, marked mixed"
+   ],
+   "not_belongs": [
+    {
+     "item": "contract assets, including unbilled amounts still conditional on further performance",
+     "goes_to": "BS.CA.OTHER"
+    },
+    {
+     "item": "non-trade, other and income-tax receivables printed on their own line",
+     "goes_to": "BS.CA.OTHER"
+    },
+    {
+     "item": "loans and advances to affiliates, current",
+     "goes_to": "BS.CA.AFFLOAN"
+    },
+    {
+     "item": "customer financing receivables printed on their own line",
+     "goes_to": "BS.CA.OTHER"
+    },
+    {
+     "item": "receivables the filing classifies as noncurrent",
+     "goes_to": "BS.NCA.OTHER"
+    }
+   ]
+  },
+  {
+   "row_id": "BS.CA.INVENT",
+   "section": "BS.CA",
+   "name": "Inventories",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Goods held for sale, in production, or to be consumed in production, classified current, after valuation and LIFO reserves, at the printed amount.",
+   "belongs": [
+    "inventories, net",
+    "component lines printed separately (raw materials, work in process, finished goods, supplies)",
+    "a LIFO reserve or valuation reserve printed as a deduction line"
+   ],
+   "not_belongs": [
+    {
+     "item": "advances to suppliers for inventory",
+     "goes_to": "BS.CA.OTHER"
+    },
+    {
+     "item": "inventory inside a held-for-sale line",
+     "goes_to": "BS.CA.OTHER"
+    },
+    {
+     "item": "inventory the filing classifies as noncurrent",
+     "goes_to": "BS.NCA.OTHER"
+    }
+   ]
+  },
+  {
+   "row_id": "BS.CA.AFFLOAN",
+   "section": "BS.CA",
+   "name": "Non-trade affiliate loans, current",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Current non-trade loans and advances to affiliates outside the consolidated group (equity-method investees, joint ventures, other entities linked by ownership), at the printed carrying amount and as the filing classifies them.",
+   "belongs": [
+    "loans, notes and advances to affiliates that the filing or its related-party note describes as non-trade, classified current"
+   ],
+   "not_belongs": [
+    {
+     "item": "trade receivables from affiliates",
+     "goes_to": "BS.CA.TRADEREC"
+    },
+    {
+     "item": "affiliate loans the filing classifies as noncurrent",
+     "goes_to": "BS.NCA.AFFLOAN"
+    },
+    {
+     "item": "loans to employees or officers",
+     "goes_to": "BS.CA.OTHER"
+    },
+    {
+     "item": "related-party balances not described as loans to affiliates",
+     "goes_to": "BS.CA.OTHER"
+    }
+   ]
+  },
+  {
+   "row_id": "BS.CA.OTHER",
+   "section": "BS.CA",
+   "name": "Other current assets",
+   "line_type": "item",
+   "policy": "catch_all",
+   "extra_evidence": null,
+   "definition": "Current assets not assigned to another current-asset row, at their printed amounts. Each printed line keeps its caption.",
+   "belongs": [
+    "prepaid expenses, and \"prepaid expenses and other current assets\"",
+    "contract assets, capitalised contract costs and deferred costs",
+    "income-tax and other non-trade receivables, other loans and notes receivable",
+    "derivative assets, current",
+    "assets held for sale and assets of disposal groups, cash inside them included",
+    "the lessor's net investment in leases, current",
+    "regulatory assets and deposits, current",
+    "current deferred tax assets in older filings",
+    "equity-method stakes the filing classifies as current",
+    "a current combined line that no note splits and no other current-asset row names, kept whole, marked mixed"
+   ],
+   "not_belongs": [
+    {
+     "item": "restricted cash inside an \"other current assets\" line, when the face or a note gives its amount",
+     "goes_to": "BS.CA.RESTCASH"
+    },
+    {
+     "item": "debt securities or time deposits inside the line, when the face or a note gives the amount",
+     "goes_to": "BS.CA.DEBTSEC"
+    },
+    {
+     "item": "equity securities inside the line, when the face or a note gives the amount",
+     "goes_to": "BS.CA.EQSEC"
+    },
+    {
+     "item": "trade receivables inside the line, when the face or a note gives the amount",
+     "goes_to": "BS.CA.TRADEREC"
+    },
+    {
+     "item": "inventories inside the line, when the face or a note gives the amount",
+     "goes_to": "BS.CA.INVENT"
+    },
+    {
+     "item": "loans and advances to affiliates inside the line, when the face or a note gives the amount",
+     "goes_to": "BS.CA.AFFLOAN"
+    }
+   ]
+  },
+  {
+   "row_id": "BS.NCA.PPE",
+   "section": "BS.NCA",
+   "name": "Property, plant and equipment, net",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Reported tangible productive assets, including construction in progress, net of depreciation, depletion and impairment. Finance-lease right-of-use assets for equivalent tangible assets use this row, whether printed inside PPE or on their own line.",
+   "belongs": [
+    "property, plant and equipment as printed, construction in progress and land included",
+    "oil and gas and mineral properties, net",
+    "assets the company leases out to others as part of its business",
+    "finance-lease right-of-use assets, inside the PPE line or printed separately",
+    "a PPE line that holds software whose amount the filing does not disclose, kept whole, marked mixed",
+    "idle or surplus property inside the PPE line"
+   ],
+   "not_belongs": [
+    {
+     "item": "operating-lease right-of-use assets",
+     "goes_to": "BS.NCA.OPROU"
+    },
+    {
+     "item": "software printed on its own line, or disclosed with an amount inside the PPE line",
+     "goes_to": "BS.NCA.INTANG"
+    },
+    {
+     "item": "assets held for sale printed among noncurrent assets",
+     "goes_to": "BS.NCA.OTHER"
+    },
+    {
+     "item": "inventory the filing classifies as noncurrent",
+     "goes_to": "BS.NCA.OTHER"
+    },
+    {
+     "item": "real estate printed on its own line and held to earn rent or for appreciation outside the company's business",
+     "goes_to": "BS.NCA.OTHER"
+    }
+   ]
+  },
+  {
+   "row_id": "BS.NCA.GOODWILL",
+   "section": "BS.NCA",
+   "name": "Goodwill",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Recognised goodwill at its reported carrying amount, after accumulated impairment, including goodwill recognised in business combinations or applicable joint-venture formations. Goodwill embedded in an equity-method investment remains with that investment.",
+   "belongs": [
+    "goodwill as printed",
+    "the goodwill part of a combined goodwill-and-intangibles line, when the note gives its amount"
+   ],
+   "not_belongs": [
+    {
+     "item": "the intangibles part of a combined goodwill-and-intangibles line, when the note gives its amount",
+     "goes_to": "BS.NCA.INTANG"
+    },
+    {
+     "item": "goodwill held for sale, printed among noncurrent assets",
+     "goes_to": "BS.NCA.OTHER"
+    },
+    {
+     "item": "goodwill embedded in an equity-method investment's carrying amount",
+     "goes_to": "BS.NCA.EQMETHOD"
+    }
+   ]
+  },
+  {
+   "row_id": "BS.NCA.INTANG",
+   "section": "BS.NCA",
+   "name": "Other intangibles, net",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Recognised intangible assets other than goodwill, net of amortisation and impairment; indefinite-lived ones are not amortised. Software is placed here as a fixed template rule, wherever the filing prints it, unless its amount is not disclosed.",
+   "belongs": [
+    "finite-lived intangibles (customer relationships, patents, licences, technology) as printed",
+    "indefinite-lived intangibles (trademarks, brands) as printed",
+    "capitalised software, printed on its own line or disclosed with an amount inside another line",
+    "the intangibles part of a combined goodwill-and-intangibles line, when the note gives its amount"
+   ],
+   "not_belongs": [
+    {
+     "item": "goodwill",
+     "goes_to": "BS.NCA.GOODWILL"
+    },
+    {
+     "item": "crypto assets",
+     "goes_to": "BS.NCA.OTHER"
+    },
+    {
+     "item": "capitalised contract costs and other deferred costs",
+     "goes_to": "BS.NCA.OTHER"
+    },
+    {
+     "item": "intangibles held for sale, printed among noncurrent assets",
+     "goes_to": "BS.NCA.OTHER"
+    },
+    {
+     "item": "software inside the PPE line with no disclosed amount",
+     "goes_to": "BS.NCA.PPE"
+    }
+   ]
+  },
+  {
+   "row_id": "BS.NCA.RESTCASH",
+   "section": "BS.NCA",
+   "name": "Restricted cash, noncurrent",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Amounts the filing identifies as noncurrent restricted cash or restricted cash equivalents, supported by its restriction disclosures and its cash reconciliation. Kept on its own row, apart from unrestricted cash.",
+   "belongs": [
+    "noncurrent restricted cash and restricted cash equivalents printed on the face",
+    "noncurrent restricted cash held inside another line, when the cash reconciliation gives its amount"
+   ],
+   "not_belongs": [
+    {
+     "item": "restricted cash the filing classifies as current",
+     "goes_to": "BS.CA.RESTCASH"
+    },
+    {
+     "item": "restricted or pledged debt securities and time deposits, noncurrent",
+     "goes_to": "BS.NCA.DEBTSEC"
+    },
+    {
+     "item": "restricted or pledged equity securities, noncurrent",
+     "goes_to": "BS.NCA.EQSEC"
+    },
+    {
+     "item": "restricted investments of unclear kind, deposits placed with third parties, assets held in trust, decommissioning funds",
+     "goes_to": "BS.NCA.OTHER"
+    },
+    {
+     "item": "a compensating balance the company keeps inside cash and does not separate",
+     "goes_to": "BS.CA.CASH"
+    }
+   ]
+  },
+  {
+   "row_id": "BS.NCA.DEBTSEC",
+   "section": "BS.NCA",
+   "name": "Debt securities, noncurrent",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Investments in other entities' debt securities classified as noncurrent, at the reported amount (fair value for available-for-sale, amortised cost for held-to-maturity, after any credit-loss allowance). The row also takes bank time deposits and certificates of deposit classified as noncurrent.",
+   "belongs": [
+    "available-for-sale debt securities, noncurrent",
+    "held-to-maturity debt securities, noncurrent, at the after-allowance amount when both are shown",
+    "auction-rate securities, noncurrent",
+    "time deposits and certificates of deposit, noncurrent",
+    "restricted or pledged debt securities, noncurrent",
+    "the debt part of a combined \"marketable securities\" or \"long-term investments\" line, when the note gives its amount",
+    "a noncurrent securities or investments line whose caption names no class (for example \"marketable securities\", \"long-term investments\") and that no note splits, kept whole, marked mixed"
+   ],
+   "not_belongs": [
+    {
+     "item": "debt securities and time deposits the filing classifies as current",
+     "goes_to": "BS.CA.DEBTSEC"
+    },
+    {
+     "item": "the equity part of a combined securities line, when the note gives its amount",
+     "goes_to": "BS.NCA.EQSEC"
+    },
+    {
+     "item": "the equity-method part of a combined investments line, when the note gives its amount",
+     "goes_to": "BS.NCA.EQMETHOD"
+    },
+    {
+     "item": "loans and advances to affiliates, noncurrent",
+     "goes_to": "BS.NCA.AFFLOAN"
+    },
+    {
+     "item": "other loans and notes receivable, noncurrent",
+     "goes_to": "BS.NCA.OTHER"
+    },
+    {
+     "item": "investments in physical commodities",
+     "goes_to": "BS.NCA.OTHER"
+    }
+   ]
+  },
+  {
+   "row_id": "BS.NCA.EQMETHOD",
+   "section": "BS.NCA",
+   "name": "Equity-method investments",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Investments reported using the equity method, including joint ventures and partnerships so reported, at their reported carrying amount.",
+   "belongs": [
+    "equity-method investments and joint ventures as printed",
+    "the equity part of a combined \"investments in and advances to affiliates\" line, when the note gives its amount",
+    "a combined \"investments in and advances to affiliates\" line that no note splits, kept whole, marked mixed",
+    "goodwill embedded in the investment's carrying amount"
+   ],
+   "not_belongs": [
+    {
+     "item": "advances and loans in a combined \"investments in and advances to affiliates\" line, when the note gives their amount",
+     "goes_to": "BS.NCA.AFFLOAN"
+    },
+    {
+     "item": "stakes not accounted for on the equity method",
+     "goes_to": "BS.NCA.EQSEC"
+    },
+    {
+     "item": "equity-method stakes the filing classifies as current",
+     "goes_to": "BS.CA.OTHER"
+    },
+    {
+     "item": "the share of the investee's income, printed below operating income",
+     "goes_to": "IS.NOP.EQMETHOD"
+    },
+    {
+     "item": "the share of the investee's income, printed inside operating income",
+     "goes_to": "IS.OP.OTHER"
+    },
+    {
+     "item": "an equity-method investment the company prints as a liability (losses beyond the investment)",
+     "goes_to": "BS.NCL.OTHER"
+    }
+   ]
+  },
+  {
+   "row_id": "BS.NCA.EQSEC",
+   "section": "BS.NCA",
+   "name": "Other equity investments",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Noncurrent nonconsolidated equity investments not reported using the equity method, including investments measured under an elected fair-value option, at the reported amount: fair value through net income or, where fair value is not readily determinable, the measurement alternative (cost less impairment, adjusted for observable price changes).",
+   "belongs": [
+    "equity securities at fair value through net income, noncurrent",
+    "equity investments measured under an elected fair-value option, noncurrent, whatever the influence held",
+    "equity securities without a readily determinable fair value",
+    "in filings under older accounting standards, cost-method and available-for-sale equity, read in those standards' terms",
+    "restricted or pledged equity securities, noncurrent",
+    "the equity part of a combined securities line, when the note gives its amount"
+   ],
+   "not_belongs": [
+    {
+     "item": "equity securities the filing classifies as current",
+     "goes_to": "BS.CA.EQSEC"
+    },
+    {
+     "item": "stakes the filing reports using the equity method",
+     "goes_to": "BS.NCA.EQMETHOD"
+    },
+    {
+     "item": "the debt part of a combined securities line, when the note gives its amount",
+     "goes_to": "BS.NCA.DEBTSEC"
+    },
+    {
+     "item": "a noncurrent securities or investments line whose caption names no class and that no note splits",
+     "goes_to": "BS.NCA.DEBTSEC"
+    }
+   ]
+  },
+  {
+   "row_id": "BS.NCA.AFFLOAN",
+   "section": "BS.NCA",
+   "name": "Non-trade affiliate loans, noncurrent",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Noncurrent non-trade loans and advances to affiliates outside the consolidation group, such as equity-method investees and joint ventures, at the reported carrying amount. The row is the template's own bucket for noncurrent non-trade loans and advances owed by affiliates outside the consolidation group.",
+   "belongs": [
+    "long-term advances to affiliates",
+    "noncurrent loans and notes receivable that the caption or disclosure identifies as owed by an affiliate outside the consolidation group",
+    "the advances part of a combined \"investments in and advances to affiliates\" line, when the note gives its amount"
+   ],
+   "not_belongs": [
+    {
+     "item": "affiliate loans the filing classifies as current",
+     "goes_to": "BS.CA.AFFLOAN"
+    },
+    {
+     "item": "trade amounts owed by affiliates (from sales), noncurrent",
+     "goes_to": "BS.NCA.OTHER"
+    },
+    {
+     "item": "loans to employees, management or other related parties that are not affiliates",
+     "goes_to": "BS.NCA.OTHER"
+    },
+    {
+     "item": "loans whose caption and disclosure do not identify the borrower as an affiliate",
+     "goes_to": "BS.NCA.OTHER"
+    },
+    {
+     "item": "the noncurrent equity stake in the same affiliate, reported using the equity method",
+     "goes_to": "BS.NCA.EQMETHOD"
+    },
+    {
+     "item": "the noncurrent equity stake in the same affiliate, not reported using the equity method",
+     "goes_to": "BS.NCA.EQSEC"
+    },
+    {
+     "item": "the current equity stake in the same affiliate, reported using the equity method",
+     "goes_to": "BS.CA.OTHER"
+    },
+    {
+     "item": "the current equity stake in the same affiliate, not reported using the equity method",
+     "goes_to": "BS.CA.EQSEC"
+    },
+    {
+     "item": "a combined \"investments in and advances to affiliates\" line that no note splits",
+     "goes_to": "BS.NCA.EQMETHOD"
+    },
+    {
+     "item": "interest earned on these loans",
+     "goes_to": "IS.NOP.INTINC"
+    }
+   ]
+  },
+  {
+   "row_id": "BS.NCA.OTHER",
+   "section": "BS.NCA",
+   "name": "Other noncurrent assets",
+   "line_type": "item",
+   "policy": "catch_all",
+   "extra_evidence": null,
+   "definition": "Noncurrent assets not assigned to another noncurrent-asset row, at their printed amounts, each kept with its caption.",
+   "belongs": [
+    "deferred tax assets as printed (already offset by the company where its rules allow); not netted against the deferred tax liability row",
+    "recognised pension and postretirement assets: the employer's net asset for an overfunded plan, not the plan's gross assets; not netted against the pension liability row",
+    "noncurrent prepaid items, deposits, contract assets, capitalised contract costs and other deferred costs",
+    "derivative assets, noncurrent",
+    "assets held for sale printed among noncurrent assets, goodwill and intangibles held for sale included",
+    "crypto assets",
+    "noncurrent trade receivables (affiliates included), other loans and notes receivable, and the lessor's net investment in leases",
+    "noncurrent inventory, regulatory assets, assets held in trust, decommissioning funds, investments in physical commodities",
+    "real estate held to earn rent or for appreciation outside the company's business",
+    "\"other assets\" as printed",
+    "a noncurrent combined line that no note splits and no other noncurrent-asset row names, kept whole, marked mixed"
+   ],
+   "not_belongs": [
+    {
+     "item": "operating-lease right-of-use assets inside an \"other assets\" line, when the face or a note gives the amount",
+     "goes_to": "BS.NCA.OPROU"
+    },
+    {
+     "item": "finance-lease right-of-use assets inside the line, when the face or a note gives the amount",
+     "goes_to": "BS.NCA.PPE"
+    },
+    {
+     "item": "goodwill inside the line, when the face or a note gives the amount",
+     "goes_to": "BS.NCA.GOODWILL"
+    },
+    {
+     "item": "intangibles and software inside the line, when the face or a note gives the amount",
+     "goes_to": "BS.NCA.INTANG"
+    },
+    {
+     "item": "restricted cash inside the line, when the face or a note gives the amount",
+     "goes_to": "BS.NCA.RESTCASH"
+    },
+    {
+     "item": "debt securities and time deposits inside the line, when the face or a note gives the amount",
+     "goes_to": "BS.NCA.DEBTSEC"
+    },
+    {
+     "item": "equity-method investments inside the line, when the face or a note gives the amount",
+     "goes_to": "BS.NCA.EQMETHOD"
+    },
+    {
+     "item": "other equity stakes inside the line, when the face or a note gives the amount",
+     "goes_to": "BS.NCA.EQSEC"
+    },
+    {
+     "item": "loans and advances to affiliates inside the line, when the face or a note gives the amount",
+     "goes_to": "BS.NCA.AFFLOAN"
+    }
+   ]
+  },
+  {
+   "row_id": "BS.NCA.OPROU",
+   "section": "BS.NCA",
+   "name": "Operating-lease right-of-use assets",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Reported noncurrent operating-lease right-of-use assets, including amounts the lease note identifies within another line. The lease class and carrying amount stay identifiable.",
+   "belongs": [
+    "operating-lease right-of-use assets as printed",
+    "operating-lease right-of-use assets that the lease note places, with an amount, inside another line (for example \"other assets\")"
+   ],
+   "not_belongs": [
+    {
+     "item": "finance-lease right-of-use assets, inside PPE or printed separately",
+     "goes_to": "BS.NCA.PPE"
+    },
+    {
+     "item": "operating lease liabilities, current",
+     "goes_to": "BS.CL.OPLEASE"
+    },
+    {
+     "item": "operating lease liabilities, noncurrent",
+     "goes_to": "BS.NCL.OPLEASE"
+    },
+    {
+     "item": "right-of-use assets obtained in exchange for new lease liabilities during the year (a note disclosure of additions, not a balance)",
+     "goes_to": null
+    }
+   ]
+  },
+  {
+   "row_id": "BS.CL.TRADEPAY",
+   "section": "BS.CL",
+   "name": "Trade payables",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Amounts owed to vendors for goods and services received and used in the business, usually invoiced, classified current, at the printed amount.",
+   "belongs": [
+    "accounts payable and trade payables",
+    "trade payables to related parties",
+    "supplier-finance obligations that the filing identifies as trade payables, including those it prints inside accounts payable",
+    "a combined \"accounts payable and accrued liabilities\" line that no note splits, kept whole, marked mixed"
+   ],
+   "not_belongs": [
+    {
+     "item": "accrued liabilities (payroll, taxes, interest, utilities), and the accrued part of a combined payables line when the face or a note gives its amount",
+     "goes_to": "BS.CL.OTHER"
+    },
+    {
+     "item": "supplier-finance obligations the filing explicitly reports as borrowings, with an original term of a year or less",
+     "goes_to": "BS.CL.STBORROW"
+    },
+    {
+     "item": "supplier-finance obligations the filing explicitly reports as borrowings and identifies as the current portion of long-term debt",
+     "goes_to": "BS.CL.CPLTD"
+    },
+    {
+     "item": "supplier-finance obligations printed on their own line whose nature the filing does not specify",
+     "goes_to": "BS.CL.OTHER"
+    },
+    {
+     "item": "dividends payable",
+     "goes_to": "BS.CL.OTHER"
+    },
+    {
+     "item": "notes payable to banks and bank overdrafts",
+     "goes_to": "BS.CL.STBORROW"
+    },
+    {
+     "item": "trade payables the filing classifies as noncurrent",
+     "goes_to": "BS.NCL.OTHER"
+    }
+   ]
+  },
+  {
+   "row_id": "BS.CL.STBORROW",
+   "section": "BS.CL",
+   "name": "Short-term borrowings",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": "asc",
+   "definition": "Debt with an original term of one year or less, at the printed amount: bank loans, commercial paper, short-term notes payable, and bank overdrafts treated as loans. Advances under a credit facility are classified by the borrowing's original term and the filing's classification, not solely by the facility's term.",
+   "belongs": [
+    "short-term debt, commercial paper, notes payable to banks and others, other short-term borrowings",
+    "short-term advances under a long-term credit facility",
+    "bank overdrafts",
+    "short-term loans from affiliates",
+    "mandatorily redeemable shares issued with an original term of a year or less",
+    "supplier-finance obligations the filing explicitly reports as borrowings, with an original term of a year or less",
+    "a combined \"short-term debt and current portion of long-term debt\" line that no note splits, kept whole, marked mixed"
+   ],
+   "not_belongs": [
+    {
+     "item": "current maturities of long-term debt",
+     "goes_to": "BS.CL.CPLTD"
+    },
+    {
+     "item": "current portions of credit-facility borrowings the filing identifies as long-term debt",
+     "goes_to": "BS.CL.CPLTD"
+    },
+    {
+     "item": "finance-lease liabilities, current",
+     "goes_to": "BS.CL.FINLEASE"
+    },
+    {
+     "item": "operating-lease liabilities, current",
+     "goes_to": "BS.CL.OPLEASE"
+    },
+    {
+     "item": "accrued interest",
+     "goes_to": "BS.CL.OTHER"
+    },
+    {
+     "item": "supplier-finance obligations the filing identifies as trade payables",
+     "goes_to": "BS.CL.TRADEPAY"
+    },
+    {
+     "item": "supplier-finance obligations the filing explicitly reports as borrowings and identifies as the current portion of long-term debt",
+     "goes_to": "BS.CL.CPLTD"
+    },
+    {
+     "item": "supplier-finance obligations printed on their own line whose nature the filing does not specify",
+     "goes_to": "BS.CL.OTHER"
+    },
+    {
+     "item": "short-term debt the filing classifies as noncurrent because it will be refinanced",
+     "goes_to": "BS.NCL.LTBORROW"
+    }
+   ]
+  },
+  {
+   "row_id": "BS.CL.CPLTD",
+   "section": "BS.CL",
+   "name": "Current portion of long-term borrowings",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": "asc",
+   "definition": "The part of long-term debt classified as current, net of unamortised discount, premium and issuance costs, excluding leases, at the printed amount. Advances under a credit facility are classified by the borrowing's original term and the filing's classification, not solely by the facility's term.",
+   "belongs": [
+    "current maturities of notes, bonds and term loans",
+    "current portions of credit-facility borrowings the filing identifies as long-term debt",
+    "long-term debt the filing classifies as current for another reason (for example a covenant breach)",
+    "mandatorily redeemable shares classified as current liabilities, issued for more than a year",
+    "supplier-finance obligations the filing explicitly reports as borrowings and identifies as the current portion of long-term debt",
+    "a combined \"current portion of long-term debt and finance leases\" line that no note splits, kept whole, marked mixed"
+   ],
+   "not_belongs": [
+    {
+     "item": "the finance-lease part of a combined line, when the lease note gives its amount",
+     "goes_to": "BS.CL.FINLEASE"
+    },
+    {
+     "item": "operating-lease liabilities, current",
+     "goes_to": "BS.CL.OPLEASE"
+    },
+    {
+     "item": "debt with an original term of a year or less",
+     "goes_to": "BS.CL.STBORROW"
+    },
+    {
+     "item": "short-term advances under a long-term credit facility",
+     "goes_to": "BS.CL.STBORROW"
+    },
+    {
+     "item": "the noncurrent part of long-term debt",
+     "goes_to": "BS.NCL.LTBORROW"
+    }
+   ]
+  },
+  {
+   "row_id": "BS.CL.OPLEASE",
+   "section": "BS.CL",
+   "name": "Operating lease liabilities, current",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": "asc",
+   "definition": "The current part of the lessee's present-value obligation for operating-lease payments, at the printed amount.",
+   "belongs": [
+    "current operating-lease liabilities as printed",
+    "the current operating-lease liability that the lease note places, with an amount, inside another current line"
+   ],
+   "not_belongs": [
+    {
+     "item": "finance-lease liabilities, current",
+     "goes_to": "BS.CL.FINLEASE"
+    },
+    {
+     "item": "accrued variable or short-term lease payments",
+     "goes_to": "BS.CL.OTHER"
+    },
+    {
+     "item": "deferred rent in filings before 2019",
+     "goes_to": "BS.CL.OTHER"
+    },
+    {
+     "item": "the noncurrent part",
+     "goes_to": "BS.NCL.OPLEASE"
+    }
+   ]
+  },
+  {
+   "row_id": "BS.CL.FINLEASE",
+   "section": "BS.CL",
+   "name": "Finance lease liabilities, current",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": "asc",
+   "definition": "The current part of the lessee's present-value obligation for finance-lease payments, at the printed amount. In filings before 2019 these are capital lease obligations.",
+   "belongs": [
+    "current finance-lease and capital-lease obligations as printed",
+    "the current finance-lease liability that the lease note places, with an amount, inside a debt line"
+   ],
+   "not_belongs": [
+    {
+     "item": "operating-lease liabilities, current",
+     "goes_to": "BS.CL.OPLEASE"
+    },
+    {
+     "item": "current maturities of debt",
+     "goes_to": "BS.CL.CPLTD"
+    },
+    {
+     "item": "the noncurrent part",
+     "goes_to": "BS.NCL.FINLEASE"
+    }
+   ]
+  },
+  {
+   "row_id": "BS.CL.OTHER",
+   "section": "BS.CL",
+   "name": "Other current liabilities",
+   "line_type": "item",
+   "policy": "catch_all",
+   "extra_evidence": null,
+   "definition": "Current liabilities not assigned to another current-liability row, at their printed amounts. Each printed line keeps its caption.",
+   "belongs": [
+    "accrued liabilities and payroll",
+    "income taxes payable, interest payable, dividends payable",
+    "contract liabilities and deferred revenue, customer deposits and refund liabilities",
+    "derivative liabilities, current",
+    "litigation, environmental and restructuring accruals; current asset-retirement obligations; contingent consideration",
+    "the current pension and postretirement liability",
+    "supplier-finance obligations printed on their own line whose nature the filing does not specify",
+    "liabilities of disposal groups held for sale",
+    "current uncertain-tax-position liabilities",
+    "a current combined line that no note splits and no other current-liability row names, kept whole, marked mixed"
+   ],
+   "not_belongs": [
+    {
+     "item": "trade payables inside an accrued line, when the face or a note gives the amount",
+     "goes_to": "BS.CL.TRADEPAY"
+    },
+    {
+     "item": "short-term borrowings inside the line, when the face or a note gives the amount",
+     "goes_to": "BS.CL.STBORROW"
+    },
+    {
+     "item": "current maturities of long-term debt inside the line, when the face or a note gives the amount",
+     "goes_to": "BS.CL.CPLTD"
+    },
+    {
+     "item": "operating-lease liabilities inside the line, when the face or a note gives the amount",
+     "goes_to": "BS.CL.OPLEASE"
+    },
+    {
+     "item": "finance-lease liabilities inside the line, when the face or a note gives the amount",
+     "goes_to": "BS.CL.FINLEASE"
+    },
+    {
+     "item": "mandatorily redeemable shares classified as current liabilities, issued for more than a year",
+     "goes_to": "BS.CL.CPLTD"
+    },
+    {
+     "item": "mandatorily redeemable shares issued with an original term of a year or less",
+     "goes_to": "BS.CL.STBORROW"
+    },
+    {
+     "item": "supplier-finance obligations the filing identifies as trade payables",
+     "goes_to": "BS.CL.TRADEPAY"
+    },
+    {
+     "item": "supplier-finance obligations the filing explicitly reports as borrowings, with an original term of a year or less",
+     "goes_to": "BS.CL.STBORROW"
+    },
+    {
+     "item": "supplier-finance obligations the filing explicitly reports as borrowings and identifies as the current portion of long-term debt",
+     "goes_to": "BS.CL.CPLTD"
+    }
+   ]
+  },
+  {
+   "row_id": "BS.NCL.LTBORROW",
+   "section": "BS.NCL",
+   "name": "Long-term borrowings",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": "asc",
+   "definition": "Debt classified as noncurrent, net of unamortised discount, premium and issuance costs, excluding leases, at the printed amount. Mandatorily redeemable shares classified as noncurrent liabilities are included.",
+   "belongs": [
+    "notes, bonds, debentures and term loans",
+    "drawn long-term credit lines",
+    "convertible debt at its printed carrying amount",
+    "commercial paper and short-term debt classified noncurrent because they will be refinanced",
+    "loans from affiliates, noncurrent",
+    "mandatorily redeemable shares classified as noncurrent liabilities",
+    "a combined \"long-term debt and finance lease obligations\" line that no note splits, kept whole, marked mixed"
+   ],
+   "not_belongs": [
+    {
+     "item": "finance-lease liabilities, noncurrent",
+     "goes_to": "BS.NCL.FINLEASE"
+    },
+    {
+     "item": "operating-lease liabilities, noncurrent",
+     "goes_to": "BS.NCL.OPLEASE"
+    },
+    {
+     "item": "current maturities",
+     "goes_to": "BS.CL.CPLTD"
+    },
+    {
+     "item": "derivative liabilities",
+     "goes_to": "BS.NCL.OTHER"
+    },
+    {
+     "item": "accrued interest, noncurrent",
+     "goes_to": "BS.NCL.OTHER"
+    },
+    {
+     "item": "the conversion option, principal, coupon and fair value of the debt (note facts)",
+     "goes_to": null
+    }
+   ]
+  },
+  {
+   "row_id": "BS.NCL.OPLEASE",
+   "section": "BS.NCL",
+   "name": "Operating lease liabilities, noncurrent",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": "asc",
+   "definition": "The noncurrent part of the lessee's present-value obligation for operating-lease payments, at the printed amount.",
+   "belongs": [
+    "noncurrent operating-lease liabilities as printed",
+    "the noncurrent operating-lease liability that the lease note places, with an amount, inside another noncurrent line"
+   ],
+   "not_belongs": [
+    {
+     "item": "finance-lease liabilities, noncurrent",
+     "goes_to": "BS.NCL.FINLEASE"
+    },
+    {
+     "item": "deferred rent in filings before 2019",
+     "goes_to": "BS.NCL.OTHER"
+    },
+    {
+     "item": "the current part",
+     "goes_to": "BS.CL.OPLEASE"
+    }
+   ]
+  },
+  {
+   "row_id": "BS.NCL.FINLEASE",
+   "section": "BS.NCL",
+   "name": "Finance lease liabilities, noncurrent",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": "asc",
+   "definition": "The noncurrent part of the lessee's present-value obligation for finance-lease payments, at the printed amount. In filings before 2019 these are capital lease obligations.",
+   "belongs": [
+    "noncurrent finance-lease and capital-lease obligations as printed",
+    "the noncurrent finance-lease liability that the lease note places, with an amount, inside a debt line"
+   ],
+   "not_belongs": [
+    {
+     "item": "operating-lease liabilities, noncurrent",
+     "goes_to": "BS.NCL.OPLEASE"
+    },
+    {
+     "item": "long-term debt",
+     "goes_to": "BS.NCL.LTBORROW"
+    },
+    {
+     "item": "the current part",
+     "goes_to": "BS.CL.FINLEASE"
+    }
+   ]
+  },
+  {
+   "row_id": "BS.NCL.PENSION",
+   "section": "BS.NCL",
+   "name": "Pension and postretirement",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "The noncurrent liability recognised for defined-benefit pension plans and other postretirement benefit plans (retiree health and life), at the printed amount.",
+   "belongs": [
+    "noncurrent pension liabilities",
+    "other postretirement benefit liabilities",
+    "a combined \"pension and postretirement\" line"
+   ],
+   "not_belongs": [
+    {
+     "item": "the current part",
+     "goes_to": "BS.CL.OTHER"
+    },
+    {
+     "item": "an overfunded plan shown as an asset",
+     "goes_to": "BS.NCA.OTHER"
+    },
+    {
+     "item": "postemployment benefits (after employment, before retirement)",
+     "goes_to": "BS.NCL.OTHER"
+    },
+    {
+     "item": "deferred compensation",
+     "goes_to": "BS.NCL.OTHER"
+    },
+    {
+     "item": "defined-contribution accruals",
+     "goes_to": "BS.NCL.OTHER"
+    },
+    {
+     "item": "the plan obligation, plan assets, funded status and funding schedule (note facts, never substituted for the printed amount)",
+     "goes_to": null
+    }
+   ]
+  },
+  {
+   "row_id": "BS.NCL.DEFTAX",
+   "section": "BS.NCL",
+   "name": "Deferred income tax",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "The deferred tax liability printed in noncurrent liabilities, after the filing's own netting within tax jurisdictions, at the printed amount. Take the printed balance-sheet line, not the tax-note figure before netting.",
+   "belongs": [
+    "\"deferred income taxes\", \"deferred tax liabilities\" and similar lines on the liability side"
+   ],
+   "not_belongs": [
+    {
+     "item": "deferred tax assets (never netted against this row)",
+     "goes_to": "BS.NCA.OTHER"
+    },
+    {
+     "item": "uncertain-tax-position liabilities",
+     "goes_to": "BS.NCL.OTHER"
+    },
+    {
+     "item": "noncurrent income taxes payable",
+     "goes_to": "BS.NCL.OTHER"
+    },
+    {
+     "item": "deferred investment tax credits",
+     "goes_to": "BS.NCL.OTHER"
+    },
+    {
+     "item": "deferred revenue and other deferred credits",
+     "goes_to": "BS.NCL.OTHER"
+    },
+    {
+     "item": "net operating losses, valuation allowance and gross deferred tax figures from the tax note",
+     "goes_to": null
+    }
+   ]
+  },
+  {
+   "row_id": "BS.NCL.OTHER",
+   "section": "BS.NCL",
+   "name": "Other noncurrent liabilities",
+   "line_type": "item",
+   "policy": "catch_all",
+   "extra_evidence": null,
+   "definition": "Noncurrent liabilities not assigned to another noncurrent-liability row, at their printed amounts. Each printed line keeps its caption.",
+   "belongs": [
+    "asset-retirement obligations",
+    "environmental, litigation, self-insurance and restructuring reserves",
+    "contract liabilities and deferred revenue, noncurrent",
+    "deferred compensation and postemployment benefits",
+    "uncertain-tax-position liabilities and noncurrent income taxes payable",
+    "derivative liabilities, noncurrent",
+    "contingent consideration",
+    "liabilities of disposal groups held for sale printed among noncurrent liabilities",
+    "deferred investment tax credits",
+    "an equity-method investment the company prints as a liability (losses beyond the investment)",
+    "\"other liabilities\" as printed",
+    "a noncurrent combined line that no note splits and no other noncurrent-liability row names, kept whole, marked mixed"
+   ],
+   "not_belongs": [
+    {
+     "item": "long-term borrowings inside the line, when the face or a note gives the amount",
+     "goes_to": "BS.NCL.LTBORROW"
+    },
+    {
+     "item": "mandatorily redeemable shares classified as noncurrent liabilities",
+     "goes_to": "BS.NCL.LTBORROW"
+    },
+    {
+     "item": "operating-lease liabilities inside the line, when the face or a note gives the amount",
+     "goes_to": "BS.NCL.OPLEASE"
+    },
+    {
+     "item": "finance-lease liabilities inside the line, when the face or a note gives the amount",
+     "goes_to": "BS.NCL.FINLEASE"
+    },
+    {
+     "item": "pension and postretirement liabilities inside the line, when the face or a note gives the amount",
+     "goes_to": "BS.NCL.PENSION"
+    },
+    {
+     "item": "deferred tax liabilities inside the line, when the face or a note gives the amount",
+     "goes_to": "BS.NCL.DEFTAX"
+    },
+    {
+     "item": "a \"deferred credits and other liabilities\" heading total (its components are placed one by one)",
+     "goes_to": null
+    }
+   ]
+  },
+  {
+   "row_id": "BS.CAP.TEMPPREF",
+   "section": "BS.CAP",
+   "name": "Temporary preferred",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "The parent's preferred stock shown in temporary (mezzanine) equity: redeemable at the holder's option or on events outside the company's control, and not mandatorily redeemable. Recorded at the printed carrying amount.",
+   "belongs": [
+    "redeemable preferred stock and redeemable convertible preferred stock printed between liabilities and equity"
+   ],
+   "not_belongs": [
+    {
+     "item": "mandatorily redeemable shares classified as current liabilities, issued for more than a year",
+     "goes_to": "BS.CL.CPLTD"
+    },
+    {
+     "item": "mandatorily redeemable shares issued with an original term of a year or less",
+     "goes_to": "BS.CL.STBORROW"
+    },
+    {
+     "item": "mandatorily redeemable shares classified as noncurrent liabilities",
+     "goes_to": "BS.NCL.LTBORROW"
+    },
+    {
+     "item": "preferred that is non-redeemable or redeemable only at the issuer's option",
+     "goes_to": "BS.CAP.PREF"
+    },
+    {
+     "item": "redeemable preferred of a subsidiary held by outsiders",
+     "goes_to": "BS.CAP.TEMPNCI"
+    },
+    {
+     "item": "redeemable common stock",
+     "goes_to": "BS.CAP.TEMPOTHER"
+    },
+    {
+     "item": "redemption value, liquidation preference and conversion terms (note facts)",
+     "goes_to": null
+    }
+   ]
+  },
+  {
+   "row_id": "BS.CAP.TEMPNCI",
+   "section": "BS.CAP",
+   "name": "Temporary non-controlling interests",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Outside owners' interests in consolidated subsidiaries that the parent can be required to redeem, of any equity type, shown in temporary equity at the printed carrying amount.",
+   "belongs": [
+    "redeemable non-controlling interests (common, preferred or other) as printed"
+   ],
+   "not_belongs": [
+    {
+     "item": "non-controlling interests inside equity",
+     "goes_to": "BS.CAP.NCI"
+    },
+    {
+     "item": "redemption-value and fair-value disclosures",
+     "goes_to": null
+    }
+   ]
+  },
+  {
+   "row_id": "BS.CAP.TEMPOTHER",
+   "section": "BS.CAP",
+   "name": "Other temporary equity",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "The parent's temporary equity that is not preferred stock, at the printed carrying amount: for example redeemable common stock, ESOP shares with a put, and share awards with redemption features. The split from temporary preferred follows the filing's caption.",
+   "belongs": [
+    "redeemable common stock, ESOP shares with a put, and share awards with redemption features, as printed",
+    "a temporary-equity line whose class the filing does not state"
+   ],
+   "not_belongs": [
+    {
+     "item": "temporary preferred",
+     "goes_to": "BS.CAP.TEMPPREF"
+    },
+    {
+     "item": "redeemable subsidiary interests",
+     "goes_to": "BS.CAP.TEMPNCI"
+    },
+    {
+     "item": "mandatorily redeemable shares classified as current liabilities, issued for more than a year",
+     "goes_to": "BS.CL.CPLTD"
+    },
+    {
+     "item": "mandatorily redeemable shares issued with an original term of a year or less",
+     "goes_to": "BS.CL.STBORROW"
+    },
+    {
+     "item": "mandatorily redeemable shares classified as noncurrent liabilities",
+     "goes_to": "BS.NCL.LTBORROW"
+    }
+   ]
+  },
+  {
+   "row_id": "BS.CAP.PARENTEQ",
+   "section": "BS.CAP",
+   "name": "Parent common equity",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "The parent's equity other than preferred stock, at the printed amounts: common stock, additional paid-in capital, retained earnings or deficit, accumulated other comprehensive income, less treasury stock.",
+   "belongs": [
+    "common stock at par or stated value",
+    "additional paid-in capital, including an undivided line that does not name a class",
+    "retained earnings or deficit",
+    "accumulated other comprehensive income",
+    "treasury stock (negative) and unearned ESOP shares",
+    "equity-classified warrants",
+    "partners' or members' capital for common units"
+   ],
+   "not_belongs": [
+    {
+     "item": "preferred stock, preferred paid-in capital and preferred treasury stock printed as their own lines",
+     "goes_to": "BS.CAP.PREF"
+    },
+    {
+     "item": "non-controlling interests inside equity",
+     "goes_to": "BS.CAP.NCI"
+    },
+    {
+     "item": "temporary preferred",
+     "goes_to": "BS.CAP.TEMPPREF"
+    },
+    {
+     "item": "redeemable non-controlling interests",
+     "goes_to": "BS.CAP.TEMPNCI"
+    },
+    {
+     "item": "other temporary equity",
+     "goes_to": "BS.CAP.TEMPOTHER"
+    },
+    {
+     "item": "the printed \"total shareholders' equity\" and \"total equity\" lines (read by code as checks)",
+     "goes_to": null
+    }
+   ]
+  },
+  {
+   "row_id": "BS.CAP.PREF",
+   "section": "BS.CAP",
+   "name": "Permanent preferred",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "The parent's preferred stock lines printed inside shareholders' equity (non-redeemable, or redeemable only at the issuer's option), at the printed amounts. Record what is printed; do not rebuild the preferred claim from paid-in capital.",
+   "belongs": [
+    "preferred stock at par or stated value",
+    "preferred paid-in capital printed separately",
+    "preferred treasury stock (negative)",
+    "convertible preferred classified in equity"
+   ],
+   "not_belongs": [
+    {
+     "item": "holder-redeemable preferred",
+     "goes_to": "BS.CAP.TEMPPREF"
+    },
+    {
+     "item": "mandatorily redeemable preferred classified as current liabilities, issued for more than a year",
+     "goes_to": "BS.CL.CPLTD"
+    },
+    {
+     "item": "mandatorily redeemable preferred issued with an original term of a year or less",
+     "goes_to": "BS.CL.STBORROW"
+    },
+    {
+     "item": "mandatorily redeemable preferred classified as noncurrent liabilities",
+     "goes_to": "BS.NCL.LTBORROW"
+    },
+    {
+     "item": "subsidiary preferred held by outsiders, inside equity",
+     "goes_to": "BS.CAP.NCI"
+    },
+    {
+     "item": "liquidation preference and redemption value",
+     "goes_to": null
+    }
+   ]
+  },
+  {
+   "row_id": "BS.CAP.NCI",
+   "section": "BS.CAP",
+   "name": "Permanent non-controlling interests",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Equity in consolidated subsidiaries owned by outsiders, shown inside equity and apart from the parent's equity, at the printed amount.",
+   "belongs": [
+    "non-controlling interests",
+    "partners' or members' capital attributable to non-controlling interests"
+   ],
+   "not_belongs": [
+    {
+     "item": "redeemable non-controlling interests",
+     "goes_to": "BS.CAP.TEMPNCI"
+    },
+    {
+     "item": "the printed \"total equity\" line (read by code as a check)",
+     "goes_to": null
+    }
+   ]
+  },
+  {
+   "row_id": "BS.TOT.CA",
+   "section": "BS.TOT",
+   "name": "Current assets",
+   "line_type": "subtotal",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Computed by code as the sum of the eight current-asset rows, and checked against the filed current assets.",
+   "belongs": [],
+   "not_belongs": []
+  },
+  {
+   "row_id": "BS.TOT.ASSETS",
+   "section": "BS.TOT",
+   "name": "Total assets",
+   "line_type": "subtotal",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Computed by code as current assets plus the ten noncurrent-asset rows, operating-lease right-of-use assets included. The noncurrent-asset rows are checked against the filed noncurrent assets (as printed, or total assets less current assets, reconstructed); a code-only report check compares this total with total liabilities and capital.",
+   "belongs": [],
+   "not_belongs": []
+  },
+  {
+   "row_id": "BS.TOT.CL",
+   "section": "BS.TOT",
+   "name": "Current liabilities",
+   "line_type": "subtotal",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Computed by code as the sum of the six current-liability rows, and checked against the filed current liabilities.",
+   "belongs": [],
+   "not_belongs": []
+  },
+  {
+   "row_id": "BS.TOT.LIAB",
+   "section": "BS.TOT",
+   "name": "Total liabilities",
+   "line_type": "subtotal",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Computed by code as current liabilities plus the six noncurrent-liability rows; temporary equity is excluded. The noncurrent-liability rows are checked against the filed noncurrent liabilities (as printed, or total liabilities less current liabilities, reconstructed).",
+   "belongs": [],
+   "not_belongs": []
+  },
+  {
+   "row_id": "BS.TOT.LIABCAP",
+   "section": "BS.TOT",
+   "name": "Total liabilities and capital",
+   "line_type": "control",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Computed by code as total liabilities plus the six capital rows (temporary equity, parent common equity, preferred and non-controlling interests), and checked against the filed total liabilities and equity. The \"commitments and contingencies\" caption carries no amount.",
+   "belongs": [],
+   "not_belongs": []
+  },
+  {
+   "row_id": "IS.OP.REV",
+   "section": "IS.OP",
+   "name": "Revenue",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "The company's revenue total as printed: sales of goods and services and other revenue the company includes in its revenue total. Amounts the company deducts before its revenue total stay deducted.",
+   "belongs": [
+    "sales of goods and services, product and service revenue",
+    "lease income, royalties and other revenue printed inside the revenue total",
+    "interest or financing income the company prints inside its revenue total",
+    "excise and sales taxes when the company includes them in revenue and deducts them as a cost"
+   ],
+   "not_belongs": [
+    {
+     "item": "excise and sales taxes shown as a cost",
+     "goes_to": "IS.OP.COR"
+    },
+    {
+     "item": "interest income printed below operating income",
+     "goes_to": "IS.NOP.INTINC"
+    },
+    {
+     "item": "gains on selling assets or businesses printed above operating income",
+     "goes_to": "IS.OP.OTHER"
+    },
+    {
+     "item": "other operating income printed outside the revenue total, above operating income",
+     "goes_to": "IS.OP.OTHER"
+    }
+   ]
+  },
+  {
+   "row_id": "IS.OP.COR",
+   "section": "IS.OP",
+   "name": "Cost of revenue",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "The cost of the goods and services whose sale is in Revenue, as printed, including depreciation, inventory write-downs and taxes the company includes in it.",
+   "belongs": [
+    "cost of goods sold, cost of services, cost of sales",
+    "depreciation and amortisation inside cost of sales",
+    "inventory write-downs, inside cost of sales or printed on their own line above operating income",
+    "excise and sales taxes deducted as a cost of sales",
+    "interest the company includes in cost of revenue (for example on financing provided to customers)"
+   ],
+   "not_belongs": [
+    {
+     "item": "a separately printed depreciation and amortisation line (\"cost of sales exclusive of depreciation\")",
+     "goes_to": "IS.OP.OTHER"
+    },
+    {
+     "item": "selling, general and administrative costs",
+     "goes_to": "IS.OP.SGA"
+    },
+    {
+     "item": "research and development",
+     "goes_to": "IS.OP.RD"
+    }
+   ]
+  },
+  {
+   "row_id": "IS.OP.GROSS",
+   "section": "IS.OP",
+   "name": "Gross profit",
+   "line_type": "subtotal",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Revenue plus cost of revenue, computed by code for every filing. It is not compared with a printed gross profit; a printed gross profit built on a different cost line can differ from it.",
+   "belongs": [],
+   "not_belongs": []
+  },
+  {
+   "row_id": "IS.OP.SGA",
+   "section": "IS.OP",
+   "name": "Selling, general and administrative",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Selling, marketing, distribution, general and administrative costs as printed, as one line or as several lines.",
+   "belongs": [
+    "selling and marketing expense, advertising, distribution",
+    "general and administrative expense",
+    "credit-loss expense, legal fees and share-based pay when printed inside these lines"
+   ],
+   "not_belongs": [
+    {
+     "item": "research and development",
+     "goes_to": "IS.OP.RD"
+    },
+    {
+     "item": "restructuring, impairment, acquisition costs, amortisation of intangibles and credit-loss expense printed on their own lines above operating income",
+     "goes_to": "IS.OP.OTHER"
+    }
+   ]
+  },
+  {
+   "row_id": "IS.OP.RD",
+   "section": "IS.OP",
+   "name": "Research and development",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Research and development expense as printed, including research and development assets acquired outside a business combination and written off.",
+   "belongs": [
+    "research and development expense",
+    "acquired in-process research and development expensed in an asset acquisition, also when printed on its own line",
+    "software development costs expensed"
+   ],
+   "not_belongs": [
+    {
+     "item": "impairment of in-process research and development acquired in a business combination, printed above operating income",
+     "goes_to": "IS.OP.OTHER"
+    },
+    {
+     "item": "past years' research and development and amortisation of a research asset",
+     "goes_to": null
+    }
+   ]
+  },
+  {
+   "row_id": "IS.OP.OTHER",
+   "section": "IS.OP",
+   "name": "Other operating income/expense",
+   "line_type": "item",
+   "policy": "catch_all",
+   "extra_evidence": null,
+   "definition": "Every line printed above operating income that no other operating row takes, at its printed amount.",
+   "belongs": [
+    "restructuring charges, impairment charges, litigation charges and settlements printed above operating income",
+    "gains and losses on disposing of assets or businesses printed above operating income",
+    "acquisition and integration costs",
+    "a separately printed depreciation and amortisation line, amortisation of intangibles",
+    "credit-loss expense printed on its own line",
+    "non-service pension cost printed above operating income",
+    "equity-method income printed above operating income, kept here so operating income ties",
+    "other operating income and expense",
+    "a combined line above operating income that no note splits and no other operating row names, kept whole, marked mixed"
+   ],
+   "not_belongs": [
+    {
+     "item": "restructuring, impairment, litigation, disposal gains and losses and non-service pension cost printed below operating income",
+     "goes_to": "IS.NOP.OTHER"
+    },
+    {
+     "item": "equity-method income printed below operating income",
+     "goes_to": "IS.NOP.EQMETHOD"
+    },
+    {
+     "item": "selling, general and administrative costs",
+     "goes_to": "IS.OP.SGA"
+    },
+    {
+     "item": "research and development",
+     "goes_to": "IS.OP.RD"
+    },
+    {
+     "item": "cost of goods and services sold",
+     "goes_to": "IS.OP.COR"
+    }
+   ]
+  },
+  {
+   "row_id": "IS.OP.OPINC",
+   "section": "IS.OP",
+   "name": "Operating income",
+   "line_type": "subtotal",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Revenue plus cost of revenue, SG&A, R&D and other operating income/expense, computed by code and checked against the operating income the company prints. When the company prints none, it is still computed, labelled computed, and the check is unavailable.",
+   "belongs": [],
+   "not_belongs": []
+  },
+  {
+   "row_id": "IS.NOP.INTEXP",
+   "section": "IS.NOP",
+   "name": "Interest expense",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Interest charged to income as printed below operating income: after any interest capitalised into assets, before netting any interest income, except an unsplit net-interest line, which is retained here at its printed signed amount under the template's net-line convention. It includes interest on finance leases, amortisation of debt discount and issuance costs, commitment fees inside the printed interest line, and dividends on mandatorily redeemable shares.",
+   "belongs": [
+    "interest on borrowings, notes and bonds",
+    "interest on finance lease liabilities",
+    "amortisation of debt discount, premium and issuance costs inside interest expense",
+    "commitment fees and other debt-related fees printed as interest",
+    "interest and dividends on mandatorily redeemable shares",
+    "a net interest line (\"interest expense, net\"), whatever its sign, kept whole, marked net"
+   ],
+   "not_belongs": [
+    {
+     "item": "interest income printed on its own line",
+     "goes_to": "IS.NOP.INTINC"
+    },
+    {
+     "item": "interest capitalised into assets",
+     "goes_to": "IS.SUP.CAPINT"
+    },
+    {
+     "item": "interest the company includes in cost of revenue",
+     "goes_to": "IS.OP.COR"
+    },
+    {
+     "item": "gains and losses on extinguishing debt, induced conversion expense",
+     "goes_to": "IS.NOP.OTHER"
+    },
+    {
+     "item": "interest cost of pension plans",
+     "goes_to": "IS.NOP.OTHER"
+    },
+    {
+     "item": "interest implied in operating lease payments",
+     "goes_to": null
+    }
+   ]
+  },
+  {
+   "row_id": "IS.NOP.INTINC",
+   "section": "IS.NOP",
+   "name": "Interest income",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Interest earned, printed below operating income: on cash, deposits, debt securities and loans, including loans to affiliates.",
+   "belongs": [
+    "interest income on cash, cash equivalents and deposits",
+    "interest on debt securities and on loans and notes receivable, affiliates included"
+   ],
+   "not_belongs": [
+    {
+     "item": "interest income printed inside the revenue total",
+     "goes_to": "IS.OP.REV"
+    },
+    {
+     "item": "dividend income",
+     "goes_to": "IS.NOP.INVOTHER"
+    },
+    {
+     "item": "an \"interest and dividend\" or \"investment income\" line that no note splits",
+     "goes_to": "IS.NOP.INVOTHER"
+    },
+    {
+     "item": "a net interest line",
+     "goes_to": "IS.NOP.INTEXP"
+    }
+   ]
+  },
+  {
+   "row_id": "IS.NOP.EQMETHOD",
+   "section": "IS.NOP",
+   "name": "Equity-method income",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "The company's share of the profit or loss of investees it reports under the equity method, printed below operating income, at the printed amount, whether printed above or below income tax and whether labelled net of tax.",
+   "belongs": [
+    "share of profit or loss of associates, joint ventures and partnerships on the equity method, printed below operating income",
+    "impairment of equity-method investments when printed inside this line"
+   ],
+   "not_belongs": [
+    {
+     "item": "equity-method income printed above operating income",
+     "goes_to": "IS.OP.OTHER"
+    },
+    {
+     "item": "gain or loss on selling or disposing of an equity-method stake",
+     "goes_to": "IS.NOP.OTHER"
+    },
+    {
+     "item": "impairment of equity-method investments printed on its own line",
+     "goes_to": "IS.NOP.OTHER"
+    },
+    {
+     "item": "income of consolidated subsidiaries",
+     "goes_to": null
+    }
+   ]
+  },
+  {
+   "row_id": "IS.NOP.INVOTHER",
+   "section": "IS.NOP",
+   "name": "Other investment income",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Dividends and realised or unrealised gains and losses on investments, printed below operating income, other than interest and equity-method results.",
+   "belongs": [
+    "dividend income from equity securities",
+    "gains and losses on selling debt and equity securities",
+    "fair-value changes on equity securities through net income",
+    "an \"interest and dividend\" or \"investment income\" line that no note splits, kept whole, marked mixed"
+   ],
+   "not_belongs": [
+    {
+     "item": "interest income",
+     "goes_to": "IS.NOP.INTINC"
+    },
+    {
+     "item": "equity-method income",
+     "goes_to": "IS.NOP.EQMETHOD"
+    },
+    {
+     "item": "gains on selling an equity-method stake or a business, printed below operating income",
+     "goes_to": "IS.NOP.OTHER"
+    },
+    {
+     "item": "derivative gains and losses",
+     "goes_to": "IS.NOP.OTHER"
+    }
+   ]
+  },
+  {
+   "row_id": "IS.NOP.OTHER",
+   "section": "IS.NOP",
+   "name": "Other nonoperating income/expense",
+   "line_type": "item",
+   "policy": "catch_all",
+   "extra_evidence": null,
+   "definition": "Every line printed between operating income and pretax income that no other nonoperating row takes, at its printed amount.",
+   "belongs": [
+    "foreign exchange transaction gains and losses",
+    "pension and postretirement cost other than service cost",
+    "gains and losses on extinguishing debt, induced conversion expense",
+    "derivative gains and losses",
+    "gains and losses on disposing of assets, businesses and equity-method stakes printed below operating income",
+    "impairment of equity-method investments printed on its own line",
+    "restructuring, impairment and litigation charges printed below operating income",
+    "other nonoperating income and expense",
+    "a combined line below operating income that no note splits and no other nonoperating row names, kept whole, marked mixed"
+   ],
+   "not_belongs": [
+    {
+     "item": "items of these kinds printed above operating income",
+     "goes_to": "IS.OP.OTHER"
+    },
+    {
+     "item": "equity-method income",
+     "goes_to": "IS.NOP.EQMETHOD"
+    },
+    {
+     "item": "interest expense",
+     "goes_to": "IS.NOP.INTEXP"
+    },
+    {
+     "item": "interest income",
+     "goes_to": "IS.NOP.INTINC"
+    },
+    {
+     "item": "dividends and gains or losses on securities",
+     "goes_to": "IS.NOP.INVOTHER"
+    }
+   ]
+  },
+  {
+   "row_id": "IS.TAX.PRETAX",
+   "section": "IS.TAX",
+   "name": "Pretax income excluding equity-method income",
+   "line_type": "subtotal",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Operating income plus interest expense, interest income, other investment income and other nonoperating income/expense, computed by code. It excludes amounts placed in IS.NOP.EQMETHOD; equity-method income retained within operating income remains embedded here and is not added again. The four nonoperating rows are checked against the printed pretax income before equity-method income less operating income; this row plus equity-method income is checked against the printed pretax income including it.",
+   "belongs": [],
+   "not_belongs": []
+  },
+  {
+   "row_id": "IS.TAX.TAX",
+   "section": "IS.TAX",
+   "name": "Continuing income tax",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Income tax expense or benefit on continuing operations as printed, current and deferred together. Taxes other than income taxes are not this row; they stay in the expense line where printed.",
+   "belongs": [
+    "income tax expense or benefit, current and deferred",
+    "one-time tax items printed inside the tax line (rate changes, valuation allowances)"
+   ],
+   "not_belongs": [
+    {
+     "item": "tax on discontinued operations",
+     "goes_to": "IS.NI.DISCOPS"
+    },
+    {
+     "item": "excise and sales taxes deducted as a cost",
+     "goes_to": "IS.OP.COR"
+    }
+   ]
+  },
+  {
+   "row_id": "IS.TAX.CONTNI",
+   "section": "IS.TAX",
+   "name": "Continuing net income, before the minority interests' share",
+   "line_type": "subtotal",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Pretax income excluding equity-method income, plus income tax, plus the equity-method income placed in IS.NOP.EQMETHOD, computed by code: after-tax income from continuing operations, the non-controlling interests' share included. Equity-method income retained within operating income remains embedded here and is not added again.",
+   "belongs": [],
+   "not_belongs": []
+  },
+  {
+   "row_id": "IS.NI.DISCOPS",
+   "section": "IS.NI",
+   "name": "Discontinued operations, net of tax",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "The after-tax result of operations the company reports as discontinued, as printed, including the gain or loss on their disposal and the non-controlling interests' share.",
+   "belongs": [
+    "income or loss from discontinued operations, net of tax",
+    "gain or loss on disposing of a discontinued operation",
+    "tax on discontinued operations, inside this amount"
+   ],
+   "not_belongs": [
+    {
+     "item": "gains and losses on disposing of a business not reported as discontinued, printed above operating income",
+     "goes_to": "IS.OP.OTHER"
+    },
+    {
+     "item": "gains and losses on disposing of a business not reported as discontinued, printed below operating income",
+     "goes_to": "IS.NOP.OTHER"
+    },
+    {
+     "item": "the parent-only share of discontinued operations",
+     "goes_to": null
+    }
+   ]
+  },
+  {
+   "row_id": "IS.NI.OTHER",
+   "section": "IS.NI",
+   "name": "Other items between continuing and consolidated net income",
+   "line_type": "item",
+   "policy": "catch_all",
+   "extra_evidence": null,
+   "definition": "Any printed line between continuing net income and consolidated net income other than discontinued operations. Normally empty.",
+   "belongs": [
+    "extraordinary items in older filings",
+    "cumulative effect of a change in accounting principle in older filings",
+    "a company-specific line printed between continuing and consolidated net income"
+   ],
+   "not_belongs": [
+    {
+     "item": "discontinued operations",
+     "goes_to": "IS.NI.DISCOPS"
+    },
+    {
+     "item": "the non-controlling interests' share of net income",
+     "goes_to": "IS.NI.NCI"
+    }
+   ]
+  },
+  {
+   "row_id": "IS.NI.CONSOL",
+   "section": "IS.NI",
+   "name": "Consolidated net income",
+   "line_type": "subtotal",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Continuing net income plus discontinued operations plus other items between continuing and consolidated net income, computed by code: the group's net income before the non-controlling interests' share. It is not checked on its own; parent net income is.",
+   "belongs": [],
+   "not_belongs": []
+  },
+  {
+   "row_id": "IS.NI.NCI",
+   "section": "IS.NI",
+   "name": "Net income attributable to NCI",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "The share of consolidated net income that belongs to non-controlling owners of subsidiaries, as printed, including redeemable non-controlling interests and their share of discontinued operations.",
+   "belongs": [
+    "net income attributable to non-controlling interests, redeemable and nonredeemable"
+   ],
+   "not_belongs": [
+    {
+     "item": "dividends paid to non-controlling owners",
+     "goes_to": "CF.FIN.NCI"
+    },
+    {
+     "item": "accretion of redeemable non-controlling interests to redemption value",
+     "goes_to": "IS.CMN.OTHER"
+    }
+   ]
+  },
+  {
+   "row_id": "IS.NI.PARENT",
+   "section": "IS.NI",
+   "name": "Net income attributable to parent",
+   "line_type": "subtotal",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Consolidated net income less the non-controlling interests' share, computed by code and checked against the net income the company prints.",
+   "belongs": [],
+   "not_belongs": []
+  },
+  {
+   "row_id": "IS.CMN.PREFDIV",
+   "section": "IS.CMN",
+   "name": "Preferred dividend deductions",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Dividends on preferred stock classified in equity (permanent or temporary), declared or accumulated, that the company deducts to reach income available to common, as printed.",
+   "belongs": [
+    "preferred dividends deducted from net income",
+    "dividends on redeemable preferred stock classified in temporary equity",
+    "a \"preferred dividends and other adjustments\" line that no note splits, kept whole, marked mixed"
+   ],
+   "not_belongs": [
+    {
+     "item": "redemption premiums, deemed dividends, conversion inducements and accretion",
+     "goes_to": "IS.CMN.OTHER"
+    },
+    {
+     "item": "dividends on mandatorily redeemable shares",
+     "goes_to": "IS.NOP.INTEXP"
+    },
+    {
+     "item": "preferred dividends paid in cash",
+     "goes_to": "CF.FIN.PREFDIV"
+    }
+   ]
+  },
+  {
+   "row_id": "IS.CMN.OTHER",
+   "section": "IS.CMN",
+   "name": "Other common-income adjustments",
+   "line_type": "item",
+   "policy": "catch_all",
+   "extra_evidence": null,
+   "definition": "Every printed deduction or addition between parent net income and income available to common other than preferred dividends.",
+   "belongs": [
+    "redemption premiums and deemed dividends on preferred stock",
+    "accretion of temporary equity to redemption value, redeemable non-controlling interests included",
+    "conversion inducements",
+    "earnings allocated to participating securities"
+   ],
+   "not_belongs": [
+    {
+     "item": "preferred dividends",
+     "goes_to": "IS.CMN.PREFDIV"
+    },
+    {
+     "item": "add-backs used only for diluted earnings",
+     "goes_to": null
+    }
+   ]
+  },
+  {
+   "row_id": "IS.CMN.AVAIL",
+   "section": "IS.CMN",
+   "name": "Income available to common",
+   "line_type": "subtotal",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Parent net income plus preferred dividend deductions and other common-income adjustments, computed by code and checked against the basic income available to common the company prints.",
+   "belongs": [],
+   "not_belongs": []
+  },
+  {
+   "row_id": "CF.OP.START",
+   "section": "CF.OP",
+   "name": "Starting profit",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "The profit figure the company's indirect reconciliation starts from, at its printed amount, whichever profit it is (usually net income including the non-controlling interests' share; sometimes net income to the parent or income from continuing operations).",
+   "belongs": [
+    "the first line of the operating reconciliation as printed"
+   ],
+   "not_belongs": [
+    {
+     "item": "the non-controlling interests' share of income added back on its own line",
+     "goes_to": "CF.OP.NONCASH"
+    },
+    {
+     "item": "income from discontinued operations deducted on its own line",
+     "goes_to": "CF.OP.NONCASH"
+    }
+   ]
+  },
+  {
+   "row_id": "CF.OP.DA",
+   "section": "CF.OP",
+   "name": "Depreciation and amortization",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "The add-back for depreciation, depletion and amortization of property, plant and equipment, intangible assets and finance-lease right-of-use assets, as printed.",
+   "belongs": [
+    "depreciation and depletion",
+    "amortization of intangibles",
+    "amortization of finance-lease right-of-use assets",
+    "a combined \"depreciation, amortization and accretion\" line that no note splits, kept whole, marked mixed"
+   ],
+   "not_belongs": [
+    {
+     "item": "amortization of debt discount, premium and issuance costs",
+     "goes_to": "CF.OP.NONCASH"
+    },
+    {
+     "item": "reduction of operating-lease right-of-use assets",
+     "goes_to": "CF.OP.NONCASH"
+    },
+    {
+     "item": "accretion printed on its own line",
+     "goes_to": "CF.OP.NONCASH"
+    },
+    {
+     "item": "impairments",
+     "goes_to": "CF.OP.IMPAIR"
+    }
+   ]
+  },
+  {
+   "row_id": "CF.OP.IMPAIR",
+   "section": "CF.OP",
+   "name": "Impairment",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "The add-back for noncash write-downs of goodwill, intangible assets, long-lived assets, right-of-use assets and equity-method investments, as printed.",
+   "belongs": [
+    "goodwill, intangible, long-lived asset, lease asset and equity-method investment impairments",
+    "a combined \"restructuring and impairment\" noncash line that no note splits, kept whole, marked mixed"
+   ],
+   "not_belongs": [
+    {
+     "item": "inventory write-downs",
+     "goes_to": "CF.OP.NONCASH"
+    },
+    {
+     "item": "credit-loss provisions",
+     "goes_to": "CF.OP.NONCASH"
+    },
+    {
+     "item": "noncash restructuring charges printed on their own line",
+     "goes_to": "CF.OP.NONCASH"
+    }
+   ]
+  },
+  {
+   "row_id": "CF.OP.GAINLOSS",
+   "section": "CF.OP",
+   "name": "Disposal and investment gain/loss",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "The adjustment that removes gains and adds back losses on disposals of assets, businesses and investments, and on unrealized changes in the value of investments, as printed.",
+   "belongs": [
+    "gains and losses on sales of PPE, intangibles, businesses, disposal groups, investments and equity-method stakes, a printed gain on selling a discontinued business included",
+    "unrealized gains and losses on investments"
+   ],
+   "not_belongs": [
+    {
+     "item": "gain or loss on debt extinguishment",
+     "goes_to": "CF.OP.NONCASH"
+    },
+    {
+     "item": "equity-method income, net of distributions or not",
+     "goes_to": "CF.OP.NONCASH"
+    },
+    {
+     "item": "foreign-exchange transaction gains and losses",
+     "goes_to": "CF.OP.NONCASH"
+    },
+    {
+     "item": "proceeds from selling PPE and intangibles",
+     "goes_to": "CF.INV.DISPOSAL"
+    },
+    {
+     "item": "proceeds from selling a business",
+     "goes_to": "CF.INV.DIVEST"
+    },
+    {
+     "item": "proceeds from selling investments and stakes",
+     "goes_to": "CF.INV.INVSELL"
+    }
+   ]
+  },
+  {
+   "row_id": "CF.OP.SBC",
+   "section": "CF.OP",
+   "name": "Share-based compensation",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "The add-back of noncash share-based compensation expense (options, restricted stock, share units, employee share purchase plans), as printed.",
+   "belongs": [
+    "share-based compensation",
+    "a combined \"share-based compensation and other employee benefits\" noncash line that no note splits, kept whole, marked mixed"
+   ],
+   "not_belongs": [
+    {
+     "item": "pension and other benefit expense on its own line",
+     "goes_to": "CF.OP.NONCASH"
+    },
+    {
+     "item": "cash paid for shares withheld for employees' taxes",
+     "goes_to": "CF.FIN.REPURCH"
+    }
+   ]
+  },
+  {
+   "row_id": "CF.OP.DEFTAX",
+   "section": "CF.OP",
+   "name": "Deferred taxes",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "The deferred part of income tax expense, as printed.",
+   "belongs": [
+    "deferred income taxes",
+    "a combined \"deferred income taxes and tax credits\" line, kept whole, marked mixed"
+   ],
+   "not_belongs": [
+    {
+     "item": "changes in income taxes payable or receivable, and in uncertain-tax-position liabilities",
+     "goes_to": "CF.OP.WCOTHER"
+    }
+   ]
+  },
+  {
+   "row_id": "CF.OP.NONCASH",
+   "section": "CF.OP",
+   "name": "Other noncash items",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Every reconciling adjustment the company prints before its changes in operating assets and liabilities that no row above takes, at its printed amount.",
+   "belongs": [
+    "reduction of operating-lease right-of-use assets",
+    "accretion; amortization of debt discount, premium and issuance costs; paid-in-kind interest",
+    "credit-loss provisions and inventory write-downs",
+    "pension and postretirement expense",
+    "equity-method income deducted, or net of distributions",
+    "distributions from equity-method stakes reported in operating",
+    "debt extinguishment gain or loss",
+    "foreign-exchange transaction gains and losses",
+    "the non-controlling interests' share of income added back",
+    "income from discontinued operations deducted",
+    "contingent-consideration fair-value changes",
+    "\"other noncash items\" as printed"
+   ],
+   "not_belongs": [
+    {
+     "item": "a change in receivables printed among the changes in operating assets and liabilities",
+     "goes_to": "CF.OP.AR"
+    },
+    {
+     "item": "a change in inventories printed among the changes",
+     "goes_to": "CF.OP.INVENT"
+    },
+    {
+     "item": "a change in payables and accrued liabilities printed among the changes",
+     "goes_to": "CF.OP.AP"
+    },
+    {
+     "item": "other changes in operating assets and liabilities, and \"other operating activities\" cash lines",
+     "goes_to": "CF.OP.WCOTHER"
+    },
+    {
+     "item": "discontinued operating cash flow printed as its own line",
+     "goes_to": "CF.OP.DISCOPS"
+    }
+   ]
+  },
+  {
+   "row_id": "CF.OP.AR",
+   "section": "CF.OP",
+   "name": "Change in receivables",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "The change in receivables printed among the changes in operating assets and liabilities, as printed.",
+   "belongs": [
+    "change in accounts receivable, or accounts and notes receivable",
+    "a single \"receivables\" line covering trade and other receivables, kept whole"
+   ],
+   "not_belongs": [
+    {
+     "item": "income tax receivable, other receivables and contract assets printed on their own lines",
+     "goes_to": "CF.OP.WCOTHER"
+    },
+    {
+     "item": "credit-loss provision",
+     "goes_to": "CF.OP.NONCASH"
+    }
+   ]
+  },
+  {
+   "row_id": "CF.OP.INVENT",
+   "section": "CF.OP",
+   "name": "Change in inventories",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "The change in inventories, as printed.",
+   "belongs": [
+    "change in inventories and its printed components (raw materials, work in process, finished goods)"
+   ],
+   "not_belongs": [
+    {
+     "item": "inventory write-downs",
+     "goes_to": "CF.OP.NONCASH"
+    },
+    {
+     "item": "materials and supplies held outside inventory",
+     "goes_to": "CF.OP.WCOTHER"
+    }
+   ]
+  },
+  {
+   "row_id": "CF.OP.AP",
+   "section": "CF.OP",
+   "name": "Change in payables and accruals",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "The change in trade payables and accrued liabilities, as printed.",
+   "belongs": [
+    "accounts payable; accrued liabilities; \"accounts payable and accrued liabilities\"",
+    "\"accounts payable, accrued and other liabilities\" that no note splits, kept whole, marked mixed"
+   ],
+   "not_belongs": [
+    {
+     "item": "accrued income taxes, deferred revenue and contract liabilities, operating lease liabilities and interest payable printed on their own lines",
+     "goes_to": "CF.OP.WCOTHER"
+    },
+    {
+     "item": "a borrowing line reported in financing: proceeds, or a net change line",
+     "goes_to": "CF.FIN.BORROW"
+    },
+    {
+     "item": "a borrowing line reported in financing: repayments",
+     "goes_to": "CF.FIN.REPAY"
+    },
+    {
+     "item": "a change in borrowings included in the filed operating reconciliation, its nature retained",
+     "goes_to": "CF.OP.WCOTHER"
+    }
+   ]
+  },
+  {
+   "row_id": "CF.OP.WCOTHER",
+   "section": "CF.OP",
+   "name": "Other operating changes",
+   "line_type": "item",
+   "policy": "catch_all",
+   "extra_evidence": null,
+   "definition": "Every other change in operating assets and liabilities, and any line in the operating section that no other operating row takes, at its printed amount.",
+   "belongs": [
+    "prepaid expenses and other current assets",
+    "income taxes payable and receivable; deferred revenue and contract liabilities; contract assets",
+    "operating lease liabilities",
+    "pension contributions and changes in pension liabilities",
+    "other assets and liabilities",
+    "trading securities bought and sold for resale",
+    "contingent consideration paid above the acquisition-date liability",
+    "a change in borrowings included in the filed operating reconciliation, its nature retained",
+    "\"other, net\" and \"other operating activities\"",
+    "a combined operating line that no note splits and no other operating row names, kept whole, marked mixed"
+   ],
+   "not_belongs": [
+    {
+     "item": "discontinued operating cash flow printed as its own line",
+     "goes_to": "CF.OP.DISCOPS"
+    },
+    {
+     "item": "noncash adjustments printed before the working-capital changes",
+     "goes_to": "CF.OP.NONCASH"
+    }
+   ]
+  },
+  {
+   "row_id": "CF.OP.DISCOPS",
+   "section": "CF.OP",
+   "name": "Discontinued operations, operating cash flow",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "The operating cash flow of discontinued operations when the company prints it as its own line inside the operating section, at its printed amount, only where its parts are not already in other rows.",
+   "belongs": [
+    "\"net cash provided by (used in) operating activities of discontinued operations\" printed in the operating section"
+   ],
+   "not_belongs": [
+    {
+     "item": "income from discontinued operations deducted",
+     "goes_to": "CF.OP.NONCASH"
+    },
+    {
+     "item": "one discontinued line covering all sections, printed after the three sections",
+     "goes_to": "CF.REC.OTHER"
+    },
+    {
+     "item": "a discontinued investing line",
+     "goes_to": "CF.INV.OTHER"
+    },
+    {
+     "item": "a discontinued financing line",
+     "goes_to": "CF.FIN.OTHER"
+    }
+   ]
+  },
+  {
+   "row_id": "CF.OP.CFO",
+   "section": "CF.OP",
+   "name": "Cash from operations",
+   "line_type": "subtotal",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Computed by code as the sum of the operating rows, discontinued operations included, and checked against the printed net cash from operating activities, which includes discontinued operations.",
+   "belongs": [],
+   "not_belongs": []
+  },
+  {
+   "row_id": "CF.INV.CAPEX",
+   "section": "CF.INV",
+   "name": "Capital expenditures",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Cash paid at or near the time of purchase to buy or build property, plant and equipment, software and other productive assets, and intangibles bought one at a time, with any capitalized interest kept as printed.",
+   "belongs": [
+    "payments for property, plant and equipment, capital improvements and self-constructed assets",
+    "payments for internal-use software, bought or developed",
+    "payments for intangibles bought one at a time",
+    "payments for oil and gas properties and their development",
+    "purchases of productive nonfinancial assets or asset groups that are not a business",
+    "capitalized interest paid, when printed in investing",
+    "operating-lease payments made to bring another asset into use, when printed in investing",
+    "a printed \"capital expenditures net of disposals\" line, whatever its sign, kept whole, marked net"
+   ],
+   "not_belongs": [
+    {
+     "item": "businesses",
+     "goes_to": "CF.INV.ACQ"
+    },
+    {
+     "item": "securities, stakes and loans made",
+     "goes_to": "CF.INV.INVBUY"
+    },
+    {
+     "item": "crypto assets",
+     "goes_to": "CF.INV.OTHER"
+    },
+    {
+     "item": "real estate bought to hold for rent or appreciation outside the company's business",
+     "goes_to": "CF.INV.OTHER"
+    },
+    {
+     "item": "finance-lease principal payments",
+     "goes_to": "CF.FIN.REPAY"
+    },
+    {
+     "item": "later principal payments on debt owed to a seller that financed an asset, reported in financing",
+     "goes_to": "CF.FIN.REPAY"
+    },
+    {
+     "item": "capex incurred but not yet paid, assets obtained with new lease liabilities, other noncash additions",
+     "goes_to": null
+    }
+   ]
+  },
+  {
+   "row_id": "CF.INV.DISPOSAL",
+   "section": "CF.INV",
+   "name": "PPE and intangible disposal proceeds",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Cash proceeds from disposing of productive assets, and directly related insurance receipts for damaged or destroyed property, kept gross and apart from carrying amounts and gains or losses.",
+   "belongs": [
+    "proceeds from sales of property, plant and equipment and other productive assets",
+    "proceeds from sales of intangibles, software included",
+    "proceeds from sales of former productive property held for sale",
+    "proceeds from sales of rental assets used in the company's business",
+    "insurance proceeds the company reports in investing for damaged or destroyed productive assets",
+    "sale-and-leaseback proceeds reported in investing"
+   ],
+   "not_belongs": [
+    {
+     "item": "sales of businesses",
+     "goes_to": "CF.INV.DIVEST"
+    },
+    {
+     "item": "sales of real estate held to earn rent or for appreciation outside the business",
+     "goes_to": "CF.INV.OTHER"
+    },
+    {
+     "item": "sales of \"other assets\" the filing does not show to be productive",
+     "goes_to": "CF.INV.OTHER"
+    },
+    {
+     "item": "sales of crypto assets",
+     "goes_to": "CF.INV.OTHER"
+    },
+    {
+     "item": "sale-and-leaseback proceeds reported in financing",
+     "goes_to": "CF.FIN.BORROW"
+    },
+    {
+     "item": "the gain or loss on disposal",
+     "goes_to": "CF.OP.GAINLOSS"
+    }
+   ]
+  },
+  {
+   "row_id": "CF.INV.ACQ",
+   "section": "CF.INV",
+   "name": "Acquisitions, net of cash acquired",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Cash paid in the period to obtain control of a business, less the cash the business held, including contingent consideration paid soon after the acquisition date. Consideration paid in shares or other noncash forms is not a cash flow and does not come here.",
+   "belongs": [
+    "acquisitions of businesses, net of cash acquired, as printed",
+    "their parts when printed separately: gross cash price, cash acquired, deposits on pending acquisitions, payments for earlier acquisitions, acquired in-process research and development",
+    "contingent consideration paid soon after the acquisition date, reported in investing",
+    "a purchase of additional shares that gives the company control",
+    "an acquisition inside a combined or \"other\" investing line, when the note gives its amount"
+   ],
+   "not_belongs": [
+    {
+     "item": "equity-method, joint-venture and other noncontrolling stakes",
+     "goes_to": "CF.INV.INVBUY"
+    },
+    {
+     "item": "more shares of a subsidiary the company already controls, reported in financing",
+     "goes_to": "CF.FIN.NCI"
+    },
+    {
+     "item": "more shares of a subsidiary the company already controls, reported in investing",
+     "goes_to": "CF.INV.OTHER"
+    },
+    {
+     "item": "later contingent consideration reported in financing, up to the acquisition-date liability",
+     "goes_to": "CF.FIN.OTHER"
+    },
+    {
+     "item": "later contingent consideration reported in operating, the excess over that liability",
+     "goes_to": "CF.OP.WCOTHER"
+    },
+    {
+     "item": "productive nonfinancial assets or asset groups that are not a business, software and intangibles included",
+     "goes_to": "CF.INV.CAPEX"
+    },
+    {
+     "item": "securities and loans made",
+     "goes_to": "CF.INV.INVBUY"
+    },
+    {
+     "item": "other assets that are not a business, such as crypto assets and real estate held for investment",
+     "goes_to": "CF.INV.OTHER"
+    },
+    {
+     "item": "consideration paid in shares or other noncash forms, and total consideration transferred",
+     "goes_to": null
+    }
+   ]
+  },
+  {
+   "row_id": "CF.INV.DIVEST",
+   "section": "CF.INV",
+   "name": "Business divestiture proceeds",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Cash received from selling a business, segment, subsidiary or other component where the company loses control, net of the cash that left with it as printed.",
+   "belongs": [
+    "divestiture proceeds as printed, net of cash divested",
+    "\"cash divested\" printed as its own line",
+    "proceeds from deconsolidating a subsidiary"
+   ],
+   "not_belongs": [
+    {
+     "item": "sales of single assets",
+     "goes_to": "CF.INV.DISPOSAL"
+    },
+    {
+     "item": "sales of equity-method stakes, joint-venture interests and securities",
+     "goes_to": "CF.INV.INVSELL"
+    },
+    {
+     "item": "selling part of a subsidiary while keeping control, reported in financing",
+     "goes_to": "CF.FIN.NCI"
+    },
+    {
+     "item": "the gain or loss on the sale",
+     "goes_to": "CF.OP.GAINLOSS"
+    },
+    {
+     "item": "investing cash of discontinued operations printed as one line",
+     "goes_to": "CF.INV.OTHER"
+    }
+   ]
+  },
+  {
+   "row_id": "CF.INV.INVBUY",
+   "section": "CF.INV",
+   "name": "Investment purchases",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Identified investing payments for securities, time deposits, noncontrolling stakes and non-trade lending, including stakes in equity-method investees and joint ventures and loans to affiliates.",
+   "belongs": [
+    "purchases of debt securities, marketable securities, short-term and other investments, restricted investments",
+    "purchases of time deposits and certificates of deposit that are not cash equivalents",
+    "purchases of equity securities held as investments",
+    "purchases of equity-method and joint-venture stakes",
+    "loans and advances made, loans to affiliates included (principal only)",
+    "a printed net \"purchases less sales or maturities\" line for investments, whatever its sign, kept whole, marked net",
+    "a combined line of stakes and loans to affiliates that no note splits, kept whole, marked mixed"
+   ],
+   "not_belongs": [
+    {
+     "item": "businesses",
+     "goes_to": "CF.INV.ACQ"
+    },
+    {
+     "item": "purchases of trading securities reported in operating",
+     "goes_to": "CF.OP.WCOTHER"
+    },
+    {
+     "item": "life insurance policies, derivatives, crypto assets, real estate held for investment",
+     "goes_to": "CF.INV.OTHER"
+    },
+    {
+     "item": "purchases and sales of cash equivalents (not a cash flow)",
+     "goes_to": null
+    }
+   ]
+  },
+  {
+   "row_id": "CF.INV.INVSELL",
+   "section": "CF.INV",
+   "name": "Investment sale and maturity proceeds",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Cash from selling, redeeming or collecting what Investment purchases bought: securities, time deposits, stakes and loan principal. Principal collections stay apart from interest, distributions and gains.",
+   "belongs": [
+    "sales, maturities, calls and prepayments of debt securities",
+    "maturities of time deposits and certificates of deposit that are not cash equivalents",
+    "sales of equity securities and stakes, equity-method and joint-venture stakes included",
+    "principal collected on loans and advances, affiliates included, and sales of loans",
+    "sales of short-term, other and restricted investments"
+   ],
+   "not_belongs": [
+    {
+     "item": "distributions from stakes reported in investing",
+     "goes_to": "CF.INV.STAKEDIV"
+    },
+    {
+     "item": "distributions from equity-method stakes reported in operating",
+     "goes_to": "CF.OP.NONCASH"
+    },
+    {
+     "item": "a printed net investment line, whatever its sign",
+     "goes_to": "CF.INV.INVBUY"
+    },
+    {
+     "item": "sales of businesses",
+     "goes_to": "CF.INV.DIVEST"
+    },
+    {
+     "item": "the gain or loss on sale",
+     "goes_to": "CF.OP.GAINLOSS"
+    }
+   ]
+  },
+  {
+   "row_id": "CF.INV.STAKEDIV",
+   "section": "CF.INV",
+   "name": "Distributions from stakes classified as investing",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Reported distributions from stakes that the company classifies as investing under its accounting policy, which makes them returns of investment, not income.",
+   "belongs": [
+    "distributions from equity-method investees reported in investing",
+    "return-of-capital distributions from other stakes or partnerships reported in investing"
+   ],
+   "not_belongs": [
+    {
+     "item": "distributions from equity-method stakes reported in operating",
+     "goes_to": "CF.OP.NONCASH"
+    },
+    {
+     "item": "proceeds from selling the stake",
+     "goes_to": "CF.INV.INVSELL"
+    }
+   ]
+  },
+  {
+   "row_id": "CF.INV.OTHER",
+   "section": "CF.INV",
+   "name": "Other investing",
+   "line_type": "item",
+   "policy": "catch_all",
+   "extra_evidence": null,
+   "definition": "Residual cash flows reported within investing after the identifiable parts are assigned to their own rows. Each item keeps its classification as the company reports it.",
+   "belongs": [
+    "investing lines that fit no other row once their nature is read: company-owned life insurance, derivatives not designated as hedges, real estate held for investment, lessor collections on sales-type and direct financing leases, crypto assets, utility-type items",
+    "any printed \"other\" investing line, less the parts the note assigns to other rows",
+    "buying more of a subsidiary the company already controls, when printed in investing",
+    "a change in restricted cash printed in investing (older filings)",
+    "investing cash of discontinued operations printed as one line, when its parts are not already in other rows",
+    "a combined investing line that no note splits and no other investing row names, kept whole, marked mixed"
+   ],
+   "not_belongs": [
+    {
+     "item": "an acquisition inside the line, when the note gives its amount",
+     "goes_to": "CF.INV.ACQ"
+    },
+    {
+     "item": "capex inside the line, when the note gives its amount",
+     "goes_to": "CF.INV.CAPEX"
+    },
+    {
+     "item": "purchases of securities or stakes, and loans made, inside the line, when the note gives the amount",
+     "goes_to": "CF.INV.INVBUY"
+    },
+    {
+     "item": "sale and maturity proceeds of securities or stakes, and principal collected on loans, inside the line, when the note gives the amount",
+     "goes_to": "CF.INV.INVSELL"
+    },
+    {
+     "item": "distributions from stakes classified as investing, inside the line, when the note gives the amount",
+     "goes_to": "CF.INV.STAKEDIV"
+    },
+    {
+     "item": "transfers between cash and restricted cash in filings that combine them in the cash total (not a cash flow)",
+     "goes_to": null
+    }
+   ]
+  },
+  {
+   "row_id": "CF.INV.CFI",
+   "section": "CF.INV",
+   "name": "Cash from investing",
+   "line_type": "subtotal",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Computed by code as the sum of the investing rows and checked against the printed net cash from investing activities, discontinued operations included once.",
+   "belongs": [],
+   "not_belongs": []
+  },
+  {
+   "row_id": "CF.FIN.BORROW",
+   "section": "CF.FIN",
+   "name": "Borrowing proceeds",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Cash received from new borrowing, short or long term, as printed, including the issuance of mandatorily redeemable shares. A printed net change in borrowings (proceeds less repayments in one line) also goes here, whatever its sign, marked net.",
+   "belongs": [
+    "proceeds from notes, bonds, term loans, credit lines, commercial paper, related-party and convertible debt",
+    "proceeds from issuing mandatorily redeemable shares",
+    "sale-and-leaseback proceeds printed in financing",
+    "net short-term borrowing, net commercial paper and net credit-line lines, whatever their sign, marked net"
+   ],
+   "not_belongs": [
+    {
+     "item": "repayments printed on their own line",
+     "goes_to": "CF.FIN.REPAY"
+    },
+    {
+     "item": "debt issuance costs printed on their own line",
+     "goes_to": "CF.FIN.OTHER"
+    },
+    {
+     "item": "preferred shares in equity or temporary equity",
+     "goes_to": "CF.FIN.PREFISSUE"
+    },
+    {
+     "item": "warrants",
+     "goes_to": "CF.FIN.OTHER"
+    }
+   ]
+  },
+  {
+   "row_id": "CF.FIN.REPAY",
+   "section": "CF.FIN",
+   "name": "Borrowing repayments (incl. finance-lease principal)",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Cash paid to repay borrowing principal, including finance-lease principal and the redemption of mandatorily redeemable shares, as printed.",
+   "belongs": [
+    "repayments of long- and short-term debt, credit lines and commercial paper",
+    "finance-lease principal payments",
+    "the principal part of settling zero-coupon debt",
+    "later principal payments to a seller who financed an asset purchase",
+    "redemption of mandatorily redeemable shares",
+    "a combined \"repayments of debt and finance lease obligations\" line"
+   ],
+   "not_belongs": [
+    {
+     "item": "debt extinguishment premiums and costs",
+     "goes_to": "CF.FIN.OTHER"
+    },
+    {
+     "item": "accreted interest paid on settling zero-coupon debt (an operating cash flow, not a financing line)",
+     "goes_to": null
+    },
+    {
+     "item": "operating-lease payments (operating cash flows, not a financing line)",
+     "goes_to": null
+    }
+   ]
+  },
+  {
+   "row_id": "CF.FIN.COMISSUE",
+   "section": "CF.FIN",
+   "name": "Common issuance",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Cash received for issuing the parent's common shares, as printed.",
+   "belongs": [
+    "issuance of common shares, option exercises, employee share purchases",
+    "treasury shares reissued for cash",
+    "a combined \"issuance of common and preferred shares\" line that no note splits, kept whole, marked mixed"
+   ],
+   "not_belongs": [
+    {
+     "item": "preferred issuance",
+     "goes_to": "CF.FIN.PREFISSUE"
+    },
+    {
+     "item": "contributions from non-controlling owners",
+     "goes_to": "CF.FIN.NCI"
+    },
+    {
+     "item": "warrants and equity issuance costs printed on their own line",
+     "goes_to": "CF.FIN.OTHER"
+    },
+    {
+     "item": "shares issued for acquisitions or conversions (no cash)",
+     "goes_to": null
+    }
+   ]
+  },
+  {
+   "row_id": "CF.FIN.PREFISSUE",
+   "section": "CF.FIN",
+   "name": "Preferred issuance",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Cash received for issuing the parent's preferred shares classified in equity or temporary equity, as printed.",
+   "belongs": [
+    "preferred, convertible preferred and redeemable preferred shown in temporary equity"
+   ],
+   "not_belongs": [
+    {
+     "item": "mandatorily redeemable shares",
+     "goes_to": "CF.FIN.BORROW"
+    },
+    {
+     "item": "a subsidiary's preferred sold to outsiders",
+     "goes_to": "CF.FIN.NCI"
+    }
+   ]
+  },
+  {
+   "row_id": "CF.FIN.REPURCH",
+   "section": "CF.FIN",
+   "name": "Common repurchases",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Cash paid to buy back the parent's common shares, including shares withheld to pay employees' taxes on share awards, as printed.",
+   "belongs": [
+    "open-market and accelerated repurchases",
+    "payments for shares withheld for employees' taxes, kept as their own printed line"
+   ],
+   "not_belongs": [
+    {
+     "item": "warrant and other equity repurchases",
+     "goes_to": "CF.FIN.OTHER"
+    },
+    {
+     "item": "preferred redemptions",
+     "goes_to": "CF.FIN.PREFREDEEM"
+    },
+    {
+     "item": "buying out non-controlling owners while keeping control",
+     "goes_to": "CF.FIN.NCI"
+    }
+   ]
+  },
+  {
+   "row_id": "CF.FIN.PREFREDEEM",
+   "section": "CF.FIN",
+   "name": "Preferred redemptions",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Cash paid to redeem or buy back the parent's preferred shares classified in equity or temporary equity, as printed.",
+   "belongs": [
+    "redemptions and repurchases of preferred, convertible preferred and redeemable preferred"
+   ],
+   "not_belongs": [
+    {
+     "item": "redemption of mandatorily redeemable shares",
+     "goes_to": "CF.FIN.REPAY"
+    },
+    {
+     "item": "a subsidiary's preferred held by outsiders",
+     "goes_to": "CF.FIN.NCI"
+    }
+   ]
+  },
+  {
+   "row_id": "CF.FIN.COMDIV",
+   "section": "CF.FIN",
+   "name": "Common dividends",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Cash dividends and other capital distributions paid to the parent's common shareholders, as printed.",
+   "belongs": [
+    "common dividends; capital distributions to common holders",
+    "a single \"dividends paid\" line covering common and other holders that no note splits, kept whole, marked mixed"
+   ],
+   "not_belongs": [
+    {
+     "item": "preferred dividends",
+     "goes_to": "CF.FIN.PREFDIV"
+    },
+    {
+     "item": "dividends to non-controlling owners",
+     "goes_to": "CF.FIN.NCI"
+    },
+    {
+     "item": "dividends declared but unpaid",
+     "goes_to": null
+    }
+   ]
+  },
+  {
+   "row_id": "CF.FIN.PREFDIV",
+   "section": "CF.FIN",
+   "name": "Preferred dividends",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Cash dividends paid to holders of the parent's preferred shares classified in equity or temporary equity, as printed.",
+   "belongs": [
+    "preferred dividends paid in cash"
+   ],
+   "not_belongs": [
+    {
+     "item": "distributions on mandatorily redeemable shares printed in financing",
+     "goes_to": "CF.FIN.OTHER"
+    },
+    {
+     "item": "dividends on a subsidiary's preferred held by outsiders",
+     "goes_to": "CF.FIN.NCI"
+    },
+    {
+     "item": "dividends paid in kind",
+     "goes_to": null
+    }
+   ]
+  },
+  {
+   "row_id": "CF.FIN.NCI",
+   "section": "CF.FIN",
+   "name": "NCI owner transactions",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Cash flows with outside owners of consolidated subsidiaries while the parent keeps control, reported in financing: their contributions, dividends paid to them, and purchases or sales of subsidiary stakes that do not change control.",
+   "belongs": [
+    "contributions from non-controlling owners",
+    "dividends and distributions to them",
+    "buying more of a subsidiary already controlled, reported in financing",
+    "selling part of a subsidiary while keeping control",
+    "purchases of redeemable non-controlling interests"
+   ],
+   "not_belongs": [
+    {
+     "item": "a purchase that obtains control",
+     "goes_to": "CF.INV.ACQ"
+    },
+    {
+     "item": "a sale that loses control",
+     "goes_to": "CF.INV.DIVEST"
+    },
+    {
+     "item": "buying more of an already-controlled subsidiary, printed in investing",
+     "goes_to": "CF.INV.OTHER"
+    }
+   ]
+  },
+  {
+   "row_id": "CF.FIN.OTHER",
+   "section": "CF.FIN",
+   "name": "Other financing",
+   "line_type": "item",
+   "policy": "catch_all",
+   "extra_evidence": null,
+   "definition": "Every financing cash flow that no other financing row takes, as printed.",
+   "belongs": [
+    "debt issuance costs; debt extinguishment premiums and costs",
+    "equity issuance costs printed on their own line",
+    "warrants issued or repurchased",
+    "contingent consideration paid after the acquisition, up to the acquisition-date liability",
+    "financing derivatives",
+    "distributions on mandatorily redeemable shares printed in financing",
+    "a discontinued financing line printed on its own, only where its parts are not already in other rows",
+    "\"other, net\"",
+    "a combined financing line that no note splits and no other financing row names, kept whole, marked mixed"
+   ],
+   "not_belongs": [
+    {
+     "item": "contingent consideration paid soon after the acquisition",
+     "goes_to": "CF.INV.ACQ"
+    },
+    {
+     "item": "contingent consideration paid above the acquisition-date liability",
+     "goes_to": "CF.OP.WCOTHER"
+    },
+    {
+     "item": "transfers between cash and restricted cash (not a cash flow)",
+     "goes_to": null
+    }
+   ]
+  },
+  {
+   "row_id": "CF.FIN.CFF",
+   "section": "CF.FIN",
+   "name": "Cash from financing",
+   "line_type": "subtotal",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Computed by code as the sum of the financing rows and checked against the printed net cash from financing activities, which includes discontinued operations.",
+   "belongs": [],
+   "not_belongs": []
+  },
+  {
+   "row_id": "CF.REC.FX",
+   "section": "CF.REC",
+   "name": "FX effect on cash",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "The effect of exchange-rate changes on cash, cash equivalents and restricted cash held in foreign currencies, as printed.",
+   "belongs": [
+    "the exchange-rate effect line, including the discontinued part when printed in the same line"
+   ],
+   "not_belongs": [
+    {
+     "item": "foreign-exchange gains and losses in income",
+     "goes_to": "CF.OP.NONCASH"
+    }
+   ]
+  },
+  {
+   "row_id": "CF.REC.OTHER",
+   "section": "CF.REC",
+   "name": "Other cash-basis reconciliation",
+   "line_type": "item",
+   "policy": "catch_all",
+   "extra_evidence": null,
+   "definition": "Any printed line, other than the three section totals and the exchange-rate effect, that leads to the change in cash, cash equivalents and restricted cash.",
+   "belongs": [
+    "one net discontinued cash flow printed after the three sections, only where its parts are not already in other rows",
+    "the change in cash held for sale or in disposal groups when the printed beginning and ending totals exclude it",
+    "any other reconciling line the company prints"
+   ],
+   "not_belongs": [
+    {
+     "item": "a discontinued operating line printed inside the operating section",
+     "goes_to": "CF.OP.DISCOPS"
+    },
+    {
+     "item": "a discontinued investing line printed inside the investing section",
+     "goes_to": "CF.INV.OTHER"
+    },
+    {
+     "item": "a discontinued financing line printed inside the financing section",
+     "goes_to": "CF.FIN.OTHER"
+    },
+    {
+     "item": "transfers between cash and restricted cash (not a cash flow)",
+     "goes_to": null
+    }
+   ]
+  },
+  {
+   "row_id": "CF.REC.CHANGE",
+   "section": "CF.REC",
+   "name": "Change in cash",
+   "line_type": "control",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "For a company using the indirect method, computed by code as cash from operations + cash from investing + cash from financing + exchange-rate effect + other reconciliation, and checked against the printed change in cash, cash equivalents and restricted cash, including exchange-rate effects and discontinued operations. The computation for a direct-method company is parked as production.",
+   "belongs": [],
+   "not_belongs": []
+  },
+  {
+   "row_id": "CF.REC.BEGIN",
+   "section": "CF.REC",
+   "name": "Beginning cash",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Cash, cash equivalents and restricted cash at the start of the period, as printed in the cash flow statement.",
+   "belongs": [
+    "the printed beginning total, whatever its caption, including cash held for sale when the total includes it"
+   ],
+   "not_belongs": []
+  },
+  {
+   "row_id": "CF.REC.END",
+   "section": "CF.REC",
+   "name": "Ending cash",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Cash, cash equivalents and restricted cash at the end of the period, as printed in the cash flow statement.",
+   "belongs": [
+    "the printed ending total, whatever its caption, including cash held for sale when the total includes it"
+   ],
+   "not_belongs": []
+  },
+  {
+   "row_id": "CF.DIR.RECEIPTS",
+   "section": "CF.DIR",
+   "name": "Operating receipts",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Gross operating cash received, as printed in a direct-method statement: from customers, interest and dividends received, income tax refunds and other operating receipts.",
+   "belongs": [
+    "cash received from customers",
+    "interest and dividends received",
+    "income tax refunds",
+    "other operating receipts",
+    "a printed total of operating receipts when no parts are printed"
+   ],
+   "not_belongs": [
+    {
+     "item": "discontinued operating cash flow printed as its own line",
+     "goes_to": "CF.DIR.DISCOPS"
+    },
+    {
+     "item": "operating payments",
+     "goes_to": "CF.DIR.PAYMENTS"
+    }
+   ]
+  },
+  {
+   "row_id": "CF.DIR.PAYMENTS",
+   "section": "CF.DIR",
+   "name": "Operating payments",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Operating cash paid, at the printed amounts, in a direct-method statement: to suppliers and employees, for interest, for income taxes, for operating leases and other operating payments. A printed net income-tax payment or refund line is kept as printed, without grossing up; refunds printed separately go to operating receipts.",
+   "belongs": [
+    "payments to suppliers and employees",
+    "interest paid and income taxes paid",
+    "a printed net income-tax payment or refund line, kept as printed, not grossed up",
+    "operating lease payments, pension contributions, restructuring payments",
+    "other operating payments",
+    "a printed total of operating payments when no parts are printed"
+   ],
+   "not_belongs": [
+    {
+     "item": "income tax refunds printed separately",
+     "goes_to": "CF.DIR.RECEIPTS"
+    },
+    {
+     "item": "discontinued operating cash flow printed as its own line",
+     "goes_to": "CF.DIR.DISCOPS"
+    }
+   ]
+  },
+  {
+   "row_id": "CF.DIR.DISCOPS",
+   "section": "CF.DIR",
+   "name": "Discontinued operations, operating cash flow, direct method",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "The operating cash flow of discontinued operations when a direct-method company prints it as its own line in the operating section, at its printed amount, only to the extent its cash flows are not already included in the operating receipts and payments counted above.",
+   "belongs": [
+    "the discontinued operating cash flow line of a direct-method statement, as printed"
+   ],
+   "not_belongs": [
+    {
+     "item": "one discontinued line covering all sections, printed after the three sections",
+     "goes_to": "CF.REC.OTHER"
+    }
+   ]
+  },
+  {
+   "row_id": "BS.SUP.PERMEQ",
+   "section": "BS.SUP",
+   "name": "Consolidated permanent equity",
+   "line_type": "supplementary",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Memo: the filed total equity of the group, parent plus non-controlling interests, temporary equity excluded, read as printed, not spread.",
+   "belongs": [
+    "the printed \"total equity\" line"
+   ],
+   "not_belongs": [
+    {
+     "item": "temporary preferred",
+     "goes_to": "BS.CAP.TEMPPREF"
+    },
+    {
+     "item": "redeemable non-controlling interests",
+     "goes_to": "BS.CAP.TEMPNCI"
+    },
+    {
+     "item": "other temporary equity",
+     "goes_to": "BS.CAP.TEMPOTHER"
+    }
+   ]
+  },
+  {
+   "row_id": "BS.SUP.CURPENSION",
+   "section": "BS.SUP",
+   "name": "Current pension and postretirement liability",
+   "line_type": "supplementary",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Memo copy of the current liability for defined-benefit pension and other postretirement plans, from the face or the pension note. The amount itself stays in the row where the printed line went, usually Other current liabilities.",
+   "belongs": [
+    "a copy of the current pension and other postretirement benefit liability, whose printed line sits in BS.CL.OTHER or another current-liability row"
+   ],
+   "not_belongs": [
+    {
+     "item": "the noncurrent part",
+     "goes_to": "BS.NCL.PENSION"
+    },
+    {
+     "item": "accrued defined-contribution and other payroll benefits",
+     "goes_to": "BS.CL.OTHER"
+    }
+   ]
+  },
+  {
+   "row_id": "BS.SUP.CURLIABPREF",
+   "section": "BS.SUP",
+   "name": "Mandatorily redeemable shares, current",
+   "line_type": "supplementary",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Memo copy of shares classified as current liabilities because they must be redeemed (mandatorily redeemable shares of any class), at the carrying amount printed on the face or in the note. The amount itself stays in the borrowing row where the printed line went (Short-term borrowings or Current portion of long-term borrowings).",
+   "belongs": [
+    "a copy of mandatorily redeemable preferred and other mandatorily redeemable shares classified as current liabilities"
+   ],
+   "not_belongs": [
+    {
+     "item": "holder-redeemable preferred in temporary equity",
+     "goes_to": "BS.CAP.TEMPPREF"
+    },
+    {
+     "item": "the noncurrent part",
+     "goes_to": "BS.SUP.NCLIABPREF"
+    },
+    {
+     "item": "settlement amount and fair-value disclosures (note facts)",
+     "goes_to": null
+    }
+   ]
+  },
+  {
+   "row_id": "BS.SUP.NCLIABPREF",
+   "section": "BS.SUP",
+   "name": "Mandatorily redeemable shares, noncurrent",
+   "line_type": "supplementary",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Memo copy of mandatorily redeemable shares of any class classified as noncurrent liabilities, at the carrying amount printed on the face or in the note. The amount itself stays in Long-term borrowings.",
+   "belongs": [
+    "a copy of mandatorily redeemable preferred and other mandatorily redeemable shares classified as noncurrent liabilities"
+   ],
+   "not_belongs": [
+    {
+     "item": "holder-redeemable preferred",
+     "goes_to": "BS.CAP.TEMPPREF"
+    },
+    {
+     "item": "the current part",
+     "goes_to": "BS.SUP.CURLIABPREF"
+    },
+    {
+     "item": "fair-value disclosures",
+     "goes_to": null
+    }
+   ]
+  },
+  {
+   "row_id": "IS.SUP.WASB",
+   "section": "IS.SUP",
+   "name": "Basic weighted-average shares",
+   "line_type": "supplementary",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "The weighted-average number of common shares used for basic earnings per share, as printed. When the company prints one figure for basic and diluted, that figure goes here and in Diluted weighted-average shares.",
+   "belongs": [
+    "weighted-average basic shares or units",
+    "a single \"basic and diluted\" weighted-average share figure"
+   ],
+   "not_belongs": [
+    {
+     "item": "shares outstanding at period end or on the cover page",
+     "goes_to": null
+    },
+    {
+     "item": "diluted weighted-average shares",
+     "goes_to": "IS.SUP.WASD"
+    }
+   ]
+  },
+  {
+   "row_id": "IS.SUP.WASD",
+   "section": "IS.SUP",
+   "name": "Diluted weighted-average shares",
+   "line_type": "supplementary",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "The weighted-average number of shares used for diluted earnings per share, as printed. When the company prints one figure for basic and diluted, that figure goes here and in Basic weighted-average shares.",
+   "belongs": [
+    "weighted-average diluted shares or units",
+    "a single \"basic and diluted\" weighted-average share figure"
+   ],
+   "not_belongs": [
+    {
+     "item": "the incremental dilutive shares alone",
+     "goes_to": null
+    },
+    {
+     "item": "basic weighted-average shares",
+     "goes_to": "IS.SUP.WASB"
+    }
+   ]
+  },
+  {
+   "row_id": "IS.CMN.EPSB",
+   "section": "IS.SUP",
+   "name": "Basic EPS",
+   "line_type": "supplementary",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Basic earnings per share on net income available to common, as printed. When the company prints one figure for basic and diluted, that figure goes here and in Diluted EPS. Never added to anything.",
+   "belongs": [
+    "basic earnings per share on net income",
+    "a single \"basic and diluted\" earnings per share figure"
+   ],
+   "not_belongs": [
+    {
+     "item": "per-share earnings from continuing operations and per-share discontinued operations",
+     "goes_to": null
+    },
+    {
+     "item": "dividends per share",
+     "goes_to": null
+    },
+    {
+     "item": "diluted earnings per share",
+     "goes_to": "IS.CMN.EPSD"
+    }
+   ]
+  },
+  {
+   "row_id": "IS.CMN.EPSD",
+   "section": "IS.SUP",
+   "name": "Diluted EPS",
+   "line_type": "supplementary",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Diluted earnings per share on net income available to common, as printed. When the company prints one figure for basic and diluted, that figure goes here and in Basic EPS. Never added to anything.",
+   "belongs": [
+    "diluted earnings per share on net income",
+    "a single \"basic and diluted\" earnings per share figure"
+   ],
+   "not_belongs": [
+    {
+     "item": "per-share earnings from continuing operations and per-share discontinued operations",
+     "goes_to": null
+    },
+    {
+     "item": "basic earnings per share",
+     "goes_to": "IS.CMN.EPSB"
+    }
+   ]
+  },
+  {
+   "row_id": "IS.SUP.DA",
+   "section": "IS.SUP",
+   "name": "D&A expense",
+   "line_type": "supplementary",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Memo: depreciation, depletion and amortisation of property, plant and equipment, finance-lease right-of-use assets and intangible assets charged to income in the period, wherever it sits in the income statement, as given on the face or in the notes. A figure given only in the cash flow statement is not taken here.",
+   "belongs": [
+    "a copy of depreciation and amortisation printed on the face, or inside cost of sales or SG&A when a note gives the amount",
+    "depletion",
+    "amortisation of acquired intangibles and of capitalised software",
+    "amortisation of finance-lease right-of-use assets"
+   ],
+   "not_belongs": [
+    {
+     "item": "amortisation of debt discount and issuance costs",
+     "goes_to": null
+    },
+    {
+     "item": "reduction of operating-lease right-of-use assets",
+     "goes_to": null
+    },
+    {
+     "item": "impairment",
+     "goes_to": "IS.SUP.IMPAIR"
+    },
+    {
+     "item": "the depreciation and amortisation add-back in the cash flow statement",
+     "goes_to": "CF.OP.DA"
+    }
+   ]
+  },
+  {
+   "row_id": "IS.SUP.CAPINT",
+   "section": "IS.SUP",
+   "name": "Capitalized interest",
+   "line_type": "supplementary",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Memo: interest cost capitalised into the cost of assets in the period, as given in the notes or on the face.",
+   "belongs": [
+    "interest capitalised during the period"
+   ],
+   "not_belongs": [
+    {
+     "item": "total interest incurred, capitalised plus expensed",
+     "goes_to": null
+    },
+    {
+     "item": "cash paid for capitalised interest, when printed in investing",
+     "goes_to": "CF.INV.CAPEX"
+    }
+   ]
+  },
+  {
+   "row_id": "IS.SUP.RESTRUCT",
+   "section": "IS.SUP",
+   "name": "Restructuring",
+   "line_type": "supplementary",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Memo copy of charges for exit or disposal activities under a restructuring plan recognised in the period, wherever printed, as given on the face or in the restructuring note. The amount itself stays in the statement row where the printed line went, usually Other operating income/expense.",
+   "belongs": [
+    "severance and termination benefits under a restructuring plan",
+    "contract termination, facility closure and relocation costs under the plan",
+    "a restructuring charge that includes asset write-downs the note does not split, kept whole, marked mixed"
+   ],
+   "not_belongs": [
+    {
+     "item": "asset write-downs the restructuring note gives separately",
+     "goes_to": "IS.SUP.IMPAIR"
+    },
+    {
+     "item": "losses on selling assets under the plan, given separately",
+     "goes_to": "IS.SUP.GAINLOSS"
+    },
+    {
+     "item": "restructuring of discontinued operations",
+     "goes_to": "IS.NI.DISCOPS"
+    }
+   ]
+  },
+  {
+   "row_id": "IS.SUP.IMPAIR",
+   "section": "IS.SUP",
+   "name": "Impairment",
+   "line_type": "supplementary",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Memo copy of impairment charges on goodwill, intangible assets, property and equipment, right-of-use assets and equity-method investments recognised in the period, wherever printed, as given on the face or in the notes. The amount itself stays in the statement row where the printed line went.",
+   "belongs": [
+    "goodwill impairment",
+    "impairment of intangible assets, in-process research and development from a business combination included",
+    "impairment of property, plant and equipment, long-lived assets held for use and right-of-use assets",
+    "impairment of equity-method investments",
+    "asset write-downs the restructuring note gives separately"
+   ],
+   "not_belongs": [
+    {
+     "item": "inventory write-downs (they stay in cost of revenue)",
+     "goes_to": null
+    },
+    {
+     "item": "credit-loss expense on receivables",
+     "goes_to": null
+    },
+    {
+     "item": "impairment inside discontinued operations",
+     "goes_to": "IS.NI.DISCOPS"
+    },
+    {
+     "item": "a restructuring charge with write-downs the note does not split",
+     "goes_to": "IS.SUP.RESTRUCT"
+    }
+   ]
+  },
+  {
+   "row_id": "IS.SUP.GAINLOSS",
+   "section": "IS.SUP",
+   "name": "Disposal gain/loss",
+   "line_type": "supplementary",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Memo copy of gains and losses on selling or disposing of property and equipment, intangible assets, businesses not reported as discontinued, and equity-method stakes, recognised in the period, wherever printed. The amount itself stays in the statement row where the printed line went.",
+   "belongs": [
+    "gains and losses on sale of property, plant and equipment and intangibles",
+    "gains and losses on disposing of a business or disposal group not reported as discontinued",
+    "gains and losses on selling or disposing of an equity-method stake"
+   ],
+   "not_belongs": [
+    {
+     "item": "gains and losses on debt and equity securities",
+     "goes_to": "IS.NOP.INVOTHER"
+    },
+    {
+     "item": "gains and losses on extinguishing debt",
+     "goes_to": "IS.NOP.OTHER"
+    },
+    {
+     "item": "disposal gains inside discontinued operations",
+     "goes_to": "IS.NI.DISCOPS"
+    }
+   ]
+  },
+  {
+   "row_id": "IS.SUP.LITIG",
+   "section": "IS.SUP",
+   "name": "Litigation",
+   "line_type": "supplementary",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Memo copy of losses and gains recognised in the period for lawsuits and claims, accruals and settlements alike, wherever printed, as given on the face or in the notes. The amount itself stays in the statement row where the printed line went.",
+   "belongs": [
+    "litigation and claim accruals, including revisions of earlier estimates",
+    "litigation settlements, paid or received",
+    "a litigation line that includes legal fees the note does not split, kept whole, marked mixed"
+   ],
+   "not_belongs": [
+    {
+     "item": "routine legal fees",
+     "goes_to": "IS.OP.SGA"
+    },
+    {
+     "item": "the accrued litigation liability",
+     "goes_to": null
+    }
+   ]
+  },
+  {
+   "row_id": "IS.SUP.OPLEASECOST",
+   "section": "IS.SUP",
+   "name": "Operating lease cost",
+   "line_type": "supplementary",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Memo: operating lease cost disclosed under ASC 842 in the lease note, excluding separately disclosed variable and short-term lease cost. The disclosed amount may include costs capitalised into another asset; whether it does is kept, and the whole amount is not described as expense charged to current-period income.",
+   "belongs": [
+    "operating lease cost from the lease note, as disclosed, any part capitalised into another asset included"
+   ],
+   "not_belongs": [
+    {
+     "item": "variable lease cost and short-term lease cost",
+     "goes_to": null
+    },
+    {
+     "item": "finance lease interest",
+     "goes_to": "IS.NOP.INTEXP"
+    },
+    {
+     "item": "amortisation of finance-lease right-of-use assets",
+     "goes_to": "IS.SUP.DA"
+    },
+    {
+     "item": "sublease income",
+     "goes_to": null
+    }
+   ]
+  },
+  {
+   "row_id": "CF.SUP.INTPAID",
+   "section": "CF.SUP",
+   "name": "Cash interest paid, net of capitalized interest",
+   "line_type": "supplementary",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Memo: cash paid for interest in the period, excluding interest capitalized, as the company discloses it. Establish the basis from the caption, surrounding disclosure and the reporting requirement applicable to that period. When the basis is inferred from that requirement, record it as inferred. Explicit disclosure of another basis takes precedence. If the basis remains unknown or conflicting, leave this row empty. A figure that includes capitalized interest, or whose basis is not established, does not fill this row; it stays a separately labelled note fact, and this row stays empty. No net amount is reconstructed from amounts disclosed apart.",
+   "belongs": [
+    "\"interest paid, net of amounts capitalized\"",
+    "the supplemental cash-interest payment disclosed under the indirect cash-flow method in US GAAP, even when captioned only \"interest paid\", unless the filing identifies a different basis"
+   ],
+   "not_belongs": [
+    {
+     "item": "interest paid including capitalized interest, or an \"interest paid\" figure whose basis remains unknown or conflicting (a labelled note fact)",
+     "goes_to": null
+    },
+    {
+     "item": "cash paid for capitalized interest (not the same as interest capitalized in the period)",
+     "goes_to": null
+    },
+    {
+     "item": "interest received (not netted here)",
+     "goes_to": null
+    },
+    {
+     "item": "a net amount reconstructed from gross interest paid and interest capitalized disclosed apart",
+     "goes_to": null
+    }
+   ]
+  },
+  {
+   "row_id": "CF.SUP.TAXPAID",
+   "section": "CF.SUP",
+   "name": "Cash income taxes paid, net of refunds",
+   "line_type": "supplementary",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Memo: cash paid for income taxes in the period, net of refunds, as the company discloses it. Establish the basis from the caption, surrounding disclosure and the reporting requirement applicable to that period. When the basis is inferred from that requirement, record it as inferred. Explicit disclosure of another basis takes precedence. If the basis remains unknown or conflicting, leave this row empty. A gross figure, or one whose basis is not established, does not fill this row; it stays a separately labelled note fact. No net amount is reconstructed from amounts disclosed apart.",
+   "belongs": [
+    "\"income taxes paid, net of refunds\"",
+    "the annual cash-income-tax payment disclosed under the applicable net-of-refunds requirement, even when captioned only \"income taxes paid\", unless the filing identifies a different basis"
+   ],
+   "not_belongs": [
+    {
+     "item": "income taxes paid before refunds, or an \"income taxes paid\" figure whose basis remains unknown or conflicting (a labelled note fact)",
+     "goes_to": null
+    },
+    {
+     "item": "refunds disclosed on their own",
+     "goes_to": null
+    },
+    {
+     "item": "non-income taxes",
+     "goes_to": null
+    },
+    {
+     "item": "a net amount reconstructed from gross payments and refunds disclosed apart",
+     "goes_to": null
+    }
+   ]
+  }
+ ],
+ "relationships": [
+  {
+   "row_id": "BS.TOT.CA",
+   "op": "sum",
+   "terms": [
+    {
+     "row": "BS.CA.CASH",
+     "coef": 1
+    },
+    {
+     "row": "BS.CA.RESTCASH",
+     "coef": 1
+    },
+    {
+     "row": "BS.CA.DEBTSEC",
+     "coef": 1
+    },
+    {
+     "row": "BS.CA.EQSEC",
+     "coef": 1
+    },
+    {
+     "row": "BS.CA.TRADEREC",
+     "coef": 1
+    },
+    {
+     "row": "BS.CA.INVENT",
+     "coef": 1
+    },
+    {
+     "row": "BS.CA.AFFLOAN",
+     "coef": 1
+    },
+    {
+     "row": "BS.CA.OTHER",
+     "coef": 1
+    }
+   ]
+  },
+  {
+   "row_id": "BS.TOT.ASSETS",
+   "op": "sum",
+   "terms": [
+    {
+     "row": "BS.TOT.CA",
+     "coef": 1
+    },
+    {
+     "row": "BS.NCA.PPE",
+     "coef": 1
+    },
+    {
+     "row": "BS.NCA.GOODWILL",
+     "coef": 1
+    },
+    {
+     "row": "BS.NCA.INTANG",
+     "coef": 1
+    },
+    {
+     "row": "BS.NCA.RESTCASH",
+     "coef": 1
+    },
+    {
+     "row": "BS.NCA.DEBTSEC",
+     "coef": 1
+    },
+    {
+     "row": "BS.NCA.EQMETHOD",
+     "coef": 1
+    },
+    {
+     "row": "BS.NCA.EQSEC",
+     "coef": 1
+    },
+    {
+     "row": "BS.NCA.AFFLOAN",
+     "coef": 1
+    },
+    {
+     "row": "BS.NCA.OTHER",
+     "coef": 1
+    },
+    {
+     "row": "BS.NCA.OPROU",
+     "coef": 1
+    }
+   ]
+  },
+  {
+   "row_id": "BS.TOT.CL",
+   "op": "sum",
+   "terms": [
+    {
+     "row": "BS.CL.TRADEPAY",
+     "coef": 1
+    },
+    {
+     "row": "BS.CL.STBORROW",
+     "coef": 1
+    },
+    {
+     "row": "BS.CL.CPLTD",
+     "coef": 1
+    },
+    {
+     "row": "BS.CL.OPLEASE",
+     "coef": 1
+    },
+    {
+     "row": "BS.CL.FINLEASE",
+     "coef": 1
+    },
+    {
+     "row": "BS.CL.OTHER",
+     "coef": 1
+    }
+   ]
+  },
+  {
+   "row_id": "BS.TOT.LIAB",
+   "op": "sum",
+   "terms": [
+    {
+     "row": "BS.TOT.CL",
+     "coef": 1
+    },
+    {
+     "row": "BS.NCL.LTBORROW",
+     "coef": 1
+    },
+    {
+     "row": "BS.NCL.OPLEASE",
+     "coef": 1
+    },
+    {
+     "row": "BS.NCL.FINLEASE",
+     "coef": 1
+    },
+    {
+     "row": "BS.NCL.PENSION",
+     "coef": 1
+    },
+    {
+     "row": "BS.NCL.DEFTAX",
+     "coef": 1
+    },
+    {
+     "row": "BS.NCL.OTHER",
+     "coef": 1
+    }
+   ]
+  },
+  {
+   "row_id": "BS.TOT.LIABCAP",
+   "op": "sum",
+   "terms": [
+    {
+     "row": "BS.TOT.LIAB",
+     "coef": 1
+    },
+    {
+     "row": "BS.CAP.TEMPPREF",
+     "coef": 1
+    },
+    {
+     "row": "BS.CAP.TEMPNCI",
+     "coef": 1
+    },
+    {
+     "row": "BS.CAP.TEMPOTHER",
+     "coef": 1
+    },
+    {
+     "row": "BS.CAP.PARENTEQ",
+     "coef": 1
+    },
+    {
+     "row": "BS.CAP.PREF",
+     "coef": 1
+    },
+    {
+     "row": "BS.CAP.NCI",
+     "coef": 1
+    }
+   ]
+  },
+  {
+   "row_id": "IS.OP.GROSS",
+   "op": "sum",
+   "terms": [
+    {
+     "row": "IS.OP.REV",
+     "coef": 1
+    },
+    {
+     "row": "IS.OP.COR",
+     "coef": 1
+    }
+   ]
+  },
+  {
+   "row_id": "IS.OP.OPINC",
+   "op": "sum",
+   "terms": [
+    {
+     "row": "IS.OP.REV",
+     "coef": 1
+    },
+    {
+     "row": "IS.OP.COR",
+     "coef": 1
+    },
+    {
+     "row": "IS.OP.SGA",
+     "coef": 1
+    },
+    {
+     "row": "IS.OP.RD",
+     "coef": 1
+    },
+    {
+     "row": "IS.OP.OTHER",
+     "coef": 1
+    }
+   ]
+  },
+  {
+   "row_id": "IS.TAX.PRETAX",
+   "op": "sum",
+   "terms": [
+    {
+     "row": "IS.OP.OPINC",
+     "coef": 1
+    },
+    {
+     "row": "IS.NOP.INTEXP",
+     "coef": 1
+    },
+    {
+     "row": "IS.NOP.INTINC",
+     "coef": 1
+    },
+    {
+     "row": "IS.NOP.INVOTHER",
+     "coef": 1
+    },
+    {
+     "row": "IS.NOP.OTHER",
+     "coef": 1
+    }
+   ]
+  },
+  {
+   "row_id": "IS.TAX.CONTNI",
+   "op": "sum",
+   "terms": [
+    {
+     "row": "IS.TAX.PRETAX",
+     "coef": 1
+    },
+    {
+     "row": "IS.TAX.TAX",
+     "coef": 1
+    },
+    {
+     "row": "IS.NOP.EQMETHOD",
+     "coef": 1
+    }
+   ]
+  },
+  {
+   "row_id": "IS.NI.CONSOL",
+   "op": "sum",
+   "terms": [
+    {
+     "row": "IS.TAX.CONTNI",
+     "coef": 1
+    },
+    {
+     "row": "IS.NI.DISCOPS",
+     "coef": 1
+    },
+    {
+     "row": "IS.NI.OTHER",
+     "coef": 1
+    }
+   ]
+  },
+  {
+   "row_id": "IS.NI.PARENT",
+   "op": "sum",
+   "terms": [
+    {
+     "row": "IS.NI.CONSOL",
+     "coef": 1
+    },
+    {
+     "row": "IS.NI.NCI",
+     "coef": 1
+    }
+   ]
+  },
+  {
+   "row_id": "IS.CMN.AVAIL",
+   "op": "sum",
+   "terms": [
+    {
+     "row": "IS.NI.PARENT",
+     "coef": 1
+    },
+    {
+     "row": "IS.CMN.PREFDIV",
+     "coef": 1
+    },
+    {
+     "row": "IS.CMN.OTHER",
+     "coef": 1
+    }
+   ]
+  },
+  {
+   "row_id": "CF.OP.CFO",
+   "op": "sum",
+   "terms": [
+    {
+     "row": "CF.OP.START",
+     "coef": 1
+    },
+    {
+     "row": "CF.OP.DA",
+     "coef": 1
+    },
+    {
+     "row": "CF.OP.IMPAIR",
+     "coef": 1
+    },
+    {
+     "row": "CF.OP.GAINLOSS",
+     "coef": 1
+    },
+    {
+     "row": "CF.OP.SBC",
+     "coef": 1
+    },
+    {
+     "row": "CF.OP.DEFTAX",
+     "coef": 1
+    },
+    {
+     "row": "CF.OP.NONCASH",
+     "coef": 1
+    },
+    {
+     "row": "CF.OP.AR",
+     "coef": 1
+    },
+    {
+     "row": "CF.OP.INVENT",
+     "coef": 1
+    },
+    {
+     "row": "CF.OP.AP",
+     "coef": 1
+    },
+    {
+     "row": "CF.OP.WCOTHER",
+     "coef": 1
+    },
+    {
+     "row": "CF.OP.DISCOPS",
+     "coef": 1
+    }
+   ]
+  },
+  {
+   "row_id": "CF.INV.CFI",
+   "op": "sum",
+   "terms": [
+    {
+     "row": "CF.INV.CAPEX",
+     "coef": 1
+    },
+    {
+     "row": "CF.INV.DISPOSAL",
+     "coef": 1
+    },
+    {
+     "row": "CF.INV.ACQ",
+     "coef": 1
+    },
+    {
+     "row": "CF.INV.DIVEST",
+     "coef": 1
+    },
+    {
+     "row": "CF.INV.INVBUY",
+     "coef": 1
+    },
+    {
+     "row": "CF.INV.INVSELL",
+     "coef": 1
+    },
+    {
+     "row": "CF.INV.STAKEDIV",
+     "coef": 1
+    },
+    {
+     "row": "CF.INV.OTHER",
+     "coef": 1
+    }
+   ]
+  },
+  {
+   "row_id": "CF.FIN.CFF",
+   "op": "sum",
+   "terms": [
+    {
+     "row": "CF.FIN.BORROW",
+     "coef": 1
+    },
+    {
+     "row": "CF.FIN.REPAY",
+     "coef": 1
+    },
+    {
+     "row": "CF.FIN.COMISSUE",
+     "coef": 1
+    },
+    {
+     "row": "CF.FIN.PREFISSUE",
+     "coef": 1
+    },
+    {
+     "row": "CF.FIN.REPURCH",
+     "coef": 1
+    },
+    {
+     "row": "CF.FIN.PREFREDEEM",
+     "coef": 1
+    },
+    {
+     "row": "CF.FIN.COMDIV",
+     "coef": 1
+    },
+    {
+     "row": "CF.FIN.PREFDIV",
+     "coef": 1
+    },
+    {
+     "row": "CF.FIN.NCI",
+     "coef": 1
+    },
+    {
+     "row": "CF.FIN.OTHER",
+     "coef": 1
+    }
+   ]
+  },
+  {
+   "row_id": "CF.REC.CHANGE",
+   "op": "sum",
+   "terms": [
+    {
+     "row": "CF.OP.CFO",
+     "coef": 1
+    },
+    {
+     "row": "CF.INV.CFI",
+     "coef": 1
+    },
+    {
+     "row": "CF.FIN.CFF",
+     "coef": 1
+    },
+    {
+     "row": "CF.REC.FX",
+     "coef": 1
+    },
+    {
+     "row": "CF.REC.OTHER",
+     "coef": 1
+    }
+   ]
+  }
+ ],
+ "controls": [
+  {
+   "section": "BS.CA",
+   "compare": {
+    "op": "sum",
+    "terms": [
+     {
+      "row": "BS.CA.CASH",
+      "coef": 1
+     },
+     {
+      "row": "BS.CA.RESTCASH",
+      "coef": 1
+     },
+     {
+      "row": "BS.CA.DEBTSEC",
+      "coef": 1
+     },
+     {
+      "row": "BS.CA.EQSEC",
+      "coef": 1
+     },
+     {
+      "row": "BS.CA.TRADEREC",
+      "coef": 1
+     },
+     {
+      "row": "BS.CA.INVENT",
+      "coef": 1
+     },
+     {
+      "row": "BS.CA.AFFLOAN",
+      "coef": 1
+     },
+     {
+      "row": "BS.CA.OTHER",
+      "coef": 1
+     }
+    ]
+   },
+   "filed": "us-gaap:AssetsCurrent",
+   "reconstructed": null,
+   "tolerance": "half_unit_sum"
+  },
+  {
+   "section": "BS.NCA",
+   "compare": {
+    "op": "sum",
+    "terms": [
+     {
+      "row": "BS.NCA.PPE",
+      "coef": 1
+     },
+     {
+      "row": "BS.NCA.GOODWILL",
+      "coef": 1
+     },
+     {
+      "row": "BS.NCA.INTANG",
+      "coef": 1
+     },
+     {
+      "row": "BS.NCA.RESTCASH",
+      "coef": 1
+     },
+     {
+      "row": "BS.NCA.DEBTSEC",
+      "coef": 1
+     },
+     {
+      "row": "BS.NCA.EQMETHOD",
+      "coef": 1
+     },
+     {
+      "row": "BS.NCA.EQSEC",
+      "coef": 1
+     },
+     {
+      "row": "BS.NCA.AFFLOAN",
+      "coef": 1
+     },
+     {
+      "row": "BS.NCA.OTHER",
+      "coef": 1
+     },
+     {
+      "row": "BS.NCA.OPROU",
+      "coef": 1
+     }
+    ]
+   },
+   "filed": "us-gaap:AssetsNoncurrent",
+   "reconstructed": {
+    "op": "difference",
+    "terms": [
+     {
+      "concept": "us-gaap:Assets",
+      "coef": 1
+     },
+     {
+      "concept": "us-gaap:AssetsCurrent",
+      "coef": -1
+     }
+    ]
+   },
+   "tolerance": "half_unit_sum"
+  },
+  {
+   "section": "BS.CL",
+   "compare": {
+    "op": "sum",
+    "terms": [
+     {
+      "row": "BS.CL.TRADEPAY",
+      "coef": 1
+     },
+     {
+      "row": "BS.CL.STBORROW",
+      "coef": 1
+     },
+     {
+      "row": "BS.CL.CPLTD",
+      "coef": 1
+     },
+     {
+      "row": "BS.CL.OPLEASE",
+      "coef": 1
+     },
+     {
+      "row": "BS.CL.FINLEASE",
+      "coef": 1
+     },
+     {
+      "row": "BS.CL.OTHER",
+      "coef": 1
+     }
+    ]
+   },
+   "filed": "us-gaap:LiabilitiesCurrent",
+   "reconstructed": null,
+   "tolerance": "half_unit_sum"
+  },
+  {
+   "section": "BS.NCL",
+   "compare": {
+    "op": "sum",
+    "terms": [
+     {
+      "row": "BS.NCL.LTBORROW",
+      "coef": 1
+     },
+     {
+      "row": "BS.NCL.OPLEASE",
+      "coef": 1
+     },
+     {
+      "row": "BS.NCL.FINLEASE",
+      "coef": 1
+     },
+     {
+      "row": "BS.NCL.PENSION",
+      "coef": 1
+     },
+     {
+      "row": "BS.NCL.DEFTAX",
+      "coef": 1
+     },
+     {
+      "row": "BS.NCL.OTHER",
+      "coef": 1
+     }
+    ]
+   },
+   "filed": "us-gaap:LiabilitiesNoncurrent",
+   "reconstructed": {
+    "op": "difference",
+    "terms": [
+     {
+      "concept": "us-gaap:Liabilities",
+      "coef": 1
+     },
+     {
+      "concept": "us-gaap:LiabilitiesCurrent",
+      "coef": -1
+     }
+    ]
+   },
+   "tolerance": "half_unit_sum"
+  },
+  {
+   "section": "BS.CAP",
+   "compare": {
+    "op": "sum",
+    "terms": [
+     {
+      "row": "BS.CAP.PARENTEQ",
+      "coef": 1
+     },
+     {
+      "row": "BS.CAP.PREF",
+      "coef": 1
+     }
+    ]
+   },
+   "filed": "us-gaap:StockholdersEquity",
+   "reconstructed": null,
+   "tolerance": "half_unit_sum"
+  },
+  {
+   "section": "BS.TOT",
+   "compare": {
+    "row": "BS.TOT.LIABCAP"
+   },
+   "filed": "us-gaap:LiabilitiesAndStockholdersEquity",
+   "reconstructed": null,
+   "tolerance": "half_unit_sum"
+  },
+  {
+   "section": "IS.OP",
+   "compare": {
+    "row": "IS.OP.OPINC"
+   },
+   "filed": "us-gaap:OperatingIncomeLoss",
+   "reconstructed": null,
+   "tolerance": "half_unit_sum"
+  },
+  {
+   "section": "IS.NOP",
+   "compare": {
+    "op": "sum",
+    "terms": [
+     {
+      "row": "IS.NOP.INTEXP",
+      "coef": 1
+     },
+     {
+      "row": "IS.NOP.INTINC",
+      "coef": 1
+     },
+     {
+      "row": "IS.NOP.INVOTHER",
+      "coef": 1
+     },
+     {
+      "row": "IS.NOP.OTHER",
+      "coef": 1
+     }
+    ]
+   },
+   "filed": null,
+   "reconstructed": {
+    "op": "difference",
+    "terms": [
+     {
+      "concept": "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+      "coef": 1
+     },
+     {
+      "concept": "us-gaap:OperatingIncomeLoss",
+      "coef": -1
+     }
+    ]
+   },
+   "tolerance": "half_unit_sum"
+  },
+  {
+   "section": "IS.TAX",
+   "compare": {
+    "op": "sum",
+    "terms": [
+     {
+      "row": "IS.TAX.PRETAX",
+      "coef": 1
+     },
+     {
+      "row": "IS.NOP.EQMETHOD",
+      "coef": 1
+     }
+    ]
+   },
+   "filed": "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+   "reconstructed": null,
+   "tolerance": "half_unit_sum"
+  },
+  {
+   "section": "IS.NI",
+   "compare": {
+    "row": "IS.NI.PARENT"
+   },
+   "filed": "us-gaap:NetIncomeLoss",
+   "reconstructed": null,
+   "tolerance": "half_unit_sum"
+  },
+  {
+   "section": "IS.CMN",
+   "compare": {
+    "row": "IS.CMN.AVAIL"
+   },
+   "filed": "us-gaap:NetIncomeLossAvailableToCommonStockholdersBasic",
+   "reconstructed": null,
+   "tolerance": "half_unit_sum"
+  },
+  {
+   "section": "CF.OP",
+   "compare": {
+    "row": "CF.OP.CFO"
+   },
+   "filed": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+   "reconstructed": null,
+   "tolerance": "half_unit_sum"
+  },
+  {
+   "section": "CF.INV",
+   "compare": {
+    "row": "CF.INV.CFI"
+   },
+   "filed": "us-gaap:NetCashProvidedByUsedInInvestingActivities",
+   "reconstructed": null,
+   "tolerance": "half_unit_sum"
+  },
+  {
+   "section": "CF.FIN",
+   "compare": {
+    "row": "CF.FIN.CFF"
+   },
+   "filed": "us-gaap:NetCashProvidedByUsedInFinancingActivities",
+   "reconstructed": null,
+   "tolerance": "half_unit_sum"
+  },
+  {
+   "section": "CF.REC",
+   "compare": {
+    "row": "CF.REC.CHANGE"
+   },
+   "filed": "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalentsPeriodIncreaseDecreaseIncludingExchangeRateEffect",
+   "reconstructed": null,
+   "tolerance": "half_unit_sum"
+  },
+  {
+   "section": "CF.DIR",
+   "compare": {
+    "op": "sum",
+    "terms": [
+     {
+      "row": "CF.DIR.RECEIPTS",
+      "coef": 1
+     },
+     {
+      "row": "CF.DIR.PAYMENTS",
+      "coef": 1
+     },
+     {
+      "row": "CF.DIR.DISCOPS",
+      "coef": 1
+     }
+    ]
+   },
+   "filed": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+   "reconstructed": null,
+   "tolerance": "half_unit_sum"
+  }
+ ],
+ "report_checks": [
+  {
+   "id": "R1",
+   "name": "total assets against total liabilities and capital, as spread",
+   "kind": "spread",
+   "left": {
+    "row": "BS.TOT.ASSETS"
+   },
+   "right": {
+    "row": "BS.TOT.LIABCAP"
+   },
+   "period": "instant",
+   "tolerance": "half_unit_sum",
+   "deferred": null,
+   "note": "Both sides are totals of the spread's rows."
+  },
+  {
+   "id": "R2",
+   "name": "total assets against total liabilities and equity, as filed",
+   "kind": "filed",
+   "left": {
+    "concept": "us-gaap:Assets"
+   },
+   "right": {
+    "concept": "us-gaap:LiabilitiesAndStockholdersEquity"
+   },
+   "period": "instant",
+   "tolerance": "half_unit_sum",
+   "deferred": null,
+   "note": "Checks the filing, not the spread."
+  },
+  {
+   "id": "R3",
+   "name": "cash rows against the filed cash, cash equivalents and restricted cash",
+   "kind": "spread",
+   "left": {
+    "op": "sum",
+    "terms": [
+     {
+      "row": "BS.CA.CASH",
+      "coef": 1
+     },
+     {
+      "row": "BS.CA.RESTCASH",
+      "coef": 1
+     },
+     {
+      "row": "BS.NCA.RESTCASH",
+      "coef": 1
+     }
+    ]
+   },
+   "right": {
+    "concept": "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
+   },
+   "period": "instant",
+   "tolerance": "half_unit_sum",
+   "deferred": null,
+   "note": "A difference can be restricted cash the filing prints inside other lines, so other rows hold it."
+  },
+  {
+   "id": "R4",
+   "name": "equity rows including noncontrolling interest against the filed total equity",
+   "kind": "spread",
+   "left": {
+    "op": "sum",
+    "terms": [
+     {
+      "row": "BS.CAP.PARENTEQ",
+      "coef": 1
+     },
+     {
+      "row": "BS.CAP.PREF",
+      "coef": 1
+     },
+     {
+      "row": "BS.CAP.NCI",
+      "coef": 1
+     }
+    ]
+   },
+   "right": {
+    "concept": "us-gaap:StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest"
+   },
+   "period": "instant",
+   "tolerance": "half_unit_sum",
+   "deferred": null,
+   "note": "Unavailable when the filing prints no total equity including noncontrolling interest."
+  },
+  {
+   "id": "R5",
+   "name": "cash flow ending cash against balance sheet cash and restricted cash",
+   "kind": "spread",
+   "left": {
+    "row": "CF.REC.END"
+   },
+   "right": {
+    "op": "sum",
+    "terms": [
+     {
+      "row": "BS.CA.CASH",
+      "coef": 1
+     },
+     {
+      "row": "BS.CA.RESTCASH",
+      "coef": 1
+     },
+     {
+      "row": "BS.NCA.RESTCASH",
+      "coef": 1
+     }
+    ]
+   },
+   "period": "instant",
+   "tolerance": "half_unit_sum",
+   "deferred": "needs two statements",
+   "note": "Needs two statements; one run reads one statement."
+  },
+  {
+   "id": "R6",
+   "name": "income statement net income against the cash flow statement's starting net income",
+   "kind": "spread",
+   "left": {
+    "row": "IS.NI.CONSOL"
+   },
+   "right": {
+    "row": "CF.OP.START"
+   },
+   "period": "duration",
+   "tolerance": "half_unit_sum",
+   "deferred": "needs two statements",
+   "note": "Needs two statements; one run reads one statement."
+  }
+ ]
+}

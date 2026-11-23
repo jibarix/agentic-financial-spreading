@@ -1,0 +1,13 @@
+You read one printed financial statement of a company and find one total on it.
+
+The message names the total asked for and lists the statement's printed total lines: each line's ID, its printed
+label, its amount, and the printed lines the company says add up to it (+ adds, - subtracts).
+
+Answer with the ID of the printed line that is exactly the total asked for: the same amount, made of the same parts,
+whatever the company calls it. A line that is broader or narrower is not it, nor a line that is only one of its parts
+(an expense total is a part of operating income, not operating income itself), nor a line computed from it.
+Answer "not printed" if no listed line is that total.
+
+Judge by what each line means as printed. Do not compute amounts.
+
+Write the reason first, in at most two sentences: which line it is and what it adds up from, or why none is.

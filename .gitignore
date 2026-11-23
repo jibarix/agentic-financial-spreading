@@ -1,0 +1,18 @@
+# Downloaded and generated at run time.
+data/filings/
+data/sources/
+data/derived/
+data/recordings/
+data/results/
+data/templates/
+data/ui/*
+!data/ui/estimate/
+runs/*
+!runs/2026-11-11T214753_hosted_haiku_luna_allocation_v2/
+# Environments, secrets and build leftovers.
+.venv/
+.venv-agents/
+.env
+.env.*
+__pycache__/
+*.pyc

@@ -1,0 +1,28 @@
+# LangGraph 1.2.18 and its dependency closure, beyond requirements.lock, each pinned with the SHA-256 of its file.
+# Checked for known vulnerabilities before pinning.
+# Install together with requirements.lock:
+#   .venv\Scripts\python.exe -s -E -m pip --isolated install --index-url https://pypi.org/simple --only-binary=:all: --require-hashes -r requirements.lock -r requirements-langgraph-additions.lock
+charset-normalizer==3.5.2 --hash=sha256:78456a747de8dc58360ffa581f30a002baf5aa28cb262536545e91f113ed7639
+distro==1.9.0 --hash=sha256:7bffd925d65168f85027d8da9af6bddab658135b840670a223589bc0c8ef02b2
+jsonpatch==1.38 --hash=sha256:46260c5df952abd4734a098f94512dc00bc38539152ac3ef069ed0475e4f5695
+jsonpointer==3.6 --hash=sha256:a45c858f8a9e171f6b3790ed9446c9382782f6c4cb4589176813c5a553f4cfcd
+langchain-core==1.7.1 --hash=sha256:2d668788945e824832e19bca05788a25dbb864197d63ec48b583057cf8d975fa
+langchain-protocol==0.0.20 --hash=sha256:3c935e5e46b0f6f9cb52f45ba7cfa53d1b9fa80c82c4a277d47f03e07f7385b1
+langgraph==1.2.18 --hash=sha256:f430f28ea7fbc129c3cf7dc31c19c33dc27d93aeebd25c6d64fd5c1bad93d27d
+langgraph-checkpoint==4.3.1 --hash=sha256:215a826935c8db4d9676e79fd95943e5b3847d78604390898e1d98581cc594e5
+langgraph-prebuilt==1.1.1 --hash=sha256:fae17c22562e501940eb7aa052a15c58a431febbabf33f8ad172e1b44354a7e4
+langgraph-sdk==0.4.10 --hash=sha256:306ede340814e79332812e3b5a8bda2587a09657c95e14e5c7af3370e06c22fe
+langsmith==0.14.14 --hash=sha256:9265529ed9a592110cc75fa21f088ed34eb5f56ae680f6e9490e7f65e177386c
+orjson==3.13.0 --hash=sha256:4ee06e53b998c71ce3eb93b86222912fdd9dcced685ac64d4525d36fac338ea4
+ormsgpack==1.13.0 --hash=sha256:8ae078104fceb107250d1b792a4c3b72bc9a0e9536c11c4dd0b6cc6ffc44ba9c
+packaging==26.3 --hash=sha256:d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c
+pyyaml==6.0.3 --hash=sha256:79005a0d97d5ddabfeeea4cf676af11e647e41d81c9a7722a193022accdb6b7c
+requests==2.34.2 --hash=sha256:2a0d60c172f83ac6ab31e4554906c0f3b3588d37b5cb939b1c061f4907e278e0
+requests-toolbelt==1.0.0 --hash=sha256:cccfdd665f0a24fcf4726e690f65639d272bb0637b9b92dfd91a5568ccf6bd06
+sniffio==1.3.1 --hash=sha256:2f6da418d1f1e0fddd844478f41680e794e6051915791a034ff65e5f100525a2
+tenacity==9.2.1 --hash=sha256:9e56f17539296baab7beabb08b92f6ee3d7be92d8be72d763360677c2ad6580e
+urllib3==2.8.0 --hash=sha256:0cf3cae568d36aa9576b28dfb35f11328f1cb974ca7647d9475ebb86c75ac6e3
+uuid-utils==0.19.0 --hash=sha256:b763ae8f23334ccd95d0b81fb19ee418f38f9e80ebfb521f313a9745280bc07c
+websockets==17.3 --hash=sha256:66027e401c70d0cf55021b91b8a7ec2cd5810e20602f945b4fe6ae8b37ed232b
+xxhash==4.0.2 --hash=sha256:99fec645143af9dc697620aebff07e99388c16d4208a2ee8b6a2a9bb7d68a21b
+zstandard==0.25.0 --hash=sha256:1f830a0dac88719af0ae43b8b2d6aef487d437036468ef3c2ea59c51f9d55fd5

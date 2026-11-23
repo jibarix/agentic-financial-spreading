@@ -1,0 +1,17 @@
+{
+ "status": "draft",
+ "rule": "A location fact (an ExtensibleList at the period end, no dimensions) names the printed line that holds a component. Code moves the component's amount from that line's row to the component's row when every condition holds; otherwise the line is left as placed and an exception is recorded.",
+ "conditions": [
+  "the list holds exactly one location",
+  "the location concept is a printed line of the statement, in the same section as the component's row",
+  "the component has a fact at the same date, with no dimensions and the same unit; duplicate facts must carry one value",
+  "the component's amount is not already claimed and is not larger than the location line's amount",
+  "the location line's row differs from the component's row"
+ ],
+ "contracts": {
+  "us-gaap:OperatingLeaseLiabilityCurrentStatementOfFinancialPositionExtensibleList": {"component": "us-gaap:OperatingLeaseLiabilityCurrent", "row": "BS.CL.OPLEASE"},
+  "us-gaap:FinanceLeaseLiabilityCurrentStatementOfFinancialPositionExtensibleList": {"component": "us-gaap:FinanceLeaseLiabilityCurrent", "row": "BS.CL.FINLEASE"},
+  "us-gaap:OperatingLeaseLiabilityNoncurrentStatementOfFinancialPositionExtensibleList": {"component": "us-gaap:OperatingLeaseLiabilityNoncurrent", "row": "BS.NCL.OPLEASE"},
+  "us-gaap:FinanceLeaseLiabilityNoncurrentStatementOfFinancialPositionExtensibleList": {"component": "us-gaap:FinanceLeaseLiabilityNoncurrent", "row": "BS.NCL.FINLEASE"}
+ }
+}

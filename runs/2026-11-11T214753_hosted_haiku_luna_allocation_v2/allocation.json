@@ -1,0 +1,54 @@
+{
+ "about": "Configured spending ceilings for the hosted_haiku_luna line-up: per company role, per repair section and per hosted role. Not measured estimates. The job's own dollar ceiling stays binding over all of them.",
+ "company": {
+  "analyst": {
+   "calls": 4684,
+   "spend_usd": 1.0
+  },
+  "checker": {
+   "calls": 4684,
+   "spend_usd": 1.5
+  },
+  "generator": {
+   "calls": 4684,
+   "spend_usd": 1.0
+  },
+  "controller": {
+   "calls": 4684,
+   "spend_usd": 0.5
+  },
+  "meaning": {
+   "calls": 4684,
+   "spend_usd": 0.5
+  },
+  "critic": {
+   "calls": 4684,
+   "spend_usd": 0.5
+  }
+ },
+ "section": {
+  "spend_usd": 0.5,
+  "roles": {
+   "generator": {
+    "calls": 400,
+    "spend_usd": 0.3
+   },
+   "controller": {
+    "calls": 400,
+    "spend_usd": 0.15
+   },
+   "meaning": {
+    "calls": 400,
+    "spend_usd": 0.15
+   },
+   "critic": {
+    "calls": 400,
+    "spend_usd": 0.15
+   },
+   "checker": {
+    "calls": 400,
+    "spend_usd": 0.1
+   }
+  }
+ }
+}

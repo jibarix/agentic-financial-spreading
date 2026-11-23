@@ -1,0 +1,128 @@
+{
+ "about": "Default job settings for the UI: engine template v16, statements only (the repair tree is off), the line-ups the Run page offers with their dollar ceilings and step limits.",
+ "filing": "data/filings/907242/0001104659-26-018717",
+ "statements": [
+  {
+   "statement": "IS",
+   "num_ctx": 24576,
+   "max_calls": 100,
+   "max_tokens": 1200000,
+   "wall_s": 900
+  },
+  {
+   "statement": "CF",
+   "num_ctx": 24576,
+   "max_calls": 100,
+   "max_tokens": 600000,
+   "wall_s": 600
+  },
+  {
+   "statement": "BS",
+   "num_ctx": 16384,
+   "max_calls": 150,
+   "max_tokens": 1800000,
+   "wall_s": 1500
+  }
+ ],
+ "spread_args": [
+  "--no-a2",
+  "--cap",
+  "8",
+  "--answer-cap",
+  "600",
+  "--row-seed",
+  "20261029",
+  "--combined-fixes",
+  "--statements-only"
+ ],
+ "tree": {
+  "on": false,
+  "max_sections": 4,
+  "max_calls": 100,
+  "max_tokens": 1200000,
+  "wall_s": 600,
+  "args": [
+   "--num-ctx",
+   "8192",
+   "--answer-cap",
+   "1200"
+  ]
+ },
+ "company_limits": {
+  "requests": 400,
+  "tokens": 4800000,
+  "wall_s": 3600,
+  "haiku_requests": 80,
+  "haiku_dollars": 0.25
+ },
+ "lineups": {
+  "qwen_tree_minicpm_judge_fb_on": {
+   "spread_args": [
+    "--third-opinion",
+    "--third-model",
+    "ling3-tiny:q4_K_M",
+    "--model",
+    "analyst=qwen3.5:4b-q4_K_M",
+    "--model",
+    "checker=minicpm5:2b-q4_K_M",
+    "--checker-feedback"
+   ],
+   "tree_args": [
+    "--model",
+    "generator=qwen3.5:4b-q4_K_M",
+    "--model",
+    "controller=minicpm5:2b-q4_K_M",
+    "--model",
+    "critic=minicpm5:2b-q4_K_M",
+    "--model",
+    "meaning=qwen3.5:4b-q4_K_M",
+    "--role-num-ctx",
+    "meaning=16384",
+    "--critic-feedback",
+    "on"
+   ],
+   "pays": false,
+   "dollars_most": 0
+  },
+  "hosted": {
+   "spread_args": [
+    "--third-opinion",
+    "--engine",
+    "openrouter",
+    "--hosted-profile",
+    "flash"
+   ],
+   "tree_args": [
+    "--hosted-profile",
+    "flash"
+   ],
+   "pays": true,
+   "dollars_most": 1.0,
+   "allocation": "runs/2026-11-04T070735_hosted_allocation/allocation.json"
+  },
+  "hosted_haiku_luna": {
+   "spread_args": [
+    "--third-opinion",
+    "--engine",
+    "openrouter",
+    "--hosted-profile",
+    "haiku_luna",
+    "--checker-feedback"
+   ],
+   "tree_args": [
+    "--hosted-profile",
+    "haiku_luna",
+    "--critic-feedback",
+    "on",
+    "--num-ctx",
+    "32768"
+   ],
+   "pays": true,
+   "dollars_most": 3.0,
+   "allocation": "runs/2026-11-11T214753_hosted_haiku_luna_allocation_v2/allocation.json",
+   "num_ctx": 32768
+  }
+ },
+ "named_totals": true,
+ "template": "rulebook/draft/A1_template_v16.json"
+}

@@ -1,0 +1,2 @@
+# Store every file byte for byte: hashed prompts, goldens and recordings must not change on checkout.
+* -text

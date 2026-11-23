@@ -1,0 +1,236 @@
+{
+ "made": "2026-11-22T17:04:17+00:00",
+ "lineup": "hosted_haiku_luna",
+ "jobs": 26,
+ "dollars": {
+  "min": 0.014942725,
+  "max": 0.084655225,
+  "mean": 0.05311512930153846
+ },
+ "seconds": {
+  "min": 116.65,
+  "max": 610.69,
+  "mean": 326.2951538461538
+ },
+ "first": "2026-11-20",
+ "last": "2026-11-22",
+ "reconstructed": 5,
+ "statements_only": true,
+ "finished": [
+  {
+   "job_id": "sample-01",
+   "company": "Design Therapeutics, Inc.",
+   "period": "2025-12-31",
+   "end": "finished",
+   "dollars": 0.028832700000000006,
+   "seconds": 242.143,
+   "reconstructed": true
+  },
+  {
+   "job_id": "sample-02",
+   "company": "GENCO SHIPPING & TRADING LTD",
+   "period": "2025-12-31",
+   "end": "finished",
+   "dollars": 0.06355567000000001,
+   "seconds": 316.902,
+   "reconstructed": true
+  },
+  {
+   "job_id": "sample-03",
+   "company": "Acurx Pharmaceuticals, Inc.",
+   "period": "2025-12-31",
+   "end": "finished",
+   "dollars": 0.015364755,
+   "seconds": 163.066,
+   "reconstructed": true
+  },
+  {
+   "job_id": "sample-04",
+   "company": "GENCO SHIPPING & TRADING LTD",
+   "period": "2025-12-31",
+   "end": "finished",
+   "dollars": 0.07315644564,
+   "seconds": 318.4,
+   "reconstructed": true
+  },
+  {
+   "job_id": "sample-05",
+   "company": "Design Therapeutics, Inc.",
+   "period": "2025-12-31",
+   "end": "finished",
+   "dollars": 0.02950807,
+   "seconds": 193.207,
+   "reconstructed": true
+  },
+  {
+   "job_id": "sample-06",
+   "company": "Design Therapeutics, Inc.",
+   "period": "2025-12-31",
+   "end": "finished",
+   "dollars": 0.029138649999999995,
+   "seconds": 195.522
+  },
+  {
+   "job_id": "sample-07",
+   "company": "GENCO SHIPPING & TRADING LTD",
+   "period": "2025-12-31",
+   "end": "finished",
+   "dollars": 0.07151545363999999,
+   "seconds": 400.479
+  },
+  {
+   "job_id": "sample-08",
+   "company": "Acurx Pharmaceuticals, Inc.",
+   "period": "2025-12-31",
+   "end": "finished",
+   "dollars": 0.015414205,
+   "seconds": 132.498
+  },
+  {
+   "job_id": "sample-09",
+   "company": "Acurx Pharmaceuticals, Inc.",
+   "period": "2025-12-31",
+   "end": "finished",
+   "dollars": 0.014942725,
+   "seconds": 116.65
+  },
+  {
+   "job_id": "sample-10",
+   "company": "Petco Health & Wellness Company, Inc.",
+   "period": "2025-02-01",
+   "end": "finished",
+   "dollars": 0.05963904,
+   "seconds": 324.153
+  },
+  {
+   "job_id": "sample-11",
+   "company": "NLI HOLDINGS, INC.",
+   "period": "2025-12-31",
+   "end": "finished",
+   "dollars": 0.07704943619999999,
+   "seconds": 422.347
+  },
+  {
+   "job_id": "sample-12",
+   "company": "NATURAL RESOURCE PARTNERS LP",
+   "period": "2025-12-31",
+   "end": "finished",
+   "dollars": 0.06997801243999997,
+   "seconds": 417.927
+  },
+  {
+   "job_id": "sample-13",
+   "company": "GENCO SHIPPING & TRADING LTD",
+   "period": "2025-12-31",
+   "end": "finished",
+   "dollars": 0.06387953843999997,
+   "seconds": 293.212
+  },
+  {
+   "job_id": "sample-14",
+   "company": "Design Therapeutics, Inc.",
+   "period": "2025-12-31",
+   "end": "finished",
+   "dollars": 0.02659147,
+   "seconds": 172.996
+  },
+  {
+   "job_id": "sample-15",
+   "company": "Acurx Pharmaceuticals, Inc.",
+   "period": "2025-12-31",
+   "end": "finished",
+   "dollars": 0.016158424999999997,
+   "seconds": 172.196
+  },
+  {
+   "job_id": "sample-16",
+   "company": "Petco Health & Wellness Company, Inc.",
+   "period": "2025-02-01",
+   "end": "finished",
+   "dollars": 0.07263077848,
+   "seconds": 374.911
+  },
+  {
+   "job_id": "sample-17",
+   "company": "NLI HOLDINGS, INC.",
+   "period": "2025-12-31",
+   "end": "finished",
+   "dollars": 0.07480739,
+   "seconds": 414.609
+  },
+  {
+   "job_id": "sample-18",
+   "company": "NATURAL RESOURCE PARTNERS LP",
+   "period": "2025-12-31",
+   "end": "finished",
+   "dollars": 0.07874677699999999,
+   "seconds": 454.675
+  },
+  {
+   "job_id": "sample-19",
+   "company": "GENCO SHIPPING & TRADING LTD",
+   "period": "2025-12-31",
+   "end": "finished",
+   "dollars": 0.06391024,
+   "seconds": 319.792
+  },
+  {
+   "job_id": "sample-20",
+   "company": "Design Therapeutics, Inc.",
+   "period": "2025-12-31",
+   "end": "finished",
+   "dollars": 0.03216605000000001,
+   "seconds": 213.715
+  },
+  {
+   "job_id": "sample-21",
+   "company": "PENSKE AUTOMOTIVE GROUP, INC.",
+   "period": "2025-12-31",
+   "end": "finished",
+   "dollars": 0.07113740500000001,
+   "seconds": 511.655
+  },
+  {
+   "job_id": "sample-22",
+   "company": "GROUP 1 AUTOMOTIVE INC",
+   "period": "2025-12-31",
+   "end": "finished",
+   "dollars": 0.06108481500000002,
+   "seconds": 416.579
+  },
+  {
+   "job_id": "sample-23",
+   "company": "AUTONATION, INC.",
+   "period": "2025-12-31",
+   "end": "finished",
+   "dollars": 0.06305688499999998,
+   "seconds": 463.781
+  },
+  {
+   "job_id": "sample-24",
+   "company": "LITHIA MOTORS INC",
+   "period": "2025-12-31",
+   "end": "finished",
+   "dollars": 0.060805200000000004,
+   "seconds": 416.878
+  },
+  {
+   "job_id": "sample-25",
+   "company": "SONIC AUTOMOTIVE INC",
+   "period": "2025-12-31",
+   "end": "finished",
+   "dollars": 0.06326799999999999,
+   "seconds": 404.691
+  },
+  {
+   "job_id": "sample-26",
+   "company": "PENSKE AUTOMOTIVE GROUP, INC.",
+   "period": "2025-12-31",
+   "end": "finished",
+   "dollars": 0.084655225,
+   "seconds": 610.69
+  }
+ ],
+ "not_counted": [],
+ "how": "each finished job's own company ledger (job.json company.used: dollars, wall_s); scripts/run_estimate.py"
+}

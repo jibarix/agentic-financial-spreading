@@ -1,0 +1,1206 @@
+{
+ "what": "Skeleton of the standard template: row IDs, names and sections, before definitions. Three rows are control totals; other totals are marked subtotal.",
+ "status": "draft",
+ "rows": [
+  {
+   "row_id": "BS.CA.CASH",
+   "statement": "BS",
+   "section": "current assets",
+   "name": "Cash and equivalents",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "BS.CA.RESTCASH",
+   "statement": "BS",
+   "section": "current assets",
+   "name": "Restricted cash, current",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "BS.CA.DEBTSEC",
+   "statement": "BS",
+   "section": "current assets",
+   "name": "Debt securities, current",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "BS.CA.EQSEC",
+   "statement": "BS",
+   "section": "current assets",
+   "name": "Equity investments, current",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "BS.CA.TRADEREC",
+   "statement": "BS",
+   "section": "current assets",
+   "name": "Trade receivables, net",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "BS.CA.INVENT",
+   "statement": "BS",
+   "section": "current assets",
+   "name": "Inventories",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "BS.CA.AFFLOAN",
+   "statement": "BS",
+   "section": "current assets",
+   "name": "Non-trade affiliate loans, current",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "BS.CA.OTHER",
+   "statement": "BS",
+   "section": "current assets",
+   "name": "Other current assets",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "BS.NCA.PPE",
+   "statement": "BS",
+   "section": "noncurrent assets",
+   "name": "Property, plant and equipment, net",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "BS.NCA.GOODWILL",
+   "statement": "BS",
+   "section": "noncurrent assets",
+   "name": "Goodwill",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "BS.NCA.INTANG",
+   "statement": "BS",
+   "section": "noncurrent assets",
+   "name": "Other intangibles, net",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "BS.NCA.RESTCASH",
+   "statement": "BS",
+   "section": "noncurrent assets",
+   "name": "Restricted cash, noncurrent",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "BS.NCA.DEBTSEC",
+   "statement": "BS",
+   "section": "noncurrent assets",
+   "name": "Debt securities, noncurrent",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "BS.NCA.EQMETHOD",
+   "statement": "BS",
+   "section": "noncurrent assets",
+   "name": "Equity-method investments",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "BS.NCA.EQSEC",
+   "statement": "BS",
+   "section": "noncurrent assets",
+   "name": "Other equity investments",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "BS.NCA.AFFLOAN",
+   "statement": "BS",
+   "section": "noncurrent assets",
+   "name": "Non-trade affiliate loans, noncurrent",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "BS.NCA.OTHER",
+   "statement": "BS",
+   "section": "noncurrent assets",
+   "name": "Other noncurrent assets",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "BS.CL.TRADEPAY",
+   "statement": "BS",
+   "section": "current liabilities",
+   "name": "Trade payables",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "BS.CL.STBORROW",
+   "statement": "BS",
+   "section": "current liabilities",
+   "name": "Short-term borrowings",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "BS.CL.CPLTD",
+   "statement": "BS",
+   "section": "current liabilities",
+   "name": "Current portion of long-term borrowings",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "BS.CL.OPLEASE",
+   "statement": "BS",
+   "section": "current liabilities",
+   "name": "Operating lease liabilities, current",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "BS.CL.FINLEASE",
+   "statement": "BS",
+   "section": "current liabilities",
+   "name": "Finance lease liabilities, current",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "BS.CL.OTHER",
+   "statement": "BS",
+   "section": "current liabilities",
+   "name": "Other current liabilities",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "BS.NCL.LTBORROW",
+   "statement": "BS",
+   "section": "noncurrent liabilities",
+   "name": "Long-term borrowings",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "BS.NCL.OPLEASE",
+   "statement": "BS",
+   "section": "noncurrent liabilities",
+   "name": "Operating lease liabilities, noncurrent",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "BS.NCL.FINLEASE",
+   "statement": "BS",
+   "section": "noncurrent liabilities",
+   "name": "Finance lease liabilities, noncurrent",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "BS.NCL.PENSION",
+   "statement": "BS",
+   "section": "noncurrent liabilities",
+   "name": "Pension and postretirement",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "BS.NCL.DEFTAX",
+   "statement": "BS",
+   "section": "noncurrent liabilities",
+   "name": "Deferred income tax",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "BS.NCL.OTHER",
+   "statement": "BS",
+   "section": "noncurrent liabilities",
+   "name": "Other noncurrent liabilities",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "BS.CAP.TEMPPREF",
+   "statement": "BS",
+   "section": "capital",
+   "name": "Temporary preferred",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "BS.CAP.TEMPNCI",
+   "statement": "BS",
+   "section": "capital",
+   "name": "Temporary non-controlling interests",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "BS.CAP.TEMPOTHER",
+   "statement": "BS",
+   "section": "capital",
+   "name": "Other temporary equity",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "BS.CAP.PARENTEQ",
+   "statement": "BS",
+   "section": "capital",
+   "name": "Parent common equity",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "BS.CAP.PREF",
+   "statement": "BS",
+   "section": "capital",
+   "name": "Permanent preferred",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "BS.CAP.NCI",
+   "statement": "BS",
+   "section": "capital",
+   "name": "Permanent non-controlling interests",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "BS.TOT.CA",
+   "statement": "BS",
+   "section": "totals",
+   "name": "Current assets",
+   "line_type": "subtotal",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "BS.TOT.ASSETS",
+   "statement": "BS",
+   "section": "totals",
+   "name": "Total assets",
+   "line_type": "control",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "BS.TOT.CL",
+   "statement": "BS",
+   "section": "totals",
+   "name": "Current liabilities",
+   "line_type": "subtotal",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "BS.TOT.LIAB",
+   "statement": "BS",
+   "section": "totals",
+   "name": "Total liabilities",
+   "line_type": "subtotal",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "BS.TOT.LIABCAP",
+   "statement": "BS",
+   "section": "totals",
+   "name": "Total liabilities and capital",
+   "line_type": "control",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "IS.OP.REV",
+   "statement": "IS",
+   "section": "operating",
+   "name": "Revenue",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "IS.OP.COR",
+   "statement": "IS",
+   "section": "operating",
+   "name": "Cost of revenue",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "IS.OP.GROSS",
+   "statement": "IS",
+   "section": "operating",
+   "name": "Gross profit",
+   "line_type": "subtotal",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "IS.OP.SGA",
+   "statement": "IS",
+   "section": "operating",
+   "name": "Selling, general and administrative",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "IS.OP.RD",
+   "statement": "IS",
+   "section": "operating",
+   "name": "Research and development",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "IS.OP.OTHER",
+   "statement": "IS",
+   "section": "operating",
+   "name": "Other operating income/expense",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "IS.OP.OPINC",
+   "statement": "IS",
+   "section": "operating",
+   "name": "Operating income",
+   "line_type": "subtotal",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "IS.NOP.INTEXP",
+   "statement": "IS",
+   "section": "nonoperating",
+   "name": "Gross interest expense",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "IS.NOP.INTINC",
+   "statement": "IS",
+   "section": "nonoperating",
+   "name": "Interest income",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "IS.NOP.EQMETHOD",
+   "statement": "IS",
+   "section": "nonoperating",
+   "name": "Equity-method income",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "IS.NOP.INVOTHER",
+   "statement": "IS",
+   "section": "nonoperating",
+   "name": "Other investment income",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "IS.NOP.OTHER",
+   "statement": "IS",
+   "section": "nonoperating",
+   "name": "Other nonoperating income/expense",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "IS.TAX.PRETAX",
+   "statement": "IS",
+   "section": "pretax and tax",
+   "name": "Continuing pretax income",
+   "line_type": "subtotal",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "IS.TAX.TAX",
+   "statement": "IS",
+   "section": "pretax and tax",
+   "name": "Continuing income tax",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "IS.TAX.CONTNI",
+   "statement": "IS",
+   "section": "pretax and tax",
+   "name": "Continuing net income",
+   "line_type": "subtotal",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "IS.NI.DISCOPS",
+   "statement": "IS",
+   "section": "net income",
+   "name": "Discontinued operations, net of tax",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "IS.NI.OTHER",
+   "statement": "IS",
+   "section": "net income",
+   "name": "Other net-income reconciling items",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "IS.NI.CONSOL",
+   "statement": "IS",
+   "section": "net income",
+   "name": "Consolidated net income",
+   "line_type": "control",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "IS.NI.NCI",
+   "statement": "IS",
+   "section": "net income",
+   "name": "Net income attributable to NCI",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "IS.NI.PARENT",
+   "statement": "IS",
+   "section": "net income",
+   "name": "Net income attributable to parent",
+   "line_type": "subtotal",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "IS.CMN.PREFDIV",
+   "statement": "IS",
+   "section": "common shareholders",
+   "name": "Preferred dividend deductions",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "IS.CMN.OTHER",
+   "statement": "IS",
+   "section": "common shareholders",
+   "name": "Other common-income adjustments",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "IS.CMN.AVAIL",
+   "statement": "IS",
+   "section": "common shareholders",
+   "name": "Income available to common",
+   "line_type": "subtotal",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "IS.CMN.EPSB",
+   "statement": "IS",
+   "section": "common shareholders",
+   "name": "Basic EPS",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "IS.CMN.EPSD",
+   "statement": "IS",
+   "section": "common shareholders",
+   "name": "Diluted EPS",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "CF.OP.START",
+   "statement": "CF",
+   "section": "operating, indirect",
+   "name": "Starting profit",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "CF.OP.DA",
+   "statement": "CF",
+   "section": "operating, indirect",
+   "name": "Depreciation and amortization",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "CF.OP.IMPAIR",
+   "statement": "CF",
+   "section": "operating, indirect",
+   "name": "Impairment",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "CF.OP.GAINLOSS",
+   "statement": "CF",
+   "section": "operating, indirect",
+   "name": "Disposal and investment gain/loss",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "CF.OP.SBC",
+   "statement": "CF",
+   "section": "operating, indirect",
+   "name": "Share-based compensation",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "CF.OP.DEFTAX",
+   "statement": "CF",
+   "section": "operating, indirect",
+   "name": "Deferred taxes",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "CF.OP.NONCASH",
+   "statement": "CF",
+   "section": "operating, indirect",
+   "name": "Other noncash items",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "CF.OP.AR",
+   "statement": "CF",
+   "section": "operating, indirect",
+   "name": "Change in receivables",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "CF.OP.INVENT",
+   "statement": "CF",
+   "section": "operating, indirect",
+   "name": "Change in inventories",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "CF.OP.AP",
+   "statement": "CF",
+   "section": "operating, indirect",
+   "name": "Change in payables and accruals",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "CF.OP.WCOTHER",
+   "statement": "CF",
+   "section": "operating, indirect",
+   "name": "Other operating changes",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "CF.OP.CFO",
+   "statement": "CF",
+   "section": "operating, indirect",
+   "name": "Cash from operations",
+   "line_type": "subtotal",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "CF.INV.CAPEX",
+   "statement": "CF",
+   "section": "investing",
+   "name": "Capital expenditures",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "CF.INV.DISPOSAL",
+   "statement": "CF",
+   "section": "investing",
+   "name": "PPE and intangible disposal proceeds",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "CF.INV.ACQ",
+   "statement": "CF",
+   "section": "investing",
+   "name": "Acquisitions, net of cash acquired",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "CF.INV.DIVEST",
+   "statement": "CF",
+   "section": "investing",
+   "name": "Business divestiture proceeds",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "CF.INV.INVBUY",
+   "statement": "CF",
+   "section": "investing",
+   "name": "Investment purchases",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "CF.INV.INVSELL",
+   "statement": "CF",
+   "section": "investing",
+   "name": "Investment sale and maturity proceeds",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "CF.INV.STAKEDIV",
+   "statement": "CF",
+   "section": "investing",
+   "name": "Dividends from stakes (investing)",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "CF.INV.OTHER",
+   "statement": "CF",
+   "section": "investing",
+   "name": "Other investing",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "CF.INV.CFI",
+   "statement": "CF",
+   "section": "investing",
+   "name": "Cash from investing",
+   "line_type": "subtotal",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "CF.FIN.BORROW",
+   "statement": "CF",
+   "section": "financing",
+   "name": "Borrowing proceeds",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "CF.FIN.REPAY",
+   "statement": "CF",
+   "section": "financing",
+   "name": "Borrowing repayments (incl. finance-lease principal)",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "CF.FIN.COMISSUE",
+   "statement": "CF",
+   "section": "financing",
+   "name": "Common issuance",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "CF.FIN.PREFISSUE",
+   "statement": "CF",
+   "section": "financing",
+   "name": "Preferred issuance",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "CF.FIN.REPURCH",
+   "statement": "CF",
+   "section": "financing",
+   "name": "Common repurchases",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "CF.FIN.PREFREDEEM",
+   "statement": "CF",
+   "section": "financing",
+   "name": "Preferred redemptions",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "CF.FIN.COMDIV",
+   "statement": "CF",
+   "section": "financing",
+   "name": "Common dividends",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "CF.FIN.PREFDIV",
+   "statement": "CF",
+   "section": "financing",
+   "name": "Preferred dividends",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "CF.FIN.NCI",
+   "statement": "CF",
+   "section": "financing",
+   "name": "NCI owner transactions",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "CF.FIN.OTHER",
+   "statement": "CF",
+   "section": "financing",
+   "name": "Other financing",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "CF.FIN.CFF",
+   "statement": "CF",
+   "section": "financing",
+   "name": "Cash from financing",
+   "line_type": "subtotal",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "CF.REC.FX",
+   "statement": "CF",
+   "section": "reconciliation",
+   "name": "FX effect on cash",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "CF.REC.OTHER",
+   "statement": "CF",
+   "section": "reconciliation",
+   "name": "Other cash-basis reconciliation",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "CF.REC.CHANGE",
+   "statement": "CF",
+   "section": "reconciliation",
+   "name": "Change in cash",
+   "line_type": "control",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "CF.REC.BEGIN",
+   "statement": "CF",
+   "section": "reconciliation",
+   "name": "Beginning cash",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "CF.REC.END",
+   "statement": "CF",
+   "section": "reconciliation",
+   "name": "Ending cash",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "CF.DIR.RECEIPTS",
+   "statement": "CF",
+   "section": "direct method",
+   "name": "Operating receipts",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "CF.DIR.PAYMENTS",
+   "statement": "CF",
+   "section": "direct method",
+   "name": "Operating payments",
+   "line_type": "item",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "BS.SUP.PARENTEQPREF",
+   "statement": "BS",
+   "section": "supplementary",
+   "name": "Parent equity incl. preferred",
+   "line_type": "supplementary",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "BS.SUP.PERMEQ",
+   "statement": "BS",
+   "section": "supplementary",
+   "name": "Consolidated permanent equity",
+   "line_type": "supplementary",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "BS.SUP.CURPENSION",
+   "statement": "BS",
+   "section": "supplementary",
+   "name": "Current pension",
+   "line_type": "supplementary",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "BS.SUP.CURLIABPREF",
+   "statement": "BS",
+   "section": "supplementary",
+   "name": "Liability-classified preferred, current",
+   "line_type": "supplementary",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "BS.SUP.NCLIABPREF",
+   "statement": "BS",
+   "section": "supplementary",
+   "name": "Liability-classified preferred, noncurrent",
+   "line_type": "supplementary",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "IS.SUP.WASB",
+   "statement": "IS",
+   "section": "supplementary",
+   "name": "Basic weighted-average shares",
+   "line_type": "supplementary",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "IS.SUP.WASD",
+   "statement": "IS",
+   "section": "supplementary",
+   "name": "Diluted weighted-average shares",
+   "line_type": "supplementary",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "IS.SUP.DA",
+   "statement": "IS",
+   "section": "supplementary",
+   "name": "D&A expense",
+   "line_type": "supplementary",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "IS.SUP.CAPINT",
+   "statement": "IS",
+   "section": "supplementary",
+   "name": "Capitalized interest",
+   "line_type": "supplementary",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "IS.SUP.RESTRUCT",
+   "statement": "IS",
+   "section": "supplementary",
+   "name": "Restructuring",
+   "line_type": "supplementary",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "IS.SUP.IMPAIR",
+   "statement": "IS",
+   "section": "supplementary",
+   "name": "Impairment",
+   "line_type": "supplementary",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "IS.SUP.GAINLOSS",
+   "statement": "IS",
+   "section": "supplementary",
+   "name": "Disposal gain/loss",
+   "line_type": "supplementary",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "IS.SUP.LITIG",
+   "statement": "IS",
+   "section": "supplementary",
+   "name": "Litigation",
+   "line_type": "supplementary",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "CF.SUP.STAKEDIVOP",
+   "statement": "CF",
+   "section": "supplementary",
+   "name": "Dividends from stakes (operating)",
+   "line_type": "supplementary",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "CF.SUP.INTPAID",
+   "statement": "CF",
+   "section": "supplementary",
+   "name": "Cash interest paid",
+   "line_type": "supplementary",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "CF.SUP.TAXPAID",
+   "statement": "CF",
+   "section": "supplementary",
+   "name": "Cash income taxes paid",
+   "line_type": "supplementary",
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  }
+ ]
+}

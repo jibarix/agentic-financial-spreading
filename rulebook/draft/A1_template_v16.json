@@ -1,0 +1,1933 @@
+{
+ "format": "template_format_v7",
+ "name": "engine",
+ "version": 16,
+ "status": "draft",
+ "what": "The valuation engine's statement inputs, read from the income statement and balance sheet alone, with depreciation and amortization (D&A) as a memo read from the cash flow statement. Section 3 holds derived figures: G&A, other income excluding interest expense, EBIT, and pretax income including equity-method income. EBITDA is not computed by the template (a memo row is never a term). Cost of revenue takes the direct costs of what the company sells under captions of their own; a right-of-use asset printed beside operating-lease liabilities is an operating-lease asset. Statement checks: only total liabilities and equity, operating income and net income against the company's own printed figures, assets equal to liabilities plus equity as spread, and cash, total assets and revenue against the filed figures decide a statement's outcome; the other sections' subtotal checks are shown and decide nothing. The D&A memo row takes every D&A add-back the cash flow statement prints, each at its printed amount, summed.",
+ "built_from": {
+  "command": null,
+  "run": null,
+  "inputs": {
+   "rulebook/draft/A1_template_v15.json": "cfb1a06b476d33a052b81093131abb3ae67299ae1b5d3f4a8b3fbf5aee247aa8"
+  },
+  "plan": null,
+  "engine": null
+ },
+ "statements": {
+  "BS": {
+   "name": "balance sheet",
+   "title_words": [
+    "BALANCE SHEET",
+    "FINANCIAL POSITION",
+    "FINANCIAL CONDITION"
+   ],
+   "title_excludes": [
+    "PARENTHETICAL",
+    "COMPREHENSIVE"
+   ],
+   "title_fallback": null,
+   "period": "instant",
+   "variants": [
+    {
+     "id": "classified",
+     "fasb_network": "stm/us-gaap-stm-sfp-cls",
+     "routes_to": null
+    }
+   ]
+  },
+  "IS": {
+   "name": "income statement",
+   "title_words": [
+    "STATEMENTS OF INCOME",
+    "STATEMENT OF INCOME",
+    "OPERATIONS",
+    "EARNINGS"
+   ],
+   "title_excludes": [
+    "STATEMENTS OF COMPREHENSIVE",
+    "STATEMENT OF COMPREHENSIVE",
+    "PARENTHETICAL"
+   ],
+   "title_fallback": {
+    "words": [
+     "COMPREHENSIVE INCOME",
+     "COMPREHENSIVE LOSS"
+    ],
+    "excludes": [
+     "PARENTHETICAL"
+    ],
+    "requires_any": [
+     "us-gaap:Revenues",
+     "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+     "us-gaap:RevenueFromContractWithCustomerIncludingAssessedTax",
+     "us-gaap:CostOfRevenue",
+     "us-gaap:CostsAndExpenses",
+     "us-gaap:OperatingExpenses",
+     "us-gaap:GrossProfit",
+     "us-gaap:OperatingIncomeLoss"
+    ]
+   },
+   "period": "duration",
+   "variants": [
+    {
+     "id": "standard",
+     "fasb_network": "stm/us-gaap-stm-soi",
+     "routes_to": null
+    }
+   ]
+  },
+  "CF": {
+   "name": "cash flow statement",
+   "title_words": [
+    "CASH FLOWS"
+   ],
+   "title_excludes": [
+    "STATEMENTS OF COMPREHENSIVE",
+    "STATEMENT OF COMPREHENSIVE",
+    "PARENTHETICAL"
+   ],
+   "title_fallback": null,
+   "period": "duration",
+   "variants": [
+    {
+     "id": "indirect",
+     "fasb_network": "stm/us-gaap-stm-scf-indir",
+     "routes_to": null
+    }
+   ]
+  }
+ },
+ "sections": [
+  {
+   "id": "BS.CA",
+   "statement": "BS",
+   "name": "current assets",
+   "kind": "spread",
+   "variants": [
+    "classified"
+   ],
+   "fasb_headings": [
+    "us-gaap:AssetsCurrentAbstract"
+   ],
+   "output_total_row": "BS.TOT.CA",
+   "normal_balance": "debit"
+  },
+  {
+   "id": "BS.NCA",
+   "statement": "BS",
+   "name": "noncurrent assets",
+   "kind": "spread",
+   "variants": [
+    "classified"
+   ],
+   "fasb_headings": [
+    "us-gaap:AssetsNoncurrentAbstract"
+   ],
+   "output_total_row": null,
+   "normal_balance": "debit"
+  },
+  {
+   "id": "BS.CL",
+   "statement": "BS",
+   "name": "current liabilities",
+   "kind": "spread",
+   "variants": [
+    "classified"
+   ],
+   "fasb_headings": [
+    "us-gaap:LiabilitiesCurrentAbstract"
+   ],
+   "output_total_row": "BS.TOT.CL",
+   "normal_balance": "credit"
+  },
+  {
+   "id": "BS.NCL",
+   "statement": "BS",
+   "name": "noncurrent liabilities",
+   "kind": "spread",
+   "variants": [
+    "classified"
+   ],
+   "fasb_headings": [
+    "us-gaap:LiabilitiesNoncurrentAbstract"
+   ],
+   "output_total_row": null,
+   "normal_balance": "credit"
+  },
+  {
+   "id": "BS.CAP",
+   "statement": "BS",
+   "name": "capital",
+   "kind": "spread",
+   "variants": [
+    "classified"
+   ],
+   "fasb_headings": [
+    "us-gaap:TemporaryEquityAbstract",
+    "us-gaap:StockholdersEquityIncludingPortionAttributableToNoncontrollingInterestAbstract",
+    "us-gaap:PartnersCapitalIncludingPortionAttributableToNoncontrollingInterestAbstract"
+   ],
+   "output_total_row": null,
+   "normal_balance": "credit"
+  },
+  {
+   "id": "BS.TOT",
+   "statement": "BS",
+   "name": "totals",
+   "kind": "totals",
+   "variants": [
+    "classified"
+   ],
+   "fasb_headings": [],
+   "output_total_row": null,
+   "normal_balance": null
+  },
+  {
+   "id": "IS.OP",
+   "statement": "IS",
+   "name": "operating",
+   "kind": "spread",
+   "variants": [
+    "standard"
+   ],
+   "fasb_headings": [
+    "us-gaap:OperatingIncomeLossAbstract"
+   ],
+   "output_total_row": null,
+   "normal_balance": "credit"
+  },
+  {
+   "id": "IS.NOP",
+   "statement": "IS",
+   "name": "below operating income",
+   "kind": "spread",
+   "variants": [
+    "standard"
+   ],
+   "fasb_headings": [
+    "us-gaap:NonoperatingIncomeExpenseAbstract",
+    "us-gaap:InterestAndDebtExpenseAbstract"
+   ],
+   "output_total_row": null,
+   "normal_balance": "credit"
+  },
+  {
+   "id": "IS.TAX",
+   "statement": "IS",
+   "name": "pretax and tax",
+   "kind": "spread",
+   "variants": [
+    "standard"
+   ],
+   "fasb_headings": [],
+   "output_total_row": null,
+   "normal_balance": "credit"
+  },
+  {
+   "id": "IS.NI",
+   "statement": "IS",
+   "name": "net income",
+   "kind": "spread",
+   "variants": [
+    "standard"
+   ],
+   "fasb_headings": [],
+   "output_total_row": null,
+   "normal_balance": "credit"
+  },
+  {
+   "id": "CF.MEMO",
+   "statement": "CF",
+   "name": "D&A memo",
+   "kind": "supplementary",
+   "variants": [
+    "indirect"
+   ],
+   "fasb_headings": [
+    "us-gaap:NetCashProvidedByUsedInOperatingActivitiesAbstract"
+   ],
+   "output_total_row": null,
+   "normal_balance": "debit"
+  }
+ ],
+ "rows": [
+  {
+   "row_id": "IS.OP.REV",
+   "section": "IS.OP",
+   "name": "Revenue",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Revenue from the company's goods and services, net of returns and discounts, as printed on the income statement.",
+   "belongs": [
+    "product, service, subscription, licence and rental revenue",
+    "total revenues or net sales printed as one line",
+    "each revenue line the statement prints by type or segment"
+   ],
+   "not_belongs": [
+    {
+     "item": "interest income of a company that is not a lender",
+     "goes_to": "IS.NOP.INTINC"
+    },
+    {
+     "item": "gains on selling assets or businesses",
+     "goes_to": "IS.OP.OTHER"
+    },
+    {
+     "item": "other income printed below operating income",
+     "goes_to": "IS.NOP.OTHER"
+    }
+   ]
+  },
+  {
+   "row_id": "IS.OP.COR",
+   "section": "IS.OP",
+   "name": "Cost of revenue",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "The cost of the goods and services sold, as printed: cost of sales, cost of revenues, cost of goods sold, with the depreciation and amortization the line includes. A company may print that cost as several lines under captions of its own, without the words \"cost of revenue\": every line that is a direct cost of delivering what the company sells belongs here, whatever its caption and whether or not it is printed on its own line.",
+   "belongs": [
+    "cost of sales, cost of revenues, cost of goods and services sold",
+    "content, product, service and subscription costs printed as cost of revenue",
+    "the direct costs of delivering the service sold, printed as separate lines under their own captions: the costs of operating the assets that deliver it (crew, fuel, repairs, maintenance, supplies, insurance of those assets), the hire of third-party capacity used to deliver it, and fees for managing those assets day to day"
+   ],
+   "not_belongs": [
+    {
+     "item": "selling, marketing, general and administrative costs",
+     "goes_to": "IS.OP.SGA"
+    },
+    {
+     "item": "research, development, technology and product-development costs",
+     "goes_to": "IS.OP.RD"
+    },
+    {
+     "item": "a depreciation and amortization line printed on its own",
+     "goes_to": "IS.OP.OTHER"
+    },
+    {
+     "item": "the costs of running the company itself rather than delivering what it sells (head office, administration)",
+     "goes_to": "IS.OP.SGA"
+    }
+   ]
+  },
+  {
+   "row_id": "IS.OP.GROSS",
+   "section": "IS.OP",
+   "name": "Gross profit",
+   "line_type": "subtotal",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "IS.OP.RD",
+   "section": "IS.OP",
+   "name": "Research and development",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Research, development, technology and engineering costs charged to income in the period, as printed.",
+   "belongs": [
+    "research and development",
+    "technology and development",
+    "product development and engineering"
+   ],
+   "not_belongs": [
+    {
+     "item": "in-process research and development written off on an acquisition",
+     "goes_to": "IS.OP.OTHER"
+    },
+    {
+     "item": "cost of revenue",
+     "goes_to": "IS.OP.COR"
+    }
+   ]
+  },
+  {
+   "row_id": "IS.OP.SGA",
+   "section": "IS.OP",
+   "name": "Selling, general and administrative",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Selling, marketing, general and administrative costs, as printed, one line or several.",
+   "belongs": [
+    "selling, general and administrative",
+    "sales and marketing, marketing, advertising",
+    "general and administrative"
+   ],
+   "not_belongs": [
+    {
+     "item": "research and development or technology costs",
+     "goes_to": "IS.OP.RD"
+    },
+    {
+     "item": "restructuring, impairment, litigation and acquisition costs printed on their own lines",
+     "goes_to": "IS.OP.OTHER"
+    }
+   ]
+  },
+  {
+   "row_id": "IS.OP.OTHER",
+   "section": "IS.OP",
+   "name": "Other operating",
+   "line_type": "item",
+   "policy": "catch_all",
+   "extra_evidence": null,
+   "definition": "Every line printed above operating income that no other operating row takes, at its printed amount.",
+   "belongs": [
+    "restructuring, impairment, litigation and acquisition costs printed above operating income",
+    "gains and losses on disposing of assets or businesses printed above operating income",
+    "a separately printed depreciation and amortization line",
+    "equity-method income printed above operating income, kept here so operating income ties",
+    "other operating income and expense",
+    "a combined line the statement does not split, kept whole at its printed amount, printed above operating income"
+   ],
+   "not_belongs": [
+    {
+     "item": "the same items printed below operating income",
+     "goes_to": "IS.NOP.OTHER"
+    },
+    {
+     "item": "cost of revenue, and any line that is a direct cost of delivering what the company sells, under any caption and even printed on its own line (a separately printed depreciation and amortization line stays here)",
+     "goes_to": "IS.OP.COR"
+    }
+   ]
+  },
+  {
+   "row_id": "IS.OP.GNA",
+   "section": "IS.OP",
+   "name": "Operating expenses after cost of revenue (engine G&A)",
+   "line_type": "subtotal",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "IS.OP.OPINC",
+   "section": "IS.OP",
+   "name": "Operating income",
+   "line_type": "subtotal",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "IS.NOP.INTEXP",
+   "section": "IS.NOP",
+   "name": "Interest expense",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Interest on debt and finance leases charged to income in the period, printed below operating income, as an expense.",
+   "belongs": [
+    "interest expense",
+    "interest expense, net of amounts capitalized",
+    "a line the statement labels interest expense, net, kept whole"
+   ],
+   "not_belongs": [
+    {
+     "item": "interest income printed on its own line",
+     "goes_to": "IS.NOP.INTINC"
+    },
+    {
+     "item": "a line combining interest with other income or expense, labelled as other income",
+     "goes_to": "IS.NOP.OTHER"
+    }
+   ]
+  },
+  {
+   "row_id": "IS.NOP.INTINC",
+   "section": "IS.NOP",
+   "name": "Interest income",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Interest earned on cash, investments and loans, printed below operating income on its own line.",
+   "belongs": [
+    "interest income",
+    "interest and dividend income",
+    "investment income printed as interest"
+   ],
+   "not_belongs": [
+    {
+     "item": "a line combining interest income with other income or expense",
+     "goes_to": "IS.NOP.OTHER"
+    },
+    {
+     "item": "gains and losses on investments",
+     "goes_to": "IS.NOP.OTHER"
+    }
+   ]
+  },
+  {
+   "row_id": "IS.NOP.EQMETHOD",
+   "section": "IS.NOP",
+   "name": "Equity-method income",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "The company's share of the profit or loss of investees it reports under the equity method, printed below operating income, above or below income tax, at the printed amount.",
+   "belongs": [
+    "share of earnings or losses of equity-method investees, associates and joint ventures"
+   ],
+   "not_belongs": [
+    {
+     "item": "equity-method income printed above operating income",
+     "goes_to": "IS.OP.OTHER"
+    },
+    {
+     "item": "gains or losses on selling an equity-method stake",
+     "goes_to": "IS.NOP.OTHER"
+    }
+   ]
+  },
+  {
+   "row_id": "IS.NOP.OTHER",
+   "section": "IS.NOP",
+   "name": "Other nonoperating",
+   "line_type": "item",
+   "policy": "catch_all",
+   "extra_evidence": null,
+   "definition": "Every line printed between operating income and income before tax that no other row of this section takes, at its printed amount.",
+   "belongs": [
+    "other income (expense), net",
+    "interest and other income (expense), kept whole",
+    "foreign exchange gains and losses",
+    "gains and losses on investments and derivatives",
+    "non-service pension cost and debt extinguishment gains and losses",
+    "a combined line the statement does not split, kept whole at its printed amount, printed below operating income"
+   ],
+   "not_belongs": [
+    {
+     "item": "interest expense printed on its own line",
+     "goes_to": "IS.NOP.INTEXP"
+    },
+    {
+     "item": "interest income printed on its own line",
+     "goes_to": "IS.NOP.INTINC"
+    },
+    {
+     "item": "income tax",
+     "goes_to": "IS.TAX.TAX"
+    }
+   ]
+  },
+  {
+   "row_id": "IS.NOP.OIEI",
+   "section": "IS.NOP",
+   "name": "Other income excluding interest expense",
+   "line_type": "subtotal",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "IS.NOP.EBIT",
+   "section": "IS.NOP",
+   "name": "EBIT (operating income and other income excluding interest expense)",
+   "line_type": "subtotal",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "IS.TAX.PRETAX",
+   "section": "IS.TAX",
+   "name": "Income before tax, including equity-method income",
+   "line_type": "subtotal",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "IS.TAX.TAX",
+   "section": "IS.TAX",
+   "name": "Income tax",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "The income tax expense or benefit on continuing operations, as printed.",
+   "belongs": [
+    "provision for income taxes",
+    "income tax expense or benefit"
+   ],
+   "not_belongs": [
+    {
+     "item": "tax inside discontinued operations",
+     "goes_to": "IS.NI.OTHER"
+    },
+    {
+     "item": "taxes other than income taxes printed above operating income",
+     "goes_to": "IS.OP.OTHER"
+    }
+   ]
+  },
+  {
+   "row_id": "IS.TAX.CONTNI",
+   "section": "IS.TAX",
+   "name": "Income from continuing operations",
+   "line_type": "subtotal",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "IS.NI.OTHER",
+   "section": "IS.NI",
+   "name": "Discontinued operations and other",
+   "line_type": "item",
+   "policy": "catch_all",
+   "extra_evidence": null,
+   "definition": "Every line printed between income from continuing operations and consolidated net income, at its printed amount.",
+   "belongs": [
+    "income or loss from discontinued operations, net of tax",
+    "gain or loss on disposing of a discontinued operation",
+    "extraordinary items and cumulative effects of accounting changes in older filings"
+   ],
+   "not_belongs": [
+    {
+     "item": "net income attributable to noncontrolling interests",
+     "goes_to": "IS.NI.NCI"
+    },
+    {
+     "item": "income tax on continuing operations",
+     "goes_to": "IS.TAX.TAX"
+    }
+   ]
+  },
+  {
+   "row_id": "IS.NI.CONSOL",
+   "section": "IS.NI",
+   "name": "Consolidated net income",
+   "line_type": "subtotal",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "IS.NI.NCI",
+   "section": "IS.NI",
+   "name": "Net income to noncontrolling interests",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "The share of consolidated net income attributable to noncontrolling (minority) interests, subtracted to reach net income attributable to the parent.",
+   "belongs": [
+    "net income attributable to noncontrolling interests",
+    "net income attributable to redeemable noncontrolling interests"
+   ],
+   "not_belongs": [
+    {
+     "item": "preferred dividends",
+     "goes_to": null
+    }
+   ]
+  },
+  {
+   "row_id": "IS.NI.PARENT",
+   "section": "IS.NI",
+   "name": "Net income attributable to the parent",
+   "line_type": "subtotal",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "BS.CA.CASH",
+   "section": "BS.CA",
+   "name": "Cash and equivalents",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Cash and cash equivalents, as printed.",
+   "belongs": [
+    "cash and cash equivalents",
+    "cash",
+    "cash and equivalents including restricted cash when the statement prints them as one line, kept whole"
+   ],
+   "not_belongs": [
+    {
+     "item": "restricted cash printed on its own line",
+     "goes_to": "BS.CA.OTHER"
+    },
+    {
+     "item": "short-term investments and marketable securities",
+     "goes_to": "BS.CA.STINV"
+    }
+   ]
+  },
+  {
+   "row_id": "BS.CA.STINV",
+   "section": "BS.CA",
+   "name": "Short-term investments",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Investments the statement classifies as current: marketable securities, short-term investments, time deposits.",
+   "belongs": [
+    "short-term investments",
+    "marketable securities, current",
+    "time deposits"
+   ],
+   "not_belongs": [
+    {
+     "item": "cash equivalents",
+     "goes_to": "BS.CA.CASH"
+    },
+    {
+     "item": "trade receivables",
+     "goes_to": "BS.CA.OTHER"
+    }
+   ]
+  },
+  {
+   "row_id": "BS.CA.RELREC",
+   "section": "BS.CA",
+   "name": "Related-party receivables",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Amounts due from related parties or affiliates that the statement prints on their own current line.",
+   "belongs": [
+    "due from related parties",
+    "receivables from affiliates",
+    "loans to affiliates, current"
+   ],
+   "not_belongs": [
+    {
+     "item": "trade receivables from customers",
+     "goes_to": "BS.CA.OTHER"
+    }
+   ]
+  },
+  {
+   "row_id": "BS.CA.OTHER",
+   "section": "BS.CA",
+   "name": "Other current assets",
+   "line_type": "item",
+   "policy": "catch_all",
+   "extra_evidence": null,
+   "definition": "Every current asset no other current-asset row takes, at its printed amount.",
+   "belongs": [
+    "trade and other receivables",
+    "inventories",
+    "prepaid expenses and other current assets",
+    "restricted cash printed on its own line",
+    "derivative assets, current",
+    "assets held for sale",
+    "a combined line the statement does not split, kept whole at its printed amount, among current assets"
+   ],
+   "not_belongs": [
+    {
+     "item": "cash and cash equivalents",
+     "goes_to": "BS.CA.CASH"
+    },
+    {
+     "item": "short-term investments",
+     "goes_to": "BS.CA.STINV"
+    }
+   ]
+  },
+  {
+   "row_id": "BS.NCA.INVEST",
+   "section": "BS.NCA",
+   "name": "Equity-method and other investments",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Noncurrent investments the statement prints on their own lines: equity-method stakes, other equity investments, long-term marketable securities.",
+   "belongs": [
+    "equity-method investments",
+    "investments in affiliates and joint ventures",
+    "long-term investments and marketable securities"
+   ],
+   "not_belongs": [
+    {
+     "item": "loans to affiliates",
+     "goes_to": "BS.NCA.RELREC"
+    }
+   ]
+  },
+  {
+   "row_id": "BS.NCA.RELREC",
+   "section": "BS.NCA",
+   "name": "Related-party receivables, noncurrent",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Amounts due from related parties or affiliates that the statement prints on their own noncurrent line.",
+   "belongs": [
+    "due from related parties, noncurrent",
+    "loans to affiliates, noncurrent"
+   ],
+   "not_belongs": [
+    {
+     "item": "equity-method stakes",
+     "goes_to": "BS.NCA.INVEST"
+    }
+   ]
+  },
+  {
+   "row_id": "BS.NCA.OPROU",
+   "section": "BS.NCA",
+   "name": "Operating-lease right-of-use assets",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Right-of-use assets for operating leases, printed on their own line. A right-of-use asset line printed on a balance sheet that also prints operating-lease liabilities, and not called a finance lease, is an operating-lease asset: the liability on the same page establishes the lease's kind.",
+   "belongs": [
+    "operating lease right-of-use assets",
+    "a right-of-use asset line, from a related party or not, on a balance sheet that prints operating-lease liabilities, when the statement does not call it a finance lease"
+   ],
+   "not_belongs": [
+    {
+     "item": "finance-lease assets inside property and equipment",
+     "goes_to": "BS.NCA.OTHEROP"
+    },
+    {
+     "item": "right-of-use assets inside a combined line the statement does not split",
+     "goes_to": "BS.NCA.OTHEROP"
+    }
+   ]
+  },
+  {
+   "row_id": "BS.NCA.NONOP",
+   "section": "BS.NCA",
+   "name": "Other noncurrent assets, nonoperating",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "A noncurrent asset the statements show is not used in the operations: assets held for sale or idle, the noncurrent assets of a discontinued operation, an asset the statement labels nonoperating. Only when the statement itself shows it; otherwise the next row.",
+   "belongs": [
+    "noncurrent assets held for sale or of discontinued operations",
+    "an asset the statement labels as not used in operations"
+   ],
+   "not_belongs": [
+    {
+     "item": "a line the statements do not show to be nonoperating",
+     "goes_to": "BS.NCA.OTHEROP"
+    }
+   ]
+  },
+  {
+   "row_id": "BS.NCA.OTHEROP",
+   "section": "BS.NCA",
+   "name": "Other noncurrent assets, operating or not established",
+   "line_type": "item",
+   "policy": "catch_all",
+   "extra_evidence": null,
+   "definition": "Every noncurrent asset no other noncurrent-asset row takes, at its printed amount: the operating assets, and every line whose purpose the statements do not establish.",
+   "belongs": [
+    "property, plant and equipment",
+    "goodwill and intangible assets",
+    "content and other capitalised production assets",
+    "deferred tax assets",
+    "other noncurrent assets",
+    "a combined line the statement does not split, kept whole at its printed amount, among noncurrent assets"
+   ],
+   "not_belongs": [
+    {
+     "item": "operating-lease right-of-use assets on their own line, including a right-of-use asset line beside operating-lease liabilities that the statement does not call a finance lease",
+     "goes_to": "BS.NCA.OPROU"
+    },
+    {
+     "item": "investments printed on their own lines",
+     "goes_to": "BS.NCA.INVEST"
+    }
+   ]
+  },
+  {
+   "row_id": "BS.CL.DEBT",
+   "section": "BS.CL",
+   "name": "Interest-bearing debt, current",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Borrowings the statement classifies as current: notes, bonds, loans, commercial paper, revolving credit, and the current portion of long-term debt, as printed.",
+   "belongs": [
+    "short-term debt and borrowings, commercial paper",
+    "current portion of long-term debt",
+    "convertible notes"
+   ],
+   "not_belongs": [
+    {
+     "item": "finance-lease liabilities on their own line",
+     "goes_to": "BS.CL.FINLEASE"
+    },
+    {
+     "item": "operating-lease liabilities on their own line",
+     "goes_to": "BS.CL.OPLEASE"
+    },
+    {
+     "item": "accrued interest",
+     "goes_to": "BS.CL.OTHER"
+    }
+   ]
+  },
+  {
+   "row_id": "BS.CL.FINLEASE",
+   "section": "BS.CL",
+   "name": "Finance leases, current",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Finance-lease (capital-lease) liabilities the statement prints on their own current line.",
+   "belongs": [
+    "finance lease liabilities",
+    "capital lease obligations"
+   ],
+   "not_belongs": [
+    {
+     "item": "lease liabilities inside a debt line the statement does not split",
+     "goes_to": "BS.CL.DEBT"
+    }
+   ]
+  },
+  {
+   "row_id": "BS.CL.OPLEASE",
+   "section": "BS.CL",
+   "name": "Operating leases, current",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Operating-lease liabilities the statement prints on their own current line.",
+   "belongs": [
+    "operating lease liabilities"
+   ],
+   "not_belongs": [
+    {
+     "item": "lease liabilities inside another line the statement does not split",
+     "goes_to": "BS.CL.OTHER"
+    }
+   ]
+  },
+  {
+   "row_id": "BS.CL.OTHER",
+   "section": "BS.CL",
+   "name": "Other current liabilities",
+   "line_type": "item",
+   "policy": "catch_all",
+   "extra_evidence": null,
+   "definition": "Every current liability no other current-liability row takes, at its printed amount.",
+   "belongs": [
+    "accounts payable, accrued expenses, deferred revenue",
+    "content and other operating liabilities",
+    "income taxes payable, deferred tax liabilities",
+    "pension and other postretirement liabilities",
+    "derivative liabilities",
+    "a combined line the statement does not split, kept whole at its printed amount, among current liabilities"
+   ],
+   "not_belongs": [
+    {
+     "item": "borrowings",
+     "goes_to": "BS.CL.DEBT"
+    }
+   ]
+  },
+  {
+   "row_id": "BS.NCL.DEBT",
+   "section": "BS.NCL",
+   "name": "Interest-bearing debt, noncurrent",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Borrowings the statement classifies as noncurrent: notes, bonds, loans, commercial paper, revolving credit, less their current portion, as printed.",
+   "belongs": [
+    "long-term debt",
+    "senior notes and term loans",
+    "convertible notes"
+   ],
+   "not_belongs": [
+    {
+     "item": "finance-lease liabilities on their own line",
+     "goes_to": "BS.NCL.FINLEASE"
+    },
+    {
+     "item": "operating-lease liabilities on their own line",
+     "goes_to": "BS.NCL.OPLEASE"
+    },
+    {
+     "item": "accrued interest",
+     "goes_to": "BS.NCL.OTHER"
+    }
+   ]
+  },
+  {
+   "row_id": "BS.NCL.FINLEASE",
+   "section": "BS.NCL",
+   "name": "Finance leases, noncurrent",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Finance-lease (capital-lease) liabilities the statement prints on their own noncurrent line.",
+   "belongs": [
+    "finance lease liabilities",
+    "capital lease obligations"
+   ],
+   "not_belongs": [
+    {
+     "item": "lease liabilities inside a debt line the statement does not split",
+     "goes_to": "BS.NCL.DEBT"
+    }
+   ]
+  },
+  {
+   "row_id": "BS.NCL.OPLEASE",
+   "section": "BS.NCL",
+   "name": "Operating leases, noncurrent",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Operating-lease liabilities the statement prints on their own noncurrent line.",
+   "belongs": [
+    "operating lease liabilities"
+   ],
+   "not_belongs": [
+    {
+     "item": "lease liabilities inside another line the statement does not split",
+     "goes_to": "BS.NCL.OTHER"
+    }
+   ]
+  },
+  {
+   "row_id": "BS.NCL.OTHER",
+   "section": "BS.NCL",
+   "name": "Other noncurrent liabilities",
+   "line_type": "item",
+   "policy": "catch_all",
+   "extra_evidence": null,
+   "definition": "Every noncurrent liability no other noncurrent-liability row takes, at its printed amount.",
+   "belongs": [
+    "accounts payable, accrued expenses, deferred revenue",
+    "content and other operating liabilities",
+    "income taxes payable, deferred tax liabilities",
+    "pension and other postretirement liabilities",
+    "derivative liabilities",
+    "a combined line the statement does not split, kept whole at its printed amount, among noncurrent liabilities"
+   ],
+   "not_belongs": [
+    {
+     "item": "borrowings",
+     "goes_to": "BS.NCL.DEBT"
+    }
+   ]
+  },
+  {
+   "row_id": "BS.CAP.PREF",
+   "section": "BS.CAP",
+   "name": "Preferred stock",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Preferred stock and its paid-in capital that the statement prints within permanent equity on their own lines.",
+   "belongs": [
+    "preferred stock within stockholders' equity"
+   ],
+   "not_belongs": [
+    {
+     "item": "redeemable preferred stock printed outside equity",
+     "goes_to": "BS.CAP.TEMP"
+    }
+   ]
+  },
+  {
+   "row_id": "BS.CAP.TEMP",
+   "section": "BS.CAP",
+   "name": "Temporary equity",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Every line printed between liabilities and equity: redeemable preferred stock, redeemable noncontrolling interests, other temporary (mezzanine) equity.",
+   "belongs": [
+    "redeemable convertible preferred stock",
+    "redeemable noncontrolling interests",
+    "other temporary equity"
+   ],
+   "not_belongs": [
+    {
+     "item": "preferred stock within permanent equity",
+     "goes_to": "BS.CAP.PREF"
+    },
+    {
+     "item": "noncontrolling interests within equity",
+     "goes_to": "BS.CAP.NCI"
+    }
+   ]
+  },
+  {
+   "row_id": "BS.CAP.NCI",
+   "section": "BS.CAP",
+   "name": "Noncontrolling interests",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Noncontrolling (minority) interests the statement prints within equity.",
+   "belongs": [
+    "noncontrolling interests"
+   ],
+   "not_belongs": [
+    {
+     "item": "redeemable noncontrolling interests printed outside equity",
+     "goes_to": "BS.CAP.TEMP"
+    }
+   ]
+  },
+  {
+   "row_id": "BS.CAP.PARENTEQ",
+   "section": "BS.CAP",
+   "name": "Common equity of the parent (excluding preferred classified separately)",
+   "line_type": "item",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "The parent's equity other than the preferred stock printed on its own lines: common stock, additional paid-in capital, retained earnings or deficit, accumulated other comprehensive income, less treasury stock, at the printed amounts.",
+   "belongs": [
+    "common stock and additional paid-in capital",
+    "retained earnings or accumulated deficit",
+    "accumulated other comprehensive income or loss",
+    "treasury stock, as a negative amount",
+    "partners' or members' capital for common units"
+   ],
+   "not_belongs": [
+    {
+     "item": "preferred stock printed on its own line within equity",
+     "goes_to": "BS.CAP.PREF"
+    },
+    {
+     "item": "noncontrolling interests within equity",
+     "goes_to": "BS.CAP.NCI"
+    },
+    {
+     "item": "the printed total stockholders' equity and total equity lines (read by code as checks)",
+     "goes_to": null
+    }
+   ]
+  },
+  {
+   "row_id": "BS.TOT.CA",
+   "section": "BS.TOT",
+   "name": "Current assets",
+   "line_type": "subtotal",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "BS.TOT.ASSETS",
+   "section": "BS.TOT",
+   "name": "Total assets",
+   "line_type": "subtotal",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "BS.TOT.CL",
+   "section": "BS.TOT",
+   "name": "Current liabilities",
+   "line_type": "subtotal",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "BS.TOT.LIAB",
+   "section": "BS.TOT",
+   "name": "Total liabilities",
+   "line_type": "subtotal",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "BS.TOT.LIABCAP",
+   "section": "BS.TOT",
+   "name": "Total liabilities and capital",
+   "line_type": "control",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": null,
+   "belongs": null,
+   "not_belongs": null
+  },
+  {
+   "row_id": "CF.MEMO.DA",
+   "section": "CF.MEMO",
+   "name": "Depreciation and amortization (memo, from the cash flow statement)",
+   "line_type": "supplementary",
+   "policy": null,
+   "extra_evidence": null,
+   "definition": "Memo: the depreciation and amortization add-backs printed in the operating section of the cash flow statement, for the income statement's EBITDA, each at its printed amount. When the statement prints them as one line, that line; when it prints them as separate lines (for example depreciation, and the amortization of intangible assets), each of those lines, and the row is their sum. Every other operating line takes no row here and stays outside the spread.",
+   "belongs": [
+    "depreciation and amortization",
+    "depreciation, depletion and amortization",
+    "depreciation and amortization of property, equipment and intangibles",
+    "depreciation",
+    "amortization of intangible assets",
+    "depreciation and amortization, excluding amortization of intangible assets"
+   ],
+   "not_belongs": [
+    {
+     "item": "amortization of content or other production assets",
+     "goes_to": null
+    },
+    {
+     "item": "amortization of debt discount and issuance costs",
+     "goes_to": null
+    },
+    {
+     "item": "reduction of operating-lease right-of-use assets",
+     "goes_to": null
+    },
+    {
+     "item": "impairment charges",
+     "goes_to": null
+    },
+    {
+     "item": "a line combining depreciation with other amounts the statement does not split",
+     "goes_to": null
+    }
+   ]
+  }
+ ],
+ "relationships": [
+  {
+   "row_id": "IS.OP.GROSS",
+   "op": "sum",
+   "terms": [
+    {
+     "row": "IS.OP.REV",
+     "coef": 1
+    },
+    {
+     "row": "IS.OP.COR",
+     "coef": 1
+    }
+   ]
+  },
+  {
+   "row_id": "IS.OP.OPINC",
+   "op": "sum",
+   "terms": [
+    {
+     "row": "IS.OP.REV",
+     "coef": 1
+    },
+    {
+     "row": "IS.OP.COR",
+     "coef": 1
+    },
+    {
+     "row": "IS.OP.RD",
+     "coef": 1
+    },
+    {
+     "row": "IS.OP.SGA",
+     "coef": 1
+    },
+    {
+     "row": "IS.OP.OTHER",
+     "coef": 1
+    }
+   ]
+  },
+  {
+   "row_id": "IS.OP.GNA",
+   "op": "sum",
+   "terms": [
+    {
+     "row": "IS.OP.RD",
+     "coef": 1
+    },
+    {
+     "row": "IS.OP.SGA",
+     "coef": 1
+    },
+    {
+     "row": "IS.OP.OTHER",
+     "coef": 1
+    }
+   ]
+  },
+  {
+   "row_id": "IS.NOP.OIEI",
+   "op": "sum",
+   "terms": [
+    {
+     "row": "IS.NOP.INTINC",
+     "coef": 1
+    },
+    {
+     "row": "IS.NOP.EQMETHOD",
+     "coef": 1
+    },
+    {
+     "row": "IS.NOP.OTHER",
+     "coef": 1
+    }
+   ]
+  },
+  {
+   "row_id": "IS.NOP.EBIT",
+   "op": "sum",
+   "terms": [
+    {
+     "row": "IS.OP.OPINC",
+     "coef": 1
+    },
+    {
+     "row": "IS.NOP.OIEI",
+     "coef": 1
+    }
+   ]
+  },
+  {
+   "row_id": "IS.TAX.PRETAX",
+   "op": "sum",
+   "terms": [
+    {
+     "row": "IS.NOP.EBIT",
+     "coef": 1
+    },
+    {
+     "row": "IS.NOP.INTEXP",
+     "coef": 1
+    }
+   ]
+  },
+  {
+   "row_id": "IS.TAX.CONTNI",
+   "op": "sum",
+   "terms": [
+    {
+     "row": "IS.TAX.PRETAX",
+     "coef": 1
+    },
+    {
+     "row": "IS.TAX.TAX",
+     "coef": 1
+    }
+   ]
+  },
+  {
+   "row_id": "IS.NI.CONSOL",
+   "op": "sum",
+   "terms": [
+    {
+     "row": "IS.TAX.CONTNI",
+     "coef": 1
+    },
+    {
+     "row": "IS.NI.OTHER",
+     "coef": 1
+    }
+   ]
+  },
+  {
+   "row_id": "IS.NI.PARENT",
+   "op": "sum",
+   "terms": [
+    {
+     "row": "IS.NI.CONSOL",
+     "coef": 1
+    },
+    {
+     "row": "IS.NI.NCI",
+     "coef": 1
+    }
+   ]
+  },
+  {
+   "row_id": "BS.TOT.CA",
+   "op": "sum",
+   "terms": [
+    {
+     "row": "BS.CA.CASH",
+     "coef": 1
+    },
+    {
+     "row": "BS.CA.STINV",
+     "coef": 1
+    },
+    {
+     "row": "BS.CA.RELREC",
+     "coef": 1
+    },
+    {
+     "row": "BS.CA.OTHER",
+     "coef": 1
+    }
+   ]
+  },
+  {
+   "row_id": "BS.TOT.ASSETS",
+   "op": "sum",
+   "terms": [
+    {
+     "row": "BS.TOT.CA",
+     "coef": 1
+    },
+    {
+     "row": "BS.NCA.INVEST",
+     "coef": 1
+    },
+    {
+     "row": "BS.NCA.RELREC",
+     "coef": 1
+    },
+    {
+     "row": "BS.NCA.OPROU",
+     "coef": 1
+    },
+    {
+     "row": "BS.NCA.NONOP",
+     "coef": 1
+    },
+    {
+     "row": "BS.NCA.OTHEROP",
+     "coef": 1
+    }
+   ]
+  },
+  {
+   "row_id": "BS.TOT.CL",
+   "op": "sum",
+   "terms": [
+    {
+     "row": "BS.CL.DEBT",
+     "coef": 1
+    },
+    {
+     "row": "BS.CL.FINLEASE",
+     "coef": 1
+    },
+    {
+     "row": "BS.CL.OPLEASE",
+     "coef": 1
+    },
+    {
+     "row": "BS.CL.OTHER",
+     "coef": 1
+    }
+   ]
+  },
+  {
+   "row_id": "BS.TOT.LIAB",
+   "op": "sum",
+   "terms": [
+    {
+     "row": "BS.TOT.CL",
+     "coef": 1
+    },
+    {
+     "row": "BS.NCL.DEBT",
+     "coef": 1
+    },
+    {
+     "row": "BS.NCL.FINLEASE",
+     "coef": 1
+    },
+    {
+     "row": "BS.NCL.OPLEASE",
+     "coef": 1
+    },
+    {
+     "row": "BS.NCL.OTHER",
+     "coef": 1
+    }
+   ]
+  },
+  {
+   "row_id": "BS.TOT.LIABCAP",
+   "op": "sum",
+   "terms": [
+    {
+     "row": "BS.TOT.LIAB",
+     "coef": 1
+    },
+    {
+     "row": "BS.CAP.TEMP",
+     "coef": 1
+    },
+    {
+     "row": "BS.CAP.PARENTEQ",
+     "coef": 1
+    },
+    {
+     "row": "BS.CAP.PREF",
+     "coef": 1
+    },
+    {
+     "row": "BS.CAP.NCI",
+     "coef": 1
+    }
+   ]
+  }
+ ],
+ "controls": [
+  {
+   "section": "BS.CA",
+   "compare": {
+    "op": "sum",
+    "terms": [
+     {
+      "row": "BS.CA.CASH",
+      "coef": 1
+     },
+     {
+      "row": "BS.CA.STINV",
+      "coef": 1
+     },
+     {
+      "row": "BS.CA.RELREC",
+      "coef": 1
+     },
+     {
+      "row": "BS.CA.OTHER",
+      "coef": 1
+     }
+    ]
+   },
+   "filed": "us-gaap:AssetsCurrent",
+   "reconstructed": null,
+   "tolerance": "half_unit_sum",
+   "alternatives": [],
+   "outside_rows": null
+  },
+  {
+   "section": "BS.NCA",
+   "compare": {
+    "op": "sum",
+    "terms": [
+     {
+      "row": "BS.NCA.INVEST",
+      "coef": 1
+     },
+     {
+      "row": "BS.NCA.RELREC",
+      "coef": 1
+     },
+     {
+      "row": "BS.NCA.OPROU",
+      "coef": 1
+     },
+     {
+      "row": "BS.NCA.NONOP",
+      "coef": 1
+     },
+     {
+      "row": "BS.NCA.OTHEROP",
+      "coef": 1
+     }
+    ]
+   },
+   "filed": "us-gaap:AssetsNoncurrent",
+   "reconstructed": {
+    "op": "difference",
+    "terms": [
+     {
+      "concept": "us-gaap:Assets",
+      "coef": 1
+     },
+     {
+      "concept": "us-gaap:AssetsCurrent",
+      "coef": -1
+     }
+    ]
+   },
+   "tolerance": "half_unit_sum",
+   "alternatives": [],
+   "outside_rows": null
+  },
+  {
+   "section": "BS.CL",
+   "compare": {
+    "op": "sum",
+    "terms": [
+     {
+      "row": "BS.CL.DEBT",
+      "coef": 1
+     },
+     {
+      "row": "BS.CL.FINLEASE",
+      "coef": 1
+     },
+     {
+      "row": "BS.CL.OPLEASE",
+      "coef": 1
+     },
+     {
+      "row": "BS.CL.OTHER",
+      "coef": 1
+     }
+    ]
+   },
+   "filed": "us-gaap:LiabilitiesCurrent",
+   "reconstructed": null,
+   "tolerance": "half_unit_sum",
+   "alternatives": [],
+   "outside_rows": null
+  },
+  {
+   "section": "BS.NCL",
+   "compare": {
+    "op": "sum",
+    "terms": [
+     {
+      "row": "BS.NCL.DEBT",
+      "coef": 1
+     },
+     {
+      "row": "BS.NCL.FINLEASE",
+      "coef": 1
+     },
+     {
+      "row": "BS.NCL.OPLEASE",
+      "coef": 1
+     },
+     {
+      "row": "BS.NCL.OTHER",
+      "coef": 1
+     }
+    ]
+   },
+   "filed": "us-gaap:LiabilitiesNoncurrent",
+   "reconstructed": {
+    "op": "difference",
+    "terms": [
+     {
+      "concept": "us-gaap:Liabilities",
+      "coef": 1
+     },
+     {
+      "concept": "us-gaap:LiabilitiesCurrent",
+      "coef": -1
+     }
+    ]
+   },
+   "tolerance": "half_unit_sum",
+   "alternatives": [
+    {
+     "id": "R2",
+     "plus": "us-gaap:LiabilitiesAndStockholdersEquity",
+     "minus": "us-gaap:LiabilitiesCurrent",
+     "capital": {
+      "inclusive": "us-gaap:StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
+      "parent": "us-gaap:StockholdersEquity",
+      "nci_row": "BS.CAP.NCI",
+      "temporary_rows": [
+       "BS.CAP.TEMP"
+      ]
+     }
+    }
+   ],
+   "outside_rows": null
+  },
+  {
+   "section": "BS.CAP",
+   "compare": {
+    "op": "sum",
+    "terms": [
+     {
+      "row": "BS.CAP.PARENTEQ",
+      "coef": 1
+     },
+     {
+      "row": "BS.CAP.PREF",
+      "coef": 1
+     }
+    ]
+   },
+   "filed": "us-gaap:StockholdersEquity",
+   "reconstructed": null,
+   "tolerance": "half_unit_sum",
+   "alternatives": [],
+   "outside_rows": {
+    "rows": [
+     "BS.CAP.TEMP"
+    ],
+    "verified_by": "BS.TOT"
+   }
+  },
+  {
+   "section": "BS.TOT",
+   "compare": {
+    "row": "BS.TOT.LIABCAP"
+   },
+   "filed": "us-gaap:LiabilitiesAndStockholdersEquity",
+   "reconstructed": null,
+   "tolerance": "half_unit_sum",
+   "alternatives": [],
+   "outside_rows": null
+  },
+  {
+   "section": "IS.OP",
+   "compare": {
+    "row": "IS.OP.OPINC"
+   },
+   "filed": "us-gaap:OperatingIncomeLoss",
+   "reconstructed": null,
+   "tolerance": "half_unit_sum",
+   "alternatives": [],
+   "outside_rows": null
+  },
+  {
+   "section": "IS.NOP",
+   "compare": {
+    "op": "sum",
+    "terms": [
+     {
+      "row": "IS.NOP.INTEXP",
+      "coef": 1
+     },
+     {
+      "row": "IS.NOP.INTINC",
+      "coef": 1
+     },
+     {
+      "row": "IS.NOP.OTHER",
+      "coef": 1
+     }
+    ]
+   },
+   "filed": null,
+   "reconstructed": {
+    "op": "difference",
+    "terms": [
+     {
+      "concept": "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+      "coef": 1
+     },
+     {
+      "concept": "us-gaap:OperatingIncomeLoss",
+      "coef": -1
+     }
+    ]
+   },
+   "tolerance": "half_unit_sum",
+   "alternatives": [],
+   "outside_rows": null
+  },
+  {
+   "section": "IS.TAX",
+   "compare": {
+    "row": "IS.TAX.PRETAX"
+   },
+   "filed": "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+   "reconstructed": null,
+   "tolerance": "half_unit_sum",
+   "alternatives": [],
+   "outside_rows": null
+  },
+  {
+   "section": "IS.NI",
+   "compare": {
+    "row": "IS.NI.PARENT"
+   },
+   "filed": "us-gaap:NetIncomeLoss",
+   "reconstructed": null,
+   "tolerance": "half_unit_sum",
+   "alternatives": [],
+   "outside_rows": null
+  }
+ ],
+ "report_checks": [
+  {
+   "id": "R1",
+   "name": "total assets against total liabilities and capital, as spread",
+   "kind": "spread",
+   "left": {
+    "row": "BS.TOT.ASSETS"
+   },
+   "right": {
+    "row": "BS.TOT.LIABCAP"
+   },
+   "period": "instant",
+   "tolerance": "half_unit_sum",
+   "deferred": null,
+   "note": "Both sides are totals of the spread's rows.",
+   "alternatives": {}
+  },
+  {
+   "id": "R2",
+   "name": "total assets against total liabilities and equity, as filed",
+   "kind": "filed",
+   "left": {
+    "concept": "us-gaap:Assets"
+   },
+   "right": {
+    "concept": "us-gaap:LiabilitiesAndStockholdersEquity"
+   },
+   "period": "instant",
+   "tolerance": "half_unit_sum",
+   "deferred": null,
+   "note": "Checks the filing, not the spread.",
+   "alternatives": {}
+  },
+  {
+   "id": "R3",
+   "name": "cash and equivalents row against the filed cash and cash equivalents",
+   "kind": "spread",
+   "left": {
+    "row": "BS.CA.CASH"
+   },
+   "right": {
+    "concept": "us-gaap:CashAndCashEquivalentsAtCarryingValue"
+   },
+   "period": "instant",
+   "tolerance": "half_unit_sum",
+   "deferred": null,
+   "note": "When the filing has no cash-and-equivalents total, its cash total (Cash) is read; unavailable when neither is printed. A difference can be restricted cash printed with cash.",
+   "alternatives": {
+    "us-gaap:CashAndCashEquivalentsAtCarryingValue": [
+     "us-gaap:Cash"
+    ]
+   }
+  },
+  {
+   "id": "R4",
+   "name": "equity rows including noncontrolling interest against the filed total equity",
+   "kind": "spread",
+   "left": {
+    "op": "sum",
+    "terms": [
+     {
+      "row": "BS.CAP.PARENTEQ",
+      "coef": 1
+     },
+     {
+      "row": "BS.CAP.PREF",
+      "coef": 1
+     },
+     {
+      "row": "BS.CAP.NCI",
+      "coef": 1
+     }
+    ]
+   },
+   "right": {
+    "concept": "us-gaap:StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest"
+   },
+   "period": "instant",
+   "tolerance": "half_unit_sum",
+   "deferred": null,
+   "note": "When the filing has no total equity including noncontrolling interest, its stockholders' equity (StockholdersEquity) is read: the same total when there is no noncontrolling interest, and a difference equal to it otherwise. Unavailable when neither is printed.",
+   "alternatives": {
+    "us-gaap:StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest": [
+     "us-gaap:StockholdersEquity"
+    ]
+   }
+  },
+  {
+   "id": "R5",
+   "name": "total assets row against the filed total assets",
+   "kind": "spread",
+   "left": {
+    "row": "BS.TOT.ASSETS"
+   },
+   "right": {
+    "concept": "us-gaap:Assets"
+   },
+   "period": "instant",
+   "tolerance": "half_unit_sum",
+   "deferred": null,
+   "note": "The assets the rows add up to against the total assets the company printed; unavailable when it prints none.",
+   "alternatives": {}
+  },
+  {
+   "id": "R6",
+   "name": "revenue row against the filed revenue",
+   "kind": "spread",
+   "left": {
+    "row": "IS.OP.REV"
+   },
+   "right": {
+    "concept": "us-gaap:Revenues"
+   },
+   "period": "duration",
+   "tolerance": "half_unit_sum",
+   "deferred": null,
+   "note": "When the filing has no Revenues total, its revenue from contracts with customers is read; unavailable when the company prints no revenue total (a company with no revenue).",
+   "alternatives": {
+    "us-gaap:Revenues": [
+     "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+     "us-gaap:RevenueFromContractWithCustomerIncludingAssessedTax"
+    ]
+   }
+  }
+ ],
+ "not_spread": [
+  {
+   "input": "research and development history and amortisation life",
+   "why": "earlier years and notes"
+  },
+  {
+   "input": "capital expenditure, working-capital change and cash flow detail",
+   "why": "the cash flow statement is not spread; only its D&A line is read, as a memo"
+  },
+  {
+   "input": "commitments, contingencies and off-balance-sheet obligations",
+   "why": "notes"
+  },
+  {
+   "input": "stock options and other dilutive securities",
+   "why": "notes"
+  },
+  {
+   "input": "net operating loss carryforwards",
+   "why": "notes"
+  },
+  {
+   "input": "captive finance operations",
+   "why": "notes"
+  },
+  {
+   "input": "cost of debt, maturities and fair value of debt",
+   "why": "notes"
+  },
+  {
+   "input": "the operating or nonoperating purpose of an asset the statements do not establish",
+   "why": "notes"
+  }
+ ],
+ "outcome_checks": {
+  "sections": [
+   "BS.TOT",
+   "IS.OP",
+   "IS.NI"
+  ],
+  "report_checks": [
+   "R1",
+   "R3",
+   "R5",
+   "R6"
+  ]
+ }
+}
